@@ -1,0 +1,61 @@
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 5%;
+  background: transparent;
+  width: 100%;
+}
+
+.nav-logo {
+  font-weight: 700;
+  font-size: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--primary);
+}
+
+.nav-links {
+  display: flex;
+  gap: 32px;
+  list-style: none;
+}
+
+.nav-links a {
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-main);
+  transition: opacity 0.2s;
+}
+
+.nav-links a:hover,
+.nav-links a.active-link {
+  color: var(--primary);
+  font-weight: 700;
+}
+
+.nav-switcher {
+  display: flex;
+  background: #E5E7EB;
+  border-radius: 30px;
+  padding: 4px;
+}
+
+.nav-switcher button {
+  border: none;
+  background: transparent;
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  color: var(--text-muted);
+}
+
+.nav-switcher button.active {
+  background: var(--text-main);
+  color: var(--white);
+}

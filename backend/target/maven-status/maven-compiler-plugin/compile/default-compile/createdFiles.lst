@@ -1,0 +1,6 @@
+com\engloray\contact\ContactBackendApplication.class
+com\engloray\contact\controller\ContactController.class
+com\engloray\contact\exception\GlobalExceptionHandler.class
+com\engloray\contact\dto\ContactResponse.class
+com\engloray\contact\dto\ContactRequest.class
+com\engloray\contact\service\EmailService.class

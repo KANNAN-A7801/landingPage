@@ -1,0 +1,369 @@
+/* ═══════════════════════════════════════════════════════════
+   ABOUT PAGE V2  — Blue Theme
+   ═══════════════════════════════════════════════════════════ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&display=swap');
+
+/* ── Wrapper ── */
+.about-page-v2 {
+  font-family: 'Inter', sans-serif;
+  background: #F0F4FF;
+  min-height: 100vh;
+  color: #1E1E2E;
+}
+
+/* ════════════════════════════════════════════════════════════
+   SECTION 1 · HERO
+   ════════════════════════════════════════════════════════════ */
+.about-hero-v2 {
+  background: #F0F4FF;
+  padding: 80px 60px 0;
+}
+
+.about-hero-inner-v2 {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+  min-height: 520px;
+}
+
+/* ── LEFT ── */
+.about-hero-left {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 40px;
+}
+
+.about-us-label {
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #2563EB;
+  margin-bottom: 18px;
+  display: block;
+}
+
+.about-hero-heading {
+  font-size: 3.1rem;
+  font-weight: 800;
+  line-height: 1.18;
+  color: #0F0F1A;
+  margin: 0 0 24px 0;
+  letter-spacing: -1px;
+}
+
+.heading-purple {
+  color: #2563EB;
+}
+
+.about-hero-desc {
+  font-size: 0.93rem;
+  color: #64748B;
+  line-height: 1.7;
+  max-width: 460px;
+  margin: 0;
+}
+
+.discover-more-btn {
+  margin-top: 32px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 28px;
+  background: linear-gradient(135deg, #2563EB, #1D4ED8);
+  color: #ffffff;
+  font-size: 0.9rem;
+  font-weight: 700;
+  border: none;
+  border-radius: 100px;
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgba(37, 99, 235, 0.3);
+  transition: all 0.3s ease;
+  align-self: flex-start;
+}
+
+.discover-more-btn:hover {
+  background: linear-gradient(135deg, #1D4ED8, #1E40AF);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(37, 99, 235, 0.4);
+}
+
+/* ── RIGHT — image ── */
+.about-hero-right {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 580px;
+  overflow: visible;
+}
+
+.about-hero-img {
+  width: 105%;
+  height: 105%;
+  opacity: 0.75;
+  object-fit: cover;
+  border-radius: 0;
+  box-shadow: none;
+  -webkit-mask-image: 
+    linear-gradient(to right,  transparent 0%,  black 15%, black 85%, transparent 100%),
+    linear-gradient(to bottom, transparent 0%,  black 10%, black 90%, transparent 100%);
+  mask-image: 
+    linear-gradient(to right,  transparent 0%,  black 15%, black 85%, transparent 100%),
+    linear-gradient(to bottom, transparent 0%,  black 10%, black 90%, transparent 100%);
+  -webkit-mask-composite: intersect;
+  mask-composite: intersect;
+}
+
+/* Glowing blob behind image (unused but kept) */
+.hero-img-circle-wrap {
+  position: relative;
+  width: 380px;
+  height: 380px;
+}
+
+.hero-img-glow {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: radial-gradient(circle, #BFDBFE 30%, #DBEAFE 70%, transparent 100%);
+  transform: scale(1.05);
+}
+
+.hero-team-img {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center top;
+  z-index: 2;
+  box-shadow: 0 20px 60px rgba(37, 99, 235, 0.18);
+}
+
+/* ── Floating icon pills ── */
+.float-icon {
+  position: absolute;
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 10px;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+  animation: float-gentle 3s ease-in-out infinite;
+}
+
+.float-icon--tl { top: 18px; left: 10px; animation-delay: 0s; }
+.float-icon--tm { top: 8px; left: 50%; transform: translateX(-50%); animation-delay: 0.6s; }
+.float-icon--tr { top: 18px; right: 6px; animation-delay: 1.2s; }
+.float-icon--ml { top: 50%; left: -10px; transform: translateY(-50%); animation-delay: 1.8s; }
+
+@keyframes float-gentle {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-8px); }
+}
+
+.float-icon--tm { animation-name: float-gentle-x; }
+@keyframes float-gentle-x {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50%       { transform: translateX(-50%) translateY(-8px); }
+}
+
+.float-icon--ml { animation-name: float-gentle-ml; }
+@keyframes float-gentle-ml {
+  0%, 100% { transform: translateY(-50%); }
+  50%       { transform: translateY(calc(-50% - 8px)); }
+}
+
+/* ════════════════════════════════════════════════════════════
+   SECTION 2 · USER TYPE CARDS
+   ════════════════════════════════════════════════════════════ */
+.about-cards-v2 {
+  padding: 48px 60px;
+  background: #F0F4FF;
+}
+
+.about-cards-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.about-user-card {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 32px 28px;
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(37, 99, 235, 0.08);
+  transition: all 0.3s ease;
+}
+
+.about-user-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 40px rgba(37, 99, 235, 0.14);
+  border-color: rgba(37, 99, 235, 0.2);
+}
+
+.user-card-icon-wrap {
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.user-card-text h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #1E1E2E;
+  margin: 0 0 8px 0;
+}
+
+.user-card-text p {
+  font-size: 0.85rem;
+  color: #94A3B8;
+  line-height: 1.55;
+  margin: 0;
+}
+
+/* ════════════════════════════════════════════════════════════
+   SECTION 3 · OUR CORE STRENGTHS
+   ════════════════════════════════════════════════════════════ */
+.core-strengths-v2 {
+  padding: 60px 60px 80px;
+  background: #F0F4FF;
+}
+
+.core-strengths-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.core-strengths-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.4rem;
+  font-weight: 800;
+  text-align: center;
+  margin: 0 0 56px 0;
+  letter-spacing: -0.5px;
+  background: linear-gradient(135deg, #1D4ED8 0%, #2563EB 40%, #0EA5E9 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.strengths-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+}
+
+.strength-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 32px 20px;
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(37, 99, 235, 0.08);
+  transition: all 0.3s ease;
+}
+
+.strength-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 40px rgba(37, 99, 235, 0.14);
+}
+
+.strength-icon {
+  margin-bottom: 20px;
+}
+
+.strength-item h4 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #1E1E2E;
+  margin: 0 0 10px 0;
+}
+
+.strength-item p {
+  font-size: 0.82rem;
+  color: #94A3B8;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* ════════════════════════════════════════════════════════════
+   RESPONSIVE
+   ════════════════════════════════════════════════════════════ */
+@media (max-width: 1024px) {
+  .about-hero-inner-v2 {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .about-hero-left {
+    align-items: center;
+  }
+
+  .about-hero-desc {
+    max-width: 600px;
+  }
+
+  .about-hero-right {
+    height: 360px;
+  }
+
+  .hero-img-circle-wrap {
+    width: 300px;
+    height: 300px;
+  }
+
+  .strengths-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .about-hero-v2 {
+    padding: 60px 24px 0;
+  }
+
+  .about-hero-heading {
+    font-size: 2.2rem;
+  }
+
+  .about-cards-v2 {
+    padding: 40px 24px;
+  }
+
+  .about-cards-inner {
+    grid-template-columns: 1fr;
+  }
+
+  .core-strengths-v2 {
+    padding: 40px 24px 60px;
+  }
+
+  .strengths-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .strengths-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .about-hero-heading {
+    font-size: 1.9rem;
+  }
+}
