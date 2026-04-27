@@ -7,37 +7,7 @@ import buildProfile from '../../assets/Create & Build Profile.jpg';
 import ContactPage from '../ContactPage/ContactPage';
 import Footer from '../Footer/Footer';
 
-const AnimatedNumber = ({ value, duration = 2000 }) => {
-  const [count, setCount] = React.useState(1);
-
-  React.useEffect(() => {
-    let start = 1;
-    const endMatch = value.match(/[0-9.]+/);
-    if (!endMatch) return;
-
-    const end = parseFloat(endMatch[0]);
-    if (isNaN(end)) return;
-
-    const isFloat = value.includes('.');
-    const suffix = value.replace(/[0-9.]/g, '');
-
-    let timer = setInterval(() => {
-      start += (end / 50); // Divide into 50 steps
-      if (start >= end) {
-        setCount(end);
-        clearInterval(timer);
-      } else {
-        setCount(isFloat ? start.toFixed(1) : Math.floor(start));
-      }
-    }, duration / 50);
-
-    return () => clearInterval(timer);
-  }, [value, duration]);
-
-  return <span>{count}{value.replace(/[0-9.]/g, '')}</span>;
-};
-
-const Home = () => {
+function Home() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const totalSlides = 3;
 
@@ -53,19 +23,43 @@ const Home = () => {
     setCurrentSlide(index);
   };
 
+  const AnimatedNumber = ({ value, duration = 2000 }) => {
+    const [count, setCount] = React.useState(1);
+
+    React.useEffect(() => {
+      let start = 1;
+      const endMatch = value.match(/[0-9.]+/);
+      if (!endMatch) return;
+
+      const end = parseFloat(endMatch[0]);
+      if (isNaN(end)) return;
+
+      const isFloat = value.includes('.');
+      const suffix = value.replace(/[0-9.]/g, '');
+
+      let timer = setInterval(() => {
+        start += (end / 50); // Divide into 50 steps
+        if (start >= end) {
+          setCount(end);
+          clearInterval(timer);
+        } else {
+          setCount(isFloat ? start.toFixed(1) : Math.floor(start));
+        }
+      }, duration / 50);
+
+      return () => clearInterval(timer);
+    }, [value, duration]);
+
+    return <span>{count}{value.replace(/[0-9.]/g, '')}</span>;
+  };
+
   return (
     <div className="app-container">
       {/* Hero Section - Ditto Alignment */}
       <header className="hero">
-        <span className="sub-headline">THE BEST JOB FINDING MOBILE APP</span>
-        <h1 className="main-headline">
-          Match Your Skills to <br />
-          the <span className="highlight-underline">Perfect Job</span>
-        </h1>
-
-        <div className="hero-wrapper">
-          {/* Float Elements */}
-          <div className="social-proof">
+        <div className="hero-content-top">
+          {/* Float Elements moved here for alignment with title */}
+          <div className="social-proof-float">
             <h3>1M+</h3>
             <p>Active Users</p>
             <div className="avatar-group">
@@ -77,15 +71,38 @@ const Home = () => {
             </div>
           </div>
 
-          <div className="trust-badge">
-            <img src="/badge.png" alt="Badge" style={{ width: '110px' }} />
+          <div className="trust-badge-float">
+            <div className="badge-circle">
+               <div className="badge-inner">
+                  <i className="ri-award-fill"></i>
+                  <span>BEST APPLICATION</span>
+                  <small>100% Quality</small>
+               </div>
+            </div>
           </div>
 
+          <div className="sub-headline-container">
+            <div className="headline-divider"></div>
+            <span className="sub-headline">THE BEST JOB FINDING MOBILE APP</span>
+          </div>
+          <h1 className="main-headline">
+            Match Your Skills to <br />
+            the <span className="highlight-underline">Perfect Job</span>
+          </h1>
+        </div>
+
+        <div className="hero-visual-wrapper">
           {/* Overlapping Phones */}
-          <div className="phones-container">
-            <img src={phone1} alt="Listing" className="phone-mock p-side p-left" />
-            <img src={phone2} alt="Home" className="phone-mock p-center" />
-            <img src={phone3} alt="Chat" className="phone-mock p-side p-right" />
+          <div className="phones-display">
+            <div className="phone-wrapper p-left-wrap">
+              <img src={phone1} alt="Listing" className="phone-mock p-side" />
+            </div>
+            <div className="phone-wrapper p-center-wrap">
+              <img src={phone2} alt="Home" className="phone-mock p-center" />
+            </div>
+            <div className="phone-wrapper p-right-wrap">
+              <img src={phone3} alt="Chat" className="phone-mock p-side" />
+            </div>
           </div>
         </div>
       </header>
@@ -116,8 +133,6 @@ const Home = () => {
                 <p>Companies</p>
               </div>
             </div>
-
-
           </div>
 
           <div className="cards-flex">
@@ -261,8 +276,6 @@ const Home = () => {
           </div>
         </div>
       </section>
-
-
 
       <ContactPage />
 
@@ -513,7 +526,6 @@ const Home = () => {
         </div>
       </section>
 
-
       {/* Why Choose Section - Marquee UI */}
       <section className="features-section">
         <div className="features-header">
@@ -568,11 +580,10 @@ const Home = () => {
             </div>
           </div>
         </div>
-
       </section>
       <Footer />
     </div>
   );
-};
+}
 
 export default Home;

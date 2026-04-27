@@ -114,7 +114,7 @@ const Explore = () => {
                     <div className="steps-track"></div>
                     <div className="step-card">
                         <div className="step-num">01</div>
-                        <div className="step-icon">👤</div>
+                        <div className="step-icon"><i className="ri-user-add-line"></i></div>
                         <div className="step-info">
                             <h4>Create Account</h4>
                             <p>Sign up and verify your identity to start your journey.</p>
@@ -122,7 +122,7 @@ const Explore = () => {
                     </div>
                     <div className="step-card">
                         <div className="step-num">02</div>
-                        <div className="step-icon">📝</div>
+                        <div className="step-icon"><i className="ri-profile-line"></i></div>
                         <div className="step-info">
                             <h4>Complete Your Profile</h4>
                             <p>Highlight your skills and experience to attract top employers.</p>
@@ -130,7 +130,7 @@ const Explore = () => {
                     </div>
                     <div className="step-card">
                         <div className="step-num">03</div>
-                        <div className="step-icon">🎯</div>
+                        <div className="step-icon"><i className="ri-search-line"></i></div>
                         <div className="step-info">
                             <h4>Hunting Jobs</h4>
                             <p>Browse through tailored listings and apply with one click.</p>
@@ -147,7 +147,7 @@ const Explore = () => {
                 </div>
                 <div className="category-grid">
                     <div className="category-card-h">
-                        <div className="cat-icon-h education">🎓</div>
+                        <div className="cat-icon-h education"><i className="ri-graduation-cap-line"></i></div>
                         <div className="cat-details-h">
                             <h4>Education</h4>
                             <p>Teacher, Professor, Admin</p>
@@ -158,7 +158,7 @@ const Explore = () => {
                         </div>
                     </div>
                     <div className="category-card-h">
-                        <div className="cat-icon-h logistics">🚚</div>
+                        <div className="cat-icon-h logistics"><i className="ri-truck-line"></i></div>
                         <div className="cat-details-h">
                             <h4>Logistics</h4>
                             <p>Professional Driver, Fleet</p>
@@ -169,7 +169,7 @@ const Explore = () => {
                         </div>
                     </div>
                     <div className="category-card-h">
-                        <div className="cat-icon-h chef">👨‍🍳</div>
+                        <div className="cat-icon-h chef"><i className="ri-restaurant-line"></i></div>
                         <div className="cat-details-h">
                             <h4>Culinary Arts</h4>
                             <p>Executive Chef, Sous Chef</p>
@@ -180,7 +180,7 @@ const Explore = () => {
                         </div>
                     </div>
                     <div className="category-card-h">
-                        <div className="cat-icon-h healthcare">🩺</div>
+                        <div className="cat-icon-h healthcare"><i className="ri-pulse-line"></i></div>
                         <div className="cat-details-h">
                             <h4>Healthcare</h4>
                             <p>Nurse, Specialist, Care</p>
@@ -191,7 +191,7 @@ const Explore = () => {
                         </div>
                     </div>
                     <div className="category-card-h">
-                        <div className="cat-icon-h tech">💻</div>
+                        <div className="cat-icon-h tech"><i className="ri-computer-line"></i></div>
                         <div className="cat-details-h">
                             <h4>IT & Software</h4>
                             <p>Developer, DevOps, Data</p>
@@ -202,7 +202,7 @@ const Explore = () => {
                         </div>
                     </div>
                     <div className="category-card-h">
-                        <div className="cat-icon-h engineering">🛠️</div>
+                        <div className="cat-icon-h engineering"><i className="ri-settings-4-line"></i></div>
                         <div className="cat-details-h">
                             <h4>Engineering</h4>
                             <p>Civil, Architect, Project</p>

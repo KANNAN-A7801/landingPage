@@ -693,21 +693,30 @@
   width: 55px;
   height: 55px;
   border-radius: 16px;
-  background: linear-gradient(135deg, rgba(0, 102, 255, 0.12) 0%, rgba(0, 102, 255, 0.05) 100%);
-  color: var(--primary-blue);
+  background: #EFF6FF; /* Solid light blue for better contrast */
+  color: #2563EB !important; /* Vivid blue */
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.4rem;
-  box-shadow: 0 5px 15px rgba(0, 102, 255, 0.08);
+  font-size: 1.6rem;
+  box-shadow: 0 5px 15px rgba(37, 99, 235, 0.1);
   transition: all 0.3s ease;
   flex-shrink: 0;
 }
 
+.step-icon i {
+  color: inherit !important;
+  font-weight: 700 !important;
+}
+
 .step-card:hover .step-icon {
   transform: scale(1.1) rotate(5deg);
-  background: linear-gradient(135deg, var(--primary-blue) 0%, #0052cc 100%);
-  color: white;
+  background: #2563EB !important;
+  color: white !important;
+}
+
+.step-card:hover .step-icon i {
+  color: white !important;
 }
 
 .step-info {
@@ -968,8 +977,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.8rem;
+  font-size: 2rem;
   flex-shrink: 0;
+}
+
+.cat-icon-h i {
+  color: inherit !important;
+  font-weight: 700 !important;
 }
 
 .cat-icon-h.education {
