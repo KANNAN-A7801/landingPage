@@ -53,6 +53,21 @@ function Home() {
     return <span>{count}{value.replace(/[0-9.]/g, '')}</span>;
   };
 
+  const handleSmartDownload = (e) => {
+    if (e) e.preventDefault();
+    const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+    
+    let targetUrl = "https://apps.microsoft.com/home"; // Default Desktop
+
+    if (/android/i.test(userAgent)) {
+      targetUrl = "https://play.google.com/store/apps";
+    } else if (/iPad|iPhone|iPod/.test(userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1)) {
+      targetUrl = "https://www.apple.com/app-store/";
+    }
+    
+    window.location.href = targetUrl;
+  };
+
   return (
     <div className="app-container">
       {/* Hero Section - Ditto Alignment */}
@@ -151,17 +166,23 @@ function Home() {
                 <p style={{ color: '#94a3b8', fontSize: '0.9rem' }}>iOS 15.6+</p>
               </div>
 
-              <button className="btn-download" style={{
-                background: '#3b44f6',
-                color: 'white',
-                border: 'none',
-                padding: '0.7rem 1.5rem',
-                borderRadius: '10px',
-                fontWeight: '600',
-                fontSize: '0.85rem',
-                marginBottom: '2.5rem',
-                cursor: 'pointer'
-              }}>Download App</button>
+              <button 
+                onClick={() => window.open("https://www.apple.com/app-store/", "_blank")}
+                className="btn-download" 
+                style={{
+                  background: '#3b44f6',
+                  color: 'white',
+                  border: 'none',
+                  padding: '0.7rem 1.5rem',
+                  borderRadius: '10px',
+                  fontWeight: '600',
+                  fontSize: '0.85rem',
+                  marginBottom: '2.5rem',
+                  cursor: 'pointer'
+                }}
+              >
+                Download App
+              </button>
 
               <div className="card-bottom" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end' }}>
                 <div className="rating-mini" style={{ background: 'rgba(255,255,255,0.05)', padding: '0.75rem', borderRadius: '12px' }}>
@@ -200,17 +221,23 @@ function Home() {
                 <p style={{ color: '#94a3b8', fontSize: '0.9rem' }}>Android 8.0+</p>
               </div>
 
-              <button className="btn-download" style={{
-                background: '#3b44f6',
-                color: 'white',
-                border: 'none',
-                padding: '0.7rem 1.5rem',
-                borderRadius: '10px',
-                fontWeight: '600',
-                fontSize: '0.85rem',
-                marginBottom: '2.5rem',
-                cursor: 'pointer'
-              }}>Download App</button>
+              <button 
+                onClick={() => window.open("https://play.google.com/store/apps", "_blank")}
+                className="btn-download" 
+                style={{
+                  background: '#3b44f6',
+                  color: 'white',
+                  border: 'none',
+                  padding: '0.7rem 1.5rem',
+                  borderRadius: '10px',
+                  fontWeight: '600',
+                  fontSize: '0.85rem',
+                  marginBottom: '2.5rem',
+                  cursor: 'pointer'
+                }}
+              >
+                Download App
+              </button>
 
               <div className="card-bottom" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end' }}>
                 <div className="rating-mini" style={{ background: 'rgba(255,255,255,0.05)', padding: '0.75rem', borderRadius: '12px' }}>
@@ -363,7 +390,7 @@ function Home() {
               </div>
               <div className="job-card-footer">
                 <span className="salary">{job.salary}</span>
-                <button className="btn-apply">Apply Now</button>
+                <button onClick={handleSmartDownload} className="btn-apply">Apply Now</button>
               </div>
             </div>
           ))}

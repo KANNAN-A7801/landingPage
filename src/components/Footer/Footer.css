@@ -79,12 +79,15 @@
 /* Links Container */
 .footer-links-container {
   display: flex;
-  gap: 64px;
+  gap: 40px;
   flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
 }
 
 .footer-links-group {
-  min-width: 140px;
+  flex: 1 1 180px;
+  min-width: 150px;
 }
 
 .footer-links-group h4 {
@@ -127,6 +130,7 @@
   display: flex;
   flex-direction: column;
   gap: 12px;
+  align-items: flex-start;
 }
 
 .app-store-btn {
@@ -146,9 +150,15 @@
 
 .app-store-btn:hover {
   background: #2563eb;
-  color: white;
+  color: #ffffff !important;
   border-color: #2563eb;
-  transform: translateY(-1px);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+}
+
+.app-store-btn:hover span,
+.app-store-btn:hover svg {
+  color: #ffffff !important;
 }
 
 .app-store-btn svg {
@@ -190,65 +200,528 @@
   color: #2563eb;
 }
 
-/* Responsive */
-@media (max-width: 992px) {
+/* ============================================
+   FLUID RESPONSIVE MEDIA QUERIES
+   ============================================ */
+
+/* Extra Large Desktop (1400px and above) */
+@media (min-width: 1400px) {
+  .footer-container {
+    max-width: 1400px;
+    padding: 0 40px;
+  }
+
+  .footer-top {
+    gap: 80px;
+  }
+
+  .footer-links-container {
+    gap: 60px;
+  }
+
+  .footer-brand-area {
+    flex: 0 0 320px;
+  }
+}
+
+/* Large Desktop (1200px to 1400px) */
+@media (min-width: 1200px) and (max-width: 1399px) {
+  .footer-container {
+    padding: 0 40px;
+  }
+
+  .footer-links-container {
+    gap: 48px;
+  }
+}
+
+/* Desktop (992px to 1199px) */
+@media (min-width: 992px) and (max-width: 1199px) {
+  .footer-container {
+    padding: 0 30px;
+  }
+
+  .footer-top {
+    gap: 40px;
+  }
+
+  .footer-links-container {
+    gap: 35px;
+  }
+
+  .footer-links-group {
+    flex: 1 1 160px;
+    min-width: 140px;
+  }
+}
+
+/* Tablet Landscape (768px to 991px) */
+@media (max-width: 991px) {
+  .footer-container {
+    padding: 0 24px;
+  }
+
   .footer-top {
     flex-direction: column;
     gap: 40px;
+    padding: 50px 0 40px;
   }
-  
+
   .footer-brand-area {
     flex: none;
     width: 100%;
-    text-align: center;
+    text-align: left;
   }
-  
+
+  .brand-logo {
+    justify-content: flex-start;
+  }
+
+  .brand-tagline {
+    max-width: 400px;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
   .social-links {
-    justify-content: center;
+    justify-content: flex-start;
   }
-  
+
   .footer-links-container {
     justify-content: space-between;
-    gap: 32px;
+    gap: 30px;
+  }
+
+  .footer-links-group {
+    flex: 1 1 auto;
+    min-width: 160px;
+  }
+
+  .footer-links-group h4 {
+    margin-bottom: 18px;
+  }
+
+  .footer-links-group li {
+    margin-bottom: 10px;
   }
 }
 
-@media (max-width: 768px) {
+/* Tablet Portrait (577px to 767px) */
+@media (max-width: 767px) {
   .footer-container {
     padding: 0 20px;
   }
-  
+
   .footer-top {
-    padding: 48px 0 32px;
+    padding: 45px 0 35px;
+    gap: 35px;
   }
-  
+
+  .brand-logo span {
+    font-size: 1.4rem;
+  }
+
+  .brand-tagline {
+    font-size: 0.85rem;
+    padding: 0 15px;
+  }
+
+  .social-links a {
+    width: 34px;
+    height: 34px;
+  }
+
   .footer-links-container {
     flex-wrap: wrap;
-    gap: 32px;
+    gap: 30px;
+    justify-content: flex-start;
   }
-  
+
   .footer-links-group {
-    flex: 1 0 calc(50% - 32px);
-    min-width: auto;
+    flex: 1 1 calc(50% - 30px);
+    min-width: 160px;
   }
-  
+
+  .footer-links-group h4 {
+    font-size: 0.7rem;
+    margin-bottom: 16px;
+  }
+
+  .footer-links-group a {
+    font-size: 0.85rem;
+  }
+
+  .app-download-text {
+    font-size: 0.8rem;
+    margin-bottom: 14px;
+  }
+
+  .app-store-btn {
+    padding: 8px 14px;
+    font-size: 0.8rem;
+  }
+
+  .footer-bottom {
+    padding: 20px 0;
+  }
+
   .footer-bottom-content {
     flex-direction: column;
-    text-align: center;
+    text-align: left;
+    align-items: flex-start;
+    gap: 12px;
   }
-  
+
   .footer-legal-links {
-    justify-content: center;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  .footer-bottom-content p {
+    font-size: 0.75rem;
+  }
+
+  .footer-legal-links a {
+    font-size: 0.75rem;
   }
 }
 
-@media (max-width: 480px) {
-  .footer-links-group {
-    flex: 1 0 100%;
+/* Mobile Landscape (481px to 576px) */
+@media (max-width: 576px) {
+  .footer-container {
+    padding: 0 16px;
   }
-  
+
+  .footer-top {
+    padding: 40px 0 30px;
+    gap: 30px;
+  }
+
+  .brand-logo svg {
+    width: 28px;
+    height: 28px;
+  }
+
+  .brand-logo span {
+    font-size: 1.3rem;
+  }
+
+  .brand-tagline {
+    font-size: 0.8rem;
+    margin-bottom: 20px;
+  }
+
+  .social-links {
+    gap: 10px;
+  }
+
+  .social-links a {
+    width: 32px;
+    height: 32px;
+  }
+
+  .social-links a svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .footer-links-container {
+    gap: 25px;
+  }
+
+  .footer-links-group {
+    flex: 1 1 calc(50% - 25px);
+    min-width: 140px;
+  }
+
+  .footer-links-group h4 {
+    font-size: 0.65rem;
+    margin-bottom: 14px;
+  }
+
+  .footer-links-group li {
+    margin-bottom: 8px;
+  }
+
+  .footer-links-group a {
+    font-size: 0.8rem;
+  }
+
+  .app-download-text {
+    font-size: 0.75rem;
+    margin-bottom: 12px;
+  }
+
   .app-buttons {
     flex-direction: row;
     flex-wrap: wrap;
+    gap: 10px;
   }
+
+  .app-store-btn {
+    padding: 6px 12px;
+    font-size: 0.75rem;
+    gap: 8px;
+  }
+
+  .app-store-btn svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .footer-bottom {
+    padding: 18px 0;
+  }
+
+  .footer-bottom-content p {
+    font-size: 0.7rem;
+  }
+
+  .footer-legal-links {
+    gap: 16px;
+  }
+
+  .footer-legal-links a {
+    font-size: 0.7rem;
+  }
+}
+
+/* Mobile (381px to 480px) */
+@media (max-width: 480px) {
+  .footer-container {
+    padding: 0 15px;
+  }
+
+  .footer-top {
+    padding: 35px 0 25px;
+    gap: 28px;
+  }
+
+  .brand-logo span {
+    font-size: 1.2rem;
+  }
+
+  .brand-tagline {
+    font-size: 0.75rem;
+    padding: 0 10px;
+  }
+
+  .social-links a {
+    width: 30px;
+    height: 30px;
+  }
+
+  .footer-links-group {
+    flex: 1 1 100%;
+    text-align: left;
+    min-width: auto;
+  }
+
+  .footer-links-group h4 {
+    text-align: left;
+    font-size: 0.7rem;
+    margin-bottom: 12px;
+  }
+
+  .footer-links-group ul {
+    text-align: left;
+  }
+
+  .footer-links-group li {
+    margin-bottom: 8px;
+  }
+
+  .app-download-text {
+    text-align: left;
+  }
+
+  .app-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 12px;
+  }
+
+  .footer-bottom {
+    padding: 15px 0;
+  }
+
+  .footer-bottom-content {
+    gap: 10px;
+  }
+
+  .footer-legal-links {
+    gap: 15px;
+  }
+}
+
+/* Mobile Small (320px to 380px) */
+@media (max-width: 380px) {
+  .footer-container {
+    padding: 0 12px;
+  }
+
+  .footer-top {
+    padding: 30px 0 22px;
+    gap: 25px;
+  }
+
+  .brand-logo svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  .brand-logo span {
+    font-size: 1.1rem;
+  }
+
+  .brand-tagline {
+    font-size: 0.7rem;
+    margin-bottom: 16px;
+  }
+
+  .social-links {
+    gap: 8px;
+  }
+
+  .social-links a {
+    width: 28px;
+    height: 28px;
+  }
+
+  .social-links a svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .footer-links-group h4 {
+    font-size: 0.65rem;
+    margin-bottom: 10px;
+  }
+
+  .footer-links-group a {
+    font-size: 0.75rem;
+  }
+
+  .app-store-btn {
+    padding: 5px 10px;
+    font-size: 0.7rem;
+  }
+
+  .app-store-btn svg {
+    width: 14px;
+    height: 14px;
+  }
+
+  .footer-bottom {
+    padding: 12px 0;
+  }
+
+  .footer-bottom-content p {
+    font-size: 0.65rem;
+  }
+
+  .footer-legal-links a {
+    font-size: 0.65rem;
+  }
+
+  .footer-legal-links {
+    gap: 12px;
+  }
+}
+
+/* Touch Device Optimizations */
+@media (hover: none) and (pointer: coarse) {
+
+  .social-links a,
+  .app-store-btn,
+  .footer-links-group a {
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .social-links a:active,
+  .app-store-btn:active {
+    transform: scale(0.96);
+    transition: transform 0.1s ease;
+  }
+
+  .app-store-btn,
+  .social-links a {
+    min-height: 44px;
+  }
+
+  .social-links a {
+    min-width: 44px;
+  }
+
+  .footer-links-group a:active {
+    opacity: 0.7;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .footer {
+    border: 1px solid #ccc;
+    background: white;
+    position: relative;
+  }
+
+  .social-links,
+  .app-buttons {
+    display: none;
+  }
+
+  .footer-links-group a {
+    text-decoration: none;
+    color: black;
+  }
+
+  .footer-bottom {
+    border-top: 1px solid #ccc;
+  }
+}
+
+/* Reduced Motion Preferences */
+@media (prefers-reduced-motion: reduce) {
+
+  .social-links a,
+  .app-store-btn,
+  .footer-links-group a {
+    transition: none;
+  }
+
+  .social-links a:hover,
+  .app-store-btn:hover {
+    transform: none;
+  }
+
+  .social-links a:active,
+  .app-store-btn:active {
+    transform: none;
+  }
+}
+
+/* iOS button styling fix */
+.app-store-btn,
+.social-links a {
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+/* Ensure fluid scaling for all elements */
+@media (max-width: 991px) {
+  .footer-links-group {
+    flex: 1 1 auto;
+  }
+}
+
+/* Smooth transition for all interactive elements */
+.social-links a,
+.app-store-btn,
+.footer-links-group a {
+  will-change: transform;
 }

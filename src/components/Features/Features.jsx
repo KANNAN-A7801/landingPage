@@ -1,9 +1,101 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Features.css';
 import hero1Image from '../../assets/hero1.png';
 import Footer from '../Footer/Footer';
 
 const Features = () => {
+  const allJobsPool = [
+    {
+      id: 1, title: "React Developer", company: "Anywhere Inc.", logo: "A.", logoBg: "#FDE047", logoColor: "#1C1C1E",
+      tags: ["Full Time", "On-Site", "Mid-Senior Level"], applicants: "53+ Applicants", salary: "$102k - $140k/yr",
+      faces: ["J", "K"], experience: "Mid-Senior Level", model: "On-Site"
+    },
+    {
+      id: 2, title: "Accountant", company: "Quality Software", logo: "Q.", logoBg: "#1C1C1E", logoColor: "#fff",
+      tags: ["Full Time", "On-Site", "Mid-Senior Level"], applicants: "21+ Applicants", salary: "$80k - $110k/yr",
+      faces: ["T", "S"], experience: "Mid-Senior Level", model: "On-Site"
+    },
+    {
+      id: 3, title: "UX/UI Designer", company: "Visual Arts Corp", logo: "V.", logoBg: "var(--primary)", logoColor: "#fff",
+      tags: ["Contract", "Remote", "Mid-Senior Level"], applicants: "150+ Applicants", salary: "$90k - $120k/yr",
+      faces: ["W", "M"], experience: "Mid-Senior Level", model: "Remote"
+    },
+    {
+      id: 4, title: "Product Manager", company: "Innovate Hub", logo: "I.", logoBg: "#6366f1", logoColor: "#fff",
+      tags: ["Full Time", "Remote", "Senior Level"], applicants: "42+ Applicants", salary: "$130k - $180k/yr",
+      faces: ["L", "P"], experience: "Senior Level", model: "Remote"
+    },
+    {
+      id: 5, title: "Data Analyst", company: "Metric Insights", logo: "M.", logoBg: "#10b981", logoColor: "#fff",
+      tags: ["Full Time", "Hybrid", "Junior Level"], applicants: "89+ Applicants", salary: "$70k - $95k/yr",
+      faces: ["D", "A"], experience: "Junior Level", model: "Hybrid"
+    },
+    {
+      id: 6, title: "Marketing Specialist", company: "Growth Labs", logo: "G.", logoBg: "#f43f5e", logoColor: "#fff",
+      tags: ["Part Time", "Remote", "Entry Level"], applicants: "12+ Applicants", salary: "$45k - $65k/yr",
+      faces: ["S", "H"], experience: "Entry Level", model: "Remote"
+    },
+    {
+      id: 7, title: "Head Nurse", company: "City Hospital", logo: "N.", logoBg: "#ef4444", logoColor: "#fff",
+      tags: ["Full Time", "On-Site", "Senior Level"], applicants: "34+ Applicants", salary: "$95k - $130k/yr",
+      faces: ["C", "R"], experience: "Senior Level", model: "On-Site"
+    },
+    {
+      id: 8, title: "Executive Chef", company: "Azure Dining", logo: "C.", logoBg: "#f59e0b", logoColor: "#fff",
+      tags: ["Full Time", "On-Site", "Senior Level"], applicants: "15+ Applicants", salary: "$85k - $115k/yr",
+      faces: ["M", "B"], experience: "Senior Level", model: "On-Site"
+    },
+    {
+      id: 9, title: "Delivery Driver", company: "QuickLogix", logo: "D.", logoBg: "#8b5cf6", logoColor: "#fff",
+      tags: ["Full Time", "On-Site", "Entry Level"], applicants: "200+ Applicants", salary: "$40k - $55k/yr",
+      faces: ["K", "Z"], experience: "Entry Level", model: "On-Site"
+    }
+  ];
+
+  const [jobs, setJobs] = useState(allJobsPool.slice(0, 3));
+  const [experience, setExperience] = useState("Mid-Senior Level");
+  const [workingModel, setWorkingModel] = useState("On-Site");
+
+  const handleSearch = () => {
+    const filtered = allJobsPool.filter(job =>
+      job.experience === experience && job.model === workingModel
+    );
+
+    let displayJobs = [...filtered];
+
+    // Ensure variety by shuffling the remaining jobs that aren't already matched
+    if (displayJobs.length < 3) {
+      const remaining = allJobsPool
+        .filter(j => !displayJobs.find(dj => dj.id === j.id))
+        .sort(() => Math.random() - 0.5); // Shuffle remaining pool
+
+      displayJobs = [...displayJobs, ...remaining.slice(0, 3 - displayJobs.length)];
+    }
+
+    setJobs(displayJobs.slice(0, 3));
+  };
+
+  const handleSmartDownload = (e) => {
+    if (e) e.preventDefault();
+    const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+    let targetUrl = "https://apps.microsoft.com/home";
+
+    if (/android/i.test(userAgent)) {
+      targetUrl = "https://play.google.com/store/apps";
+    } else if (/iPad|iPhone|iPod/.test(userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1)) {
+      targetUrl = "https://www.apple.com/app-store/";
+    }
+
+    window.location.href = targetUrl;
+  };
+
+  const handleSeeAllJobs = (e) => {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.dispatchEvent(new CustomEvent('highlightGetApp'));
+  };
+
   return (
     <>
       {/* Section 1: Hero */}
@@ -12,12 +104,12 @@ const Features = () => {
           <div className="lpf-hero-badge">
             <span></span> Your Career, Fully Optimised
           </div>
-          <h1 className="lpf-hero-title">Redefining the way<br />you land jobs</h1>
+          <h1 className="lpf-hero-title">Redefining the way <br />you land jobs</h1>
           <p>
             Take control of your career with real-time job tracking and intuitive tools designed to grow your professional life effortlessly.
           </p>
           <div className="lpf-hero-actions">
-            <button className="lpf-btn-primary">Get Started</button>
+            <button onClick={handleSmartDownload} className="lpf-btn-primary">Get Started</button>
             <button className="lpf-btn-secondary">
               <i className="ri-search-line"></i> Explore Jobs Now
             </button>
@@ -143,7 +235,7 @@ const Features = () => {
             <div>
               <h2>Our <span style={{ color: 'var(--primary)' }}>Featured Jobs</span></h2>
             </div>
-            <a href="#" className="lpf-see-all">See All Jobs</a>
+            <a href="#" onClick={handleSeeAllJobs} className="lpf-see-all">See All Jobs</a>
           </div>
 
           <div className="lpf-fj-search-bar">
@@ -154,87 +246,61 @@ const Features = () => {
             <div className="lpf-fj-divider"></div>
             <div className="lpf-fj-input">
               <i className="ri-bar-chart-box-line"></i>
-              <span>Level of Experience<br /><strong>Mid-Senior Level</strong></span>
-              <i className="ri-arrow-down-s-line lpf-ml-auto"></i>
+              <span>Level of Experience<br />
+                <select
+                  value={experience}
+                  onChange={(e) => setExperience(e.target.value)}
+                  style={{ background: 'transparent', border: 'none', fontWeight: 'bold', color: 'inherit', outline: 'none', cursor: 'pointer' }}
+                >
+                  <option>Entry Level</option>
+                  <option>Junior Level</option>
+                  <option>Mid-Senior Level</option>
+                  <option>Senior Level</option>
+                </select>
+              </span>
             </div>
             <div className="lpf-fj-divider"></div>
             <div className="lpf-fj-input">
               <i className="ri-map-pin-line"></i>
-              <span>Working Model<br /><strong>On-Site</strong></span>
-              <i className="ri-arrow-down-s-line lpf-ml-auto"></i>
+              <span>Working Model<br />
+                <select
+                  value={workingModel}
+                  onChange={(e) => setWorkingModel(e.target.value)}
+                  style={{ background: 'transparent', border: 'none', fontWeight: 'bold', color: 'inherit', outline: 'none', cursor: 'pointer' }}
+                >
+                  <option>On-Site</option>
+                  <option>Remote</option>
+                  <option>Hybrid</option>
+                </select>
+              </span>
             </div>
-            <button className="lpf-btn-primary lpf-fj-btn">Search</button>
+            <button onClick={handleSearch} className="lpf-btn-primary lpf-fj-btn">Search</button>
           </div>
 
           <div className="lpf-fj-grid">
-            <div className="lpf-job-card">
-              <div className="lpf-jc-top">
-                <div className="lpf-jc-logo" style={{ background: '#FDE047', color: '#1C1C1E' }}>A.</div>
-                <div className="lpf-jc-title">
-                  <h5>React Developer</h5>
-                  <p>Anywhere Inc.</p>
+            {jobs.map((job) => (
+              <div key={job.id} onClick={handleSmartDownload} className="lpf-job-card" style={{ cursor: 'pointer' }}>
+                <div className="lpf-jc-top">
+                  <div className="lpf-jc-logo" style={{ background: job.logoBg, color: job.logoColor }}>{job.logo}</div>
+                  <div className="lpf-jc-title">
+                    <h5>{job.title}</h5>
+                    <p>{job.company}</p>
+                  </div>
+                </div>
+                <div className="lpf-jc-tags">
+                  {job.tags.map((tag, i) => <span key={i}>{tag}</span>)}
+                </div>
+                <div className="lpf-jc-bottom">
+                  <div className="lpf-jc-faces">
+                    {job.faces.map((face, i) => (
+                      <img key={i} src={`https://ui-avatars.com/api/?name=${face}&background=random`} alt="face" />
+                    ))}
+                    <small>{job.applicants}</small>
+                  </div>
+                  <div className="lpf-jc-salary">{job.salary}</div>
                 </div>
               </div>
-              <div className="lpf-jc-tags">
-                <span>Full Time</span>
-                <span>On-Site</span>
-                <span>Mid-Senior Level</span>
-              </div>
-              <div className="lpf-jc-bottom">
-                <div className="lpf-jc-faces">
-                  <img src="https://ui-avatars.com/api/?name=J&background=random" alt="face" />
-                  <img src="https://ui-avatars.com/api/?name=K&background=random" alt="face" />
-                  <small>53+ Applicants</small>
-                </div>
-                <div className="lpf-jc-salary">$102k - $140k/yr</div>
-              </div>
-            </div>
-
-            <div className="lpf-job-card">
-              <div className="lpf-jc-top">
-                <div className="lpf-jc-logo" style={{ background: '#1C1C1E', color: '#fff' }}>Q.</div>
-                <div className="lpf-jc-title">
-                  <h5>Accountant</h5>
-                  <p>Quality Software</p>
-                </div>
-              </div>
-              <div className="lpf-jc-tags">
-                <span>Full Time</span>
-                <span>On-Site</span>
-                <span>Mid-Senior Level</span>
-              </div>
-              <div className="lpf-jc-bottom">
-                <div className="lpf-jc-faces">
-                  <img src="https://ui-avatars.com/api/?name=T&background=random" alt="face" />
-                  <img src="https://ui-avatars.com/api/?name=S&background=random" alt="face" />
-                  <small>21+ Applicants</small>
-                </div>
-                <div className="lpf-jc-salary">$80k - $110k/yr</div>
-              </div>
-            </div>
-
-            <div className="lpf-job-card">
-              <div className="lpf-jc-top">
-                <div className="lpf-jc-logo" style={{ background: 'var(--primary)', color: '#fff' }}>V.</div>
-                <div className="lpf-jc-title">
-                  <h5>UX/UI Designer</h5>
-                  <p>Visual Arts Corp</p>
-                </div>
-              </div>
-              <div className="lpf-jc-tags">
-                <span>Contract</span>
-                <span>Remote</span>
-                <span>Mid-Senior Level</span>
-              </div>
-              <div className="lpf-jc-bottom">
-                <div className="lpf-jc-faces">
-                  <img src="https://ui-avatars.com/api/?name=W&background=random" alt="face" />
-                  <img src="https://ui-avatars.com/api/?name=M&background=random" alt="face" />
-                  <small>150+ Applicants</small>
-                </div>
-                <div className="lpf-jc-salary">$90k - $120k/yr</div>
-              </div>
-            </div>
+            ))}
           </div>
         </section>
 
@@ -244,7 +310,7 @@ const Features = () => {
             <div className="lpf-section-label">
               <i className="ri-pie-chart-line"></i> Deep Insights
             </div>
-            <h2>Unlock Your <br />Career Analytics</h2>
+            <h2>Unlock Your <br /> Career Analytics</h2>
             <p>Monitor your performance across every submitted application. Track what works, refine your resume, and negotiate better packages using data-driven insights tailored to your industry.</p>
             <div className="lpf-an-stats-grid">
               <div className="lpf-an-stat-box">
@@ -258,19 +324,44 @@ const Features = () => {
             </div>
           </div>
           <div className="lpf-an-visual">
-            <div className="lpf-an-chart-card">
-              <div className="lpf-anc-top">
-                <h5>Application Success Rate</h5>
-                <span className="lpf-badge-green">+14.5%</span>
+            <div className="lpf-an-dashboard">
+              <div className="lpf-an-chart-card">
+                <div className="lpf-anc-top">
+                  <h5>Success Rate</h5>
+                  <span className="lpf-badge-green">+14.5%</span>
+                </div>
+                <div className="lpf-anc-graph">
+                  <div className="lpf-anc-line" style={{ height: '30%' }}></div>
+                  <div className="lpf-anc-line" style={{ height: '50%' }}></div>
+                  <div className="lpf-anc-line" style={{ height: '80%' }}></div>
+                  <div className="lpf-anc-line" style={{ height: '100%', background: 'var(--primary)' }}></div>
+                </div>
               </div>
-              <div className="lpf-anc-graph">
-                <div className="lpf-anc-line" style={{ height: '30%' }}></div>
-                <div className="lpf-anc-line" style={{ height: '50%' }}></div>
-                <div className="lpf-anc-line" style={{ height: '80%' }}></div>
-                <div className="lpf-anc-line" style={{ height: '60%' }}></div>
-                <div className="lpf-anc-line" style={{ height: '100%', background: 'var(--primary)' }}></div>
-                <div className="lpf-anc-line" style={{ height: '90%' }}></div>
-                <div className="lpf-anc-line" style={{ height: '70%' }}></div>
+
+              <div className="lpf-an-chart-card">
+                <div className="lpf-anc-top">
+                  <h5>Response Time</h5>
+                  <span className="lpf-badge-blue">Fast</span>
+                </div>
+                <div className="lpf-anc-graph">
+                  <div className="lpf-anc-line" style={{ height: '60%' }}></div>
+                  <div className="lpf-anc-line" style={{ height: '90%' }}></div>
+                  <div className="lpf-anc-line" style={{ height: '70%', background: 'var(--primary)' }}></div>
+                  <div className="lpf-anc-line" style={{ height: '40%' }}></div>
+                </div>
+              </div>
+
+              <div className="lpf-an-chart-card">
+                <div className="lpf-anc-top">
+                  <h5>Conversion</h5>
+                  <span className="lpf-badge-purple">82%</span>
+                </div>
+                <div className="lpf-anc-graph">
+                  <div className="lpf-anc-line" style={{ height: '40%' }}></div>
+                  <div className="lpf-anc-line" style={{ height: '70%' }}></div>
+                  <div className="lpf-anc-line" style={{ height: '50%' }}></div>
+                  <div className="lpf-anc-line" style={{ height: '85%', background: 'var(--primary)' }}></div>
+                </div>
               </div>
             </div>
           </div>

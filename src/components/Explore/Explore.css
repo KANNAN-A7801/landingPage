@@ -96,25 +96,55 @@
 .hero-search {
   background: #FFFFFF;
   padding: 10px;
-  border-radius: 12px;
+  border-radius: 100px;
   display: flex;
   align-items: center;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.06);
   gap: 10px;
-  max-width: 500px;
+  max-width: 800px;
   border: 1px solid var(--border);
+  margin-top: 40px;
 }
 
 .search-field {
   flex: 1;
   display: flex;
   flex-direction: column;
-  padding: 0 15px;
+  padding: 0 25px;
   border-right: 1px solid var(--border);
 }
 
 .search-field:last-of-type {
   border-right: none;
+}
+
+.field-inner {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.professional-select {
+  border: none;
+  outline: none;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  background: transparent;
+  width: 100%;
+  appearance: none;
+  cursor: pointer;
+  padding-right: 30px;
+  white-space: nowrap;
+}
+
+.field-inner i {
+  position: absolute;
+  right: 0;
+  color: #64748B;
+  pointer-events: none;
+  font-size: 1.2rem;
 }
 
 .search-field label {
@@ -125,26 +155,16 @@
   margin-bottom: 4px;
 }
 
-.search-field select,
-.search-field input {
-  border: none;
-  outline: none;
-  font-size: 0.95rem;
-  font-weight: 600;
-  color: var(--text-dark);
-  background: transparent;
-  width: 100%;
-}
-
 .search-btn {
   background: var(--primary);
   color: white;
   border: none;
-  padding: 14px 28px;
-  border-radius: 10px;
+  padding: 16px 35px;
+  border-radius: 50px;
   font-weight: 700;
   cursor: pointer;
   transition: all 0.3s ease;
+  font-size: 1rem;
 }
 
 .hero-wave {
@@ -549,28 +569,10 @@
   /* Compensate for gap/offset */
 }
 
-@media (max-width: 768px) {
-  .hiring-marquee-standalone {
-    padding: 50px 0;
-    gap: 30px;
-  }
-
-  .company-logo-img {
-    height: 35px;
-  }
-
-  .marquee-content-logos {
-    gap: 70px;
-  }
-
-  .marquee-title-gradient {
-    font-size: 0.9rem;
-  }
-}
-
 /* 2. How It Works - Left-Right Layout */
 .how-it-works {
-  padding: 80px 8% 40px; /* Reduced bottom padding */
+  padding: 80px 8% 40px;
+  /* Reduced bottom padding */
   background: linear-gradient(135deg, #F8FAFC 0%, #E2E8F0 100%);
   position: relative;
   overflow: hidden;
@@ -693,8 +695,10 @@
   width: 55px;
   height: 55px;
   border-radius: 16px;
-  background: #EFF6FF; /* Solid light blue for better contrast */
-  color: #2563EB !important; /* Vivid blue */
+  background: #EFF6FF;
+  /* Solid light blue for better contrast */
+  color: #2563EB !important;
+  /* Vivid blue */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -738,47 +742,6 @@
   margin: 0;
 }
 
-/* Responsive adjustments */
-@media (max-width: 968px) {
-  .how-it-works {
-    flex-direction: column;
-    gap: 50px;
-    text-align: center;
-    padding: 60px 5%;
-  }
-
-  .how-header {
-    text-align: center;
-    max-width: 100%;
-  }
-
-  .how-header h2 {
-    font-size: 2.5rem;
-  }
-
-  .how-steps {
-    width: 100%;
-    max-width: 500px;
-  }
-
-  .steps-track {
-    display: none;
-  }
-
-  .step-card {
-    padding: 20px;
-    justify-content: center;
-    text-align: center;
-  }
-
-  .step-num {
-    position: absolute;
-    top: -15px;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-}
-
 .subtitle {
   display: flex;
   align-items: center;
@@ -803,7 +766,8 @@
 
 /* 3. Job Categories (Horizontal Card Style Restored) */
 .job-categories {
-  padding: 40px 20px 40px; /* Reduced top and bottom padding */
+  padding: 40px 20px 40px;
+  /* Reduced top and bottom padding */
   background: var(--bg-offwhite);
   width: 100%;
   max-width: 100vw;
@@ -918,28 +882,6 @@
   /* Reduced height */
   object-fit: cover;
   display: block;
-}
-
-@media (max-width: 1100px) {
-  .wcur-container-ref {
-    flex-direction: column;
-    gap: 60px;
-  }
-
-  .wcur-main-title {
-    font-size: 2.8rem;
-    text-align: center;
-  }
-
-  .wcur-top-label {
-    text-align: center;
-  }
-}
-
-@media (max-width: 600px) {
-  .wcur-features-grid {
-    grid-template-columns: 1fr;
-  }
 }
 
 .category-grid {
@@ -1075,12 +1017,6 @@
 .category-card-h:hover .cat-arrow {
   color: var(--primary-blue);
   transform: translateX(5px);
-}
-
-@media (max-width: 1024px) {
-  .category-grid {
-    grid-template-columns: 1fr;
-  }
 }
 
 /* 4. Vision & Mission - Fresh Color Theme */
@@ -1285,13 +1221,6 @@
   border-radius: 8px;
 }
 
-@media (max-width: 1024px) {
-  .insights-dashboard {
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
-}
-
 .vm-visual {
   flex: 1;
   position: relative;
@@ -1438,34 +1367,6 @@
   font-size: 0.85rem;
 }
 
-@media (max-width: 968px) {
-
-  .vm-item,
-  .vm-item:nth-child(even) {
-    flex-direction: column;
-    text-align: center;
-    gap: 30px;
-  }
-
-  .vm-circle {
-    width: 150px;
-    height: 150px;
-    font-size: 2.5rem;
-  }
-
-  .vm-intro h2 {
-    font-size: 2.2rem;
-  }
-
-  .vm-content h3 {
-    font-size: 1.8rem;
-  }
-
-  .vm-pillars {
-    justify-content: center;
-  }
-}
-
 /* 5. Why Choose Us Section - Simple & Strong */
 .why-choose-us {
   padding: 150px 20px;
@@ -1571,33 +1472,6 @@
   text-transform: uppercase;
   letter-spacing: 2px;
   opacity: 0.8;
-}
-
-@media (max-width: 968px) {
-  .why-choose-us {
-    padding: 100px 5%;
-  }
-
-  .wcu-content h2 {
-    font-size: 3.5rem;
-  }
-
-  .wcu-content p {
-    font-size: 1.2rem;
-  }
-
-  .wcu-metrics {
-    flex-direction: column;
-    gap: 30px;
-  }
-
-  .metric {
-    padding: 30px;
-  }
-
-  .metric-number {
-    font-size: 3rem;
-  }
 }
 
 /* 5. Why Choose Us - Strong UI Design */
@@ -1836,25 +1710,6 @@
   background: linear-gradient(90deg, #0EA5E9 0%, #38BDF8 100%);
 }
 
-@media (max-width: 968px) {
-  .why-choose-us {
-    padding: 80px 5%;
-  }
-
-  .wcu-header h2 {
-    font-size: 2.5rem;
-  }
-
-  .wcu-grid {
-    grid-template-columns: 1fr;
-    gap: 25px;
-  }
-
-  .wcu-card {
-    padding: 30px 25px;
-  }
-}
-
 /* 6. Quick Apply Premium (Dark Theme) */
 .quick-apply-premium {
   padding: 60px 20px 80px;
@@ -2056,15 +1911,263 @@
   z-index: 1;
 }
 
+/* ============================================
+   COMPREHENSIVE RESPONSIVE MEDIA QUERIES
+   ============================================ */
+
+/* Large Desktop (1400px and below) */
+@media (max-width: 1400px) {
+  .hero-content h1 {
+    font-size: 3.5rem;
+  }
+
+  .qap-content h2 {
+    font-size: 3.2rem;
+  }
+
+  .qap-content-new h2 {
+    font-size: 3rem;
+  }
+
+  .wcu-content h2 {
+    font-size: 4rem;
+  }
+}
+
+/* Desktop (1200px and below) */
+@media (max-width: 1200px) {
+  .hero-main-container {
+    gap: 30px;
+  }
+
+  .hero-content h1 {
+    font-size: 3rem;
+  }
+
+  .hero-desc {
+    font-size: 1rem;
+  }
+
+  .hero-search {
+    flex-wrap: wrap;
+    border-radius: 30px;
+    padding: 20px;
+  }
+
+  .search-field {
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+    padding: 10px 0;
+  }
+
+  .search-field:last-of-type {
+    border-bottom: none;
+  }
+
+  .search-btn {
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .visual-wrapper {
+    width: 400px;
+    height: 400px;
+  }
+
+  .image-circle-bg {
+    width: 340px;
+    height: 340px;
+  }
+
+  .hero-stats-bar {
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  .h-stat-item {
+    flex: 1 1 calc(33% - 20px);
+  }
+
+  .category-grid {
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  }
+
+  .wcur-main-title {
+    font-size: 2.8rem;
+  }
+
+  .wcu-header h2 {
+    font-size: 2.8rem;
+  }
+
+  .vm-content h3 {
+    font-size: 1.8rem;
+  }
+}
+
+/* Tablet Landscape (1024px and below) */
 @media (max-width: 1024px) {
+  .hero-main-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero-content {
+    max-width: 100%;
+    text-align: center;
+  }
+
+  .hero-content h1 br {
+    display: none;
+  }
+
+  .hero-desc {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-search {
+    max-width: 100%;
+  }
+
+  .hero-visual-new {
+    margin-top: 10px;
+  }
+
+  .visual-wrapper {
+    width: 350px;
+    height: 350px;
+  }
+
+  .image-circle-bg {
+    width: 300px;
+    height: 300px;
+  }
+
+  .status-badge {
+    padding: 6px 12px;
+  }
+
+  .sb-1 {
+    top: 5%;
+    right: 0%;
+  }
+
+  .sb-2 {
+    bottom: 10%;
+    left: -10%;
+  }
+
+  .match-score-card {
+    bottom: 25%;
+    right: -5%;
+    padding: 10px 15px;
+  }
+
+  .how-it-works {
+    flex-direction: column;
+    text-align: center;
+    padding: 60px 5%;
+  }
+
+  .how-header {
+    text-align: center;
+    max-width: 100%;
+  }
+
+  .how-header h2 {
+    font-size: 2.5rem;
+  }
+
+  .how-steps {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  .steps-track {
+    display: none;
+  }
+
+  .step-card {
+    padding: 20px;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+  }
+
+  .step-num {
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .step-icon {
+    margin-bottom: 10px;
+  }
+
+  .vm-item,
+  .vm-item:nth-child(even) {
+    flex-direction: column;
+    text-align: center;
+    gap: 30px;
+  }
+
+  .vm-circle {
+    width: 150px;
+    height: 150px;
+    font-size: 2.5rem;
+  }
+
+  .vm-content h3 {
+    font-size: 1.8rem;
+  }
+
+  .vm-content h3::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .vm-pillars {
+    justify-content: center;
+  }
+
+  .wcur-container-ref {
+    flex-direction: column;
+    gap: 60px;
+  }
+
+  .wcur-main-title {
+    text-align: center;
+  }
+
+  .wcur-top-label {
+    text-align: center;
+  }
+
+  .qap-container {
+    flex-direction: column;
+    text-align: center;
+    gap: 60px;
+  }
+
+  .qap-content {
+    text-align: center;
+  }
+
+  .qap-content p {
+    max-width: 100%;
+  }
+
   .qap-container-new {
     flex-direction: column;
     text-align: center;
     gap: 80px;
   }
 
-  .qap-content-new h2 {
-    font-size: 2.8rem;
+  .qap-content-new {
+    text-align: center;
   }
 
   .qap-content-new p {
@@ -2079,4 +2182,719 @@
     width: 260px;
     height: 540px;
   }
+
+  .wcu-metrics {
+    flex-direction: column;
+    gap: 30px;
+    align-items: center;
+  }
+
+  .metric {
+    width: 80%;
+    max-width: 300px;
+  }
+}
+
+/* Tablet (768px and below) */
+@media (max-width: 768px) {
+  .explore-container p,
+  .explore-container .section-header,
+  .explore-container .how-header,
+  .explore-container .wcu-header,
+  .explore-container .trust-header {
+    text-align: left !important;
+    align-items: flex-start !important;
+  }
+
+  .explore-hero {
+    padding: 50px 0 40px;
+    text-align: left;
+  }
+
+  .hero-content h1 {
+    font-size: 2.5rem;
+  }
+
+  .hero-search {
+    flex-direction: column;
+    border-radius: 24px;
+  }
+
+  .search-field {
+    width: 100%;
+    padding: 10px 0;
+  }
+
+  .field-inner {
+    width: 100%;
+  }
+
+  .professional-select {
+    font-size: 1rem;
+    white-space: normal;
+  }
+
+  .search-btn {
+    padding: 14px 25px;
+  }
+
+  .hero-stats-bar {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .h-stat-item {
+    width: 100%;
+    justify-content: flex-start;
+    padding: 0 20px;
+  }
+
+  .hero-visual-new {
+    flex: 1;
+    margin-top: -20px;
+  }
+
+  .hero-wave {
+    margin-top: 10px;
+  }
+
+  .hero-header-img {
+    width: 100%;
+    transform: scale(1);
+  }
+
+  .marquee-title-gradient {
+    font-size: 2rem;
+  }
+
+  .marquee-content-logos {
+    gap: 50px;
+  }
+
+  .company-logo-img {
+    height: 30px;
+  }
+
+  .category-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .category-card-h {
+    padding: 16px;
+  }
+
+  .cat-icon-h {
+    width: 50px;
+    height: 50px;
+    font-size: 1.5rem;
+  }
+
+  .cat-details-h h4 {
+    font-size: 1.1rem;
+  }
+
+  .cat-details-h p {
+    font-size: 0.8rem;
+  }
+
+  .cat-count-h {
+    font-size: 0.7rem;
+    padding: 3px 8px;
+  }
+
+  .glow-title {
+    font-size: 2.5rem !important;
+  }
+
+  .how-header h2 {
+    font-size: 2rem;
+  }
+
+  .how-header p {
+    font-size: 0.95rem;
+  }
+
+  .step-info h4 {
+    font-size: 1.1rem;
+  }
+
+  .step-info p {
+    font-size: 0.85rem;
+  }
+
+  .vm-content h3 {
+    font-size: 1.5rem;
+  }
+
+  .vm-content p {
+    font-size: 0.9rem;
+  }
+
+  .vm-pillar span {
+    font-size: 0.75rem;
+  }
+
+  .wcur-main-title {
+    font-size: 2.2rem;
+  }
+
+  .wcur-features-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .wcur-main-img {
+    height: 300px;
+  }
+
+  .wcu-header h2 {
+    font-size: 2.2rem;
+  }
+
+  .wcu-header p {
+    font-size: 1rem;
+  }
+
+  .wcu-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .wcu-card {
+    padding: 25px 20px;
+  }
+
+  .wcu-content h4 {
+    font-size: 1.2rem;
+  }
+
+  .wcu-content p {
+    font-size: 0.9rem;
+  }
+
+  .wcu-content h2 {
+    font-size: 2.5rem;
+  }
+
+  .wcu-content p {
+    font-size: 1rem;
+  }
+
+  .wcu-content span {
+    font-size: 0.9rem;
+    padding: 8px 20px;
+  }
+
+  .metric-number {
+    font-size: 3rem;
+  }
+
+  .metric-label {
+    font-size: 0.9rem;
+  }
+
+  .qap-content h2 {
+    font-size: 2.5rem;
+  }
+
+  .qap-content p {
+    font-size: 1rem;
+  }
+
+  .qap-content-new h2 {
+    font-size: 2.2rem;
+  }
+
+  .qap-content-new p {
+    font-size: 1rem;
+  }
+
+  .store-badge {
+    height: 40px;
+  }
+
+  .insights-dashboard {
+    grid-template-columns: 1fr;
+  }
+
+  .insight-card {
+    padding: 25px;
+  }
+
+  .insight-card h4 {
+    font-size: 1.3rem;
+  }
+
+  .market-insights {
+    padding: 60px 5%;
+  }
+
+  .vision-mission {
+    padding: 40px 15px;
+  }
+}
+
+/* Mobile Landscape (576px and below) */
+@media (max-width: 576px) {
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+
+  .hero-desc {
+    font-size: 0.9rem;
+    margin-bottom: 25px;
+  }
+
+  .hero-search {
+    margin-top: 15px;
+  }
+
+  .hero-wave {
+    margin-top: 5px;
+  }
+
+  .hero-visual-new {
+    margin-top: -40px;
+  }
+
+  .search-field label {
+    font-size: 0.6rem;
+  }
+
+  .professional-select {
+    font-size: 0.9rem;
+  }
+
+  .search-btn {
+    padding: 12px 20px;
+    font-size: 0.9rem;
+  }
+
+  .visual-wrapper {
+    width: 280px;
+    height: 280px;
+  }
+
+  .image-circle-bg {
+    width: 240px;
+    height: 240px;
+  }
+
+  .hero-bg-text {
+    font-size: 4rem;
+    left: -20%;
+  }
+
+  .status-badge {
+    display: none;
+  }
+
+  .match-score-card {
+    display: none;
+  }
+
+  .hero-stats-bar {
+    padding: 30px 5%;
+  }
+
+  .h-stat-item {
+    gap: 12px;
+  }
+
+  .h-stat-icon {
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+  }
+
+  .h-stat-info h3 {
+    font-size: 1.3rem;
+  }
+
+  .h-stat-info p {
+    font-size: 0.75rem;
+  }
+
+  .marquee-header p {
+    font-size: 0.8rem;
+  }
+
+  .marquee-container {
+    padding: 20px 0;
+  }
+
+  .marquee-content-logos {
+    gap: 30px;
+  }
+
+  .company-logo-img {
+    height: 25px;
+  }
+
+  .how-it-works {
+    padding: 40px 4%;
+  }
+
+  .how-header span {
+    font-size: 0.7rem;
+    padding: 6px 12px;
+  }
+
+  .how-header h2 {
+    font-size: 1.8rem;
+  }
+
+  .how-header p {
+    font-size: 0.85rem;
+  }
+
+  .step-card {
+    padding: 15px;
+  }
+
+  .step-icon {
+    width: 45px;
+    height: 45px;
+    font-size: 1.3rem;
+  }
+
+  .step-info h4 {
+    font-size: 1rem;
+  }
+
+  .step-info p {
+    font-size: 0.8rem;
+  }
+
+  .subtitle {
+    font-size: 0.7rem;
+  }
+
+  .subtitle::before,
+  .subtitle::after {
+    width: 25px;
+  }
+
+  .glow-title {
+    font-size: 2rem !important;
+  }
+
+  .category-card-h {
+    flex-wrap: wrap;
+    text-align: center;
+    justify-content: center;
+  }
+
+  .cat-meta-h {
+    width: 100%;
+    align-items: center;
+    margin-top: 10px;
+  }
+
+  .vm-circle {
+    width: 120px;
+    height: 120px;
+    font-size: 2rem;
+  }
+
+  .vm-content h3 {
+    font-size: 1.3rem;
+  }
+
+  .vm-content p {
+    font-size: 0.85rem;
+  }
+
+  .vm-pillars {
+    gap: 10px;
+  }
+
+  .vm-pillar {
+    padding: 6px 12px;
+  }
+
+  .vm-pillar span {
+    font-size: 0.7rem;
+  }
+
+  .wcur-main-title {
+    font-size: 1.8rem;
+  }
+
+  .wcur-feature-item {
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+  }
+
+  .wcur-number {
+    font-size: 1.5rem;
+  }
+
+  .wcur-f-text h4 {
+    font-size: 1rem;
+  }
+
+  .wcur-f-text p {
+    font-size: 0.8rem;
+  }
+
+  .wcur-main-img {
+    height: 220px;
+  }
+
+  .wcu-header h2 {
+    font-size: 1.8rem;
+  }
+
+  .wcu-header p {
+    font-size: 0.9rem;
+  }
+
+  .wcu-header span {
+    font-size: 0.8rem;
+  }
+
+  .wcu-card {
+    padding: 20px 15px;
+  }
+
+  .icon-wrapper {
+    width: 55px;
+    height: 55px;
+    font-size: 1.5rem;
+  }
+
+  .wcu-content h4 {
+    font-size: 1.1rem;
+  }
+
+  .wcu-content p {
+    font-size: 0.85rem;
+  }
+
+  .wcu-content h2 {
+    font-size: 2rem;
+  }
+
+  .wcu-content p {
+    font-size: 0.9rem;
+  }
+
+  .metric {
+    padding: 25px;
+  }
+
+  .metric-number {
+    font-size: 2.5rem;
+  }
+
+  .metric-label {
+    font-size: 0.8rem;
+  }
+
+  .qap-content h2 {
+    font-size: 2rem;
+  }
+
+  .qap-content p {
+    font-size: 0.9rem;
+  }
+
+  .qap-badge {
+    font-size: 0.75rem;
+    padding: 6px 15px;
+  }
+
+  .qap-content-new h2 {
+    font-size: 1.8rem;
+  }
+
+  .qap-content-new p {
+    font-size: 0.9rem;
+  }
+
+  .qap-store-badges {
+    gap: 12px;
+  }
+
+  .store-badge {
+    height: 35px;
+  }
+
+  .iphone-frame-new {
+    width: 220px;
+    height: 460px;
+  }
+
+  .insight-card h4 {
+    font-size: 1.2rem;
+  }
+
+  .data-row span,
+  .data-row strong {
+    font-size: 0.85rem;
+  }
+
+  .skill-tag {
+    padding: 6px 12px;
+    font-size: 0.8rem;
+  }
+
+  .geo-item {
+    padding: 10px;
+  }
+
+  .flag {
+    font-size: 1.2rem;
+  }
+
+  .growth {
+    font-size: 0.7rem;
+    padding: 3px 8px;
+  }
+}
+
+/* Mobile Small (375px and below) */
+@media (max-width: 375px) {
+  .hero-content h1 {
+    font-size: 1.8rem;
+  }
+
+  .visual-wrapper {
+    width: 240px;
+    height: 240px;
+  }
+
+  .image-circle-bg {
+    width: 200px;
+    height: 200px;
+  }
+
+  .how-header h2 {
+    font-size: 1.5rem;
+  }
+
+  .glow-title {
+    font-size: 1.8rem !important;
+  }
+
+  .vm-circle {
+    width: 100px;
+    height: 100px;
+    font-size: 1.8rem;
+  }
+
+  .wcur-main-title {
+    font-size: 1.5rem;
+  }
+
+  .wcu-header h2 {
+    font-size: 1.5rem;
+  }
+
+  .wcu-content h2 {
+    font-size: 1.8rem;
+  }
+
+  .qap-content h2 {
+    font-size: 1.8rem;
+  }
+
+  .qap-content-new h2 {
+    font-size: 1.5rem;
+  }
+
+  .iphone-frame-new {
+    width: 200px;
+    height: 420px;
+  }
+
+  .store-badge {
+    height: 30px;
+  }
+}
+
+/* Touch Device Optimizations */
+@media (hover: none) and (pointer: coarse) {
+
+  .category-card-h,
+  .step-card,
+  .wcu-card,
+  .insight-card,
+  .search-btn,
+  .store-badge {
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .category-card-h:active,
+  .step-card:active,
+  .wcu-card:active {
+    transform: scale(0.98);
+    transition: transform 0.1s ease;
+  }
+
+  button,
+  .search-btn,
+  .store-badge {
+    min-height: 44px;
+  }
+}
+
+/* Print Styles */
+@media print {
+
+  .hero-search,
+  .search-btn,
+  .status-badge,
+  .match-score-card,
+  .hiring-marquee-standalone,
+  .quick-apply-premium,
+  .quick-apply-premium-new,
+  .store-badge {
+    display: none;
+  }
+
+  .explore-hero,
+  .how-it-works,
+  .job-categories,
+  .vision-mission,
+  .why-choose-us {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .hero-content h1 {
+    font-size: 24pt;
+  }
+
+  .wcu-card,
+  .insight-card {
+    box-shadow: none;
+    border: 1px solid #ccc;
+  }
+}
+
+/* Smooth Scrolling */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Image Responsiveness */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Ensure no horizontal overflow */
+body {
+  overflow-x: hidden;
+  width: 100%;
+}
+
+* {
+  max-width: 100%;
+  box-sizing: border-box;
 }

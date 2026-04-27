@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './Connect.css';
 import Footer from '../Footer/Footer';
 
@@ -8,6 +9,22 @@ const Connect = () => {
   const [activeFeature, setActiveFeature] = useState(null);
   const [visibleCards, setVisibleCards] = useState(new Set());
   const cardRefs = useRef([]);
+  const navigate = useNavigate();
+
+  const handleSmartDownload = (e) => {
+    if (e) e.preventDefault();
+    const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+    let targetUrl = "https://apps.microsoft.com/home";
+
+    if (/android/i.test(userAgent)) {
+      targetUrl = "https://play.google.com/store/apps";
+    } else if (/iPad|iPhone|iPod/.test(userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1)) {
+      targetUrl = "https://www.apple.com/app-store/";
+    }
+
+    window.location.href = targetUrl;
+  };
 
   // Feature Data for the new explorer section
   const featuresData = [
@@ -203,7 +220,7 @@ const Connect = () => {
           </p>
 
           <div className="cn-search-bar">
-            <button className="cn-search-btn">
+            <button onClick={handleSmartDownload} className="cn-search-btn">
               Find Your Path <i className="fa-solid fa-magnifying-glass"></i>
             </button>
             <div className="cn-search-inputs">
@@ -218,7 +235,7 @@ const Connect = () => {
 
           <div className="cn-social-proof">
             <div className="cn-proof-main">
-              <span className="cn-proof-count">>100k+ People Join</span>
+              <span className="cn-proof-count">100k+ People Join</span>
               <div className="cn-proof-avatars">
                 <img src="https://i.pravatar.cc/100?u=1" alt="User" />
                 <img src="https://i.pravatar.cc/100?u=2" alt="User" />
@@ -407,7 +424,7 @@ const Connect = () => {
                   <span>{member.connections} connections</span>
                 </div>
               </div>
-              <button className="cn-btn-connect">
+              <button onClick={() => navigate('/contactnav')} className="cn-btn-connect">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                   <line x1="12" y1="5" x2="12" y2="19"></line>
                   <line x1="5" y1="12" x2="19" y2="12"></line>
@@ -655,14 +672,14 @@ const Connect = () => {
             Join 50,000+ professionals who are already building meaningful career connections on Garuda Career.
           </p>
           <div className="cn-cta-actions">
-            <button className="cn-btn-cta-primary">
+            <button onClick={() => navigate('/contactnav')} className="cn-btn-cta-primary">
               Get Started Free
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                 <line x1="5" y1="12" x2="19" y2="12"></line>
                 <polyline points="12 5 19 12 12 19"></polyline>
               </svg>
             </button>
-            <button className="cn-btn-cta-secondary">Learn More</button>
+            <button onClick={() => navigate('/about')} className="cn-btn-cta-secondary">Learn More</button>
           </div>
           <div className="cn-cta-trust">
             <div className="cn-cta-avatars">

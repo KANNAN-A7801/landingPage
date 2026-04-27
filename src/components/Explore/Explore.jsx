@@ -5,31 +5,64 @@ import garudaAppImg from '../../assets/garudaapp.png';
 import Footer from '../Footer/Footer';
 import { FaBell, FaCalendarCheck, FaChartLine, FaUserTie, FaBuilding, FaUsers, FaBriefcase, FaSearch } from 'react-icons/fa';
 const Explore = () => {
+    const handleSmartDownload = (e) => {
+        if (e) e.preventDefault();
+        const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+        let targetUrl = "https://apps.microsoft.com/home"; // Default Desktop
+
+        // Detect Android
+        if (/android/i.test(userAgent)) {
+            targetUrl = "https://play.google.com/store/apps";
+        }
+        // Detect iOS (including newer iPadOS which reports as Macintosh)
+        else if (/iPad|iPhone|iPod/.test(userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1)) {
+            targetUrl = "https://www.apple.com/app-store/";
+        }
+
+        // Use location.href for more reliable navigation (less likely to be blocked as a popup)
+        window.location.href = targetUrl;
+    };
+
     return (
         <div className="explore-container">
             {/* 1. Hero Section (Full Width Version) */}
             <section className="explore-hero">
                 <div className="hero-main-container">
                     <div className="hero-content">
-                        <h1>It's Easy to Find<br />Your <span>Dream Job</span></h1>
+                        <h1>It's Easy to Find <br />Your <span>Dream Job</span></h1>
                         <p className="hero-desc">
                             Explore thousands of jobs in one place and get the job of your dreams.
                         </p>
                         <div className="hero-search">
                             <div className="search-field">
                                 <label>Select Job type</label>
-                                <select>
-                                    <option>All Categories</option>
-                                    <option>Teacher</option>
-                                    <option>Driver</option>
-                                    <option>Chef</option>
-                                </select>
+                                <div className="field-inner">
+                                    <select className="professional-select">
+                                        <option>All Professions</option>
+                                        <option>Software Engineer</option>
+                                        <option>Data Analyst</option>
+                                        <option>Project Manager</option>
+                                        <option>UX/UI Designer</option>
+                                        <option>Business Consultant</option>
+                                    </select>
+                                    <i className="ri-arrow-down-s-line"></i>
+                                </div>
                             </div>
                             <div className="search-field">
                                 <label>Location</label>
-                                <input type="text" placeholder="CA, Los Angeles" />
+                                <div className="field-inner">
+                                    <select className="professional-select">
+                                        <option>CA, Los Angeles</option>
+                                        <option>NY, New York</option>
+                                        <option>London, UK</option>
+                                        <option>Dubai, UAE</option>
+                                        <option>Singapore</option>
+                                    </select>
+                                    <i className="ri-arrow-down-s-line"></i>
+                                </div>
                             </div>
-                            <button className="search-btn">Explore Now</button>
+                            <button onClick={handleSmartDownload} className="search-btn">Explore Now</button>
                         </div>
                         <svg className="hero-wave" width="300" height="100" viewBox="0 0 300 100" fill="none">
                             <path d="M10 80 Q 70 20, 150 60 T 290 80" stroke="#E2E8F0" strokeWidth="2" strokeDasharray="5 5" />
@@ -146,7 +179,7 @@ const Explore = () => {
                     <p className="header-desc">Find your next career move across diverse, high-growth industries.</p>
                 </div>
                 <div className="category-grid">
-                    <div className="category-card-h">
+                    <div className="category-card-h" onClick={handleSmartDownload} style={{ cursor: 'pointer' }}>
                         <div className="cat-icon-h education"><i className="ri-graduation-cap-line"></i></div>
                         <div className="cat-details-h">
                             <h4>Education</h4>
@@ -157,7 +190,7 @@ const Explore = () => {
                             <div className="cat-arrow">→</div>
                         </div>
                     </div>
-                    <div className="category-card-h">
+                    <div className="category-card-h" onClick={handleSmartDownload} style={{ cursor: 'pointer' }}>
                         <div className="cat-icon-h logistics"><i className="ri-truck-line"></i></div>
                         <div className="cat-details-h">
                             <h4>Logistics</h4>
@@ -168,7 +201,7 @@ const Explore = () => {
                             <div className="cat-arrow">→</div>
                         </div>
                     </div>
-                    <div className="category-card-h">
+                    <div className="category-card-h" onClick={handleSmartDownload} style={{ cursor: 'pointer' }}>
                         <div className="cat-icon-h chef"><i className="ri-restaurant-line"></i></div>
                         <div className="cat-details-h">
                             <h4>Culinary Arts</h4>
@@ -179,7 +212,7 @@ const Explore = () => {
                             <div className="cat-arrow">→</div>
                         </div>
                     </div>
-                    <div className="category-card-h">
+                    <div className="category-card-h" onClick={handleSmartDownload} style={{ cursor: 'pointer' }}>
                         <div className="cat-icon-h healthcare"><i className="ri-pulse-line"></i></div>
                         <div className="cat-details-h">
                             <h4>Healthcare</h4>
@@ -190,7 +223,7 @@ const Explore = () => {
                             <div className="cat-arrow">→</div>
                         </div>
                     </div>
-                    <div className="category-card-h">
+                    <div className="category-card-h" onClick={handleSmartDownload} style={{ cursor: 'pointer' }}>
                         <div className="cat-icon-h tech"><i className="ri-computer-line"></i></div>
                         <div className="cat-details-h">
                             <h4>IT & Software</h4>
@@ -201,7 +234,7 @@ const Explore = () => {
                             <div className="cat-arrow">→</div>
                         </div>
                     </div>
-                    <div className="category-card-h">
+                    <div className="category-card-h" onClick={handleSmartDownload} style={{ cursor: 'pointer' }}>
                         <div className="cat-icon-h engineering"><i className="ri-settings-4-line"></i></div>
                         <div className="cat-details-h">
                             <h4>Engineering</h4>
@@ -271,8 +304,20 @@ const Explore = () => {
                             The <strong>Garuda App</strong> is your new professional home.
                         </p>
                         <div className="qap-store-badges">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Download_on_the_App_Store_Badge.svg" alt="App Store" className="store-badge" />
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Play Store" className="store-badge" />
+                            <img
+                                src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Download_on_the_App_Store_Badge.svg"
+                                alt="App Store"
+                                className="store-badge"
+                                onClick={() => window.open("https://www.apple.com/app-store/", "_blank")}
+                                style={{ cursor: 'pointer' }}
+                            />
+                            <img
+                                src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg"
+                                alt="Play Store"
+                                className="store-badge"
+                                onClick={() => window.open("https://play.google.com/store/apps", "_blank")}
+                                style={{ cursor: 'pointer' }}
+                            />
                         </div>
                     </div>
                     <div className="qap-visual-new">

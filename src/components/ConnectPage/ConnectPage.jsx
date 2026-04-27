@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './ConnectPage.css';
 import Navbar from '../Navbar/Navbar';
 import Footer from '../Footer/Footer';
@@ -8,6 +9,22 @@ const ConnectPage = () => {
   const [activeFeature, setActiveFeature] = useState(null);
   const [visibleCards, setVisibleCards] = useState(new Set());
   const cardRefs = useRef([]);
+  const navigate = useNavigate();
+
+  const handleSmartDownload = (e) => {
+    if (e) e.preventDefault();
+    const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+    
+    let targetUrl = "https://apps.microsoft.com/home";
+
+    if (/android/i.test(userAgent)) {
+      targetUrl = "https://play.google.com/store/apps";
+    } else if (/iPad|iPhone|iPod/.test(userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1)) {
+      targetUrl = "https://www.apple.com/app-store/";
+    }
+    
+    window.location.href = targetUrl;
+  };
 
   // Feature Data for the new explorer section
   const featuresData = [
@@ -204,7 +221,7 @@ const ConnectPage = () => {
           </p>
 
           <div className="cn-search-bar">
-            <button className="cn-search-btn">
+            <button onClick={handleSmartDownload} className="cn-search-btn">
               Find Your Path <i className="fa-solid fa-magnifying-glass"></i>
             </button>
             <div className="cn-search-inputs">
@@ -408,7 +425,7 @@ const ConnectPage = () => {
                   <span>{member.connections} connections</span>
                 </div>
               </div>
-              <button className="cn-btn-connect">
+              <button onClick={() => navigate('/contactnav')} className="cn-btn-connect">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                   <line x1="12" y1="5" x2="12" y2="19"></line>
                   <line x1="5" y1="12" x2="19" y2="12"></line>
@@ -656,7 +673,7 @@ const ConnectPage = () => {
             Join 50,000+ professionals who are already building meaningful career connections on Garuda Career.
           </p>
           <div className="cn-cta-actions">
-            <button className="cn-btn-cta-primary">
+            <button onClick={() => navigate('/contactnav')} className="cn-btn-cta-primary">
               Get Started Free
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                 <line x1="5" y1="12" x2="19" y2="12"></line>

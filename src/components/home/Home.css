@@ -87,7 +87,7 @@ body {
   text-align: center;
   position: relative;
   background-color: #f9fafb;
-  background-image: 
+  background-image:
     linear-gradient(#e5e7eb 1px, transparent 1px),
     linear-gradient(90deg, #e5e7eb 1px, transparent 1px);
   background-size: 50px 50px;
@@ -99,8 +99,10 @@ body {
 
 .hero-content-top {
   width: 100%;
-  max-width: 1200px; /* Increased to allow room for floating elements on sides */
-  margin: 0 auto 0rem; /* Pull phones up even more */
+  max-width: 1200px;
+  /* Increased to allow room for floating elements on sides */
+  margin: 0 auto 0rem;
+  /* Pull phones up even more */
   z-index: 10;
   position: relative;
   min-height: 250px;
@@ -117,7 +119,8 @@ body {
 .headline-divider {
   width: 35px;
   height: 2px;
-  background: #facc15; /* yellow */
+  background: #facc15;
+  /* yellow */
 }
 
 .sub-headline {
@@ -130,7 +133,8 @@ body {
 
 .main-headline {
   font-family: var(--font-heading);
-  font-size: 4.5rem; /* Slightly reduced to avoid wrapping issues */
+  font-size: 4.5rem;
+  /* Slightly reduced to avoid wrapping issues */
   font-weight: 800;
   line-height: 1.1;
   color: #111827;
@@ -158,19 +162,21 @@ body {
   position: relative;
   width: 100%;
   max-width: 1300px;
-  margin: -35px auto 0; /* Lowered by 15px as requested */
+  margin: -35px auto 0;
+  /* Lowered by 15px as requested */
   display: flex;
-  flex-direction: column; 
+  flex-direction: column;
   align-items: center;
   justify-content: flex-end;
   padding-bottom: 50px;
-  min-height: 450px; 
+  min-height: 450px;
 }
 
 .social-proof-float {
   position: absolute;
   left: 0;
-  top: 100px; /* Aligned level with the title area */
+  top: 100px;
+  /* Aligned level with the title area */
   text-align: left;
   z-index: 20;
 }
@@ -225,7 +231,8 @@ body {
 .trust-badge-float {
   position: absolute;
   right: 0;
-  top: 100px; /* Aligned level with the title area */
+  top: 100px;
+  /* Aligned level with the title area */
   z-index: 20;
 }
 
@@ -250,7 +257,7 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
   color: var(--primary);
   text-align: center;
   padding: 10px;
@@ -274,8 +281,13 @@ body {
 }
 
 @keyframes rotate {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 /* Phones Display: Centered with Gaps */
@@ -283,7 +295,8 @@ body {
   display: flex;
   justify-content: center;
   align-items: flex-end;
-  gap: 50px; /* Increased gap for better clarity */
+  gap: 50px;
+  /* Increased gap for better clarity */
   position: relative;
   z-index: 15;
   width: 100%;
@@ -314,7 +327,7 @@ body {
   height: auto;
   border-radius: 40px;
   border: 12px solid #111827;
-  box-shadow: 0 40px 80px rgba(0,0,0,0.15);
+  box-shadow: 0 40px 80px rgba(0, 0, 0, 0.15);
   background: #000;
   transition: transform 0.3s ease;
 }
@@ -462,7 +475,8 @@ body {
 /* Why Choose Section - Clean Centered UI */
 .features-section {
   padding: 6rem 6% 4rem;
-  background: #eaeff5; /* Light gray-blue background matching the image */
+  background: #eaeff5;
+  /* Light gray-blue background matching the image */
   text-align: center;
 }
 
@@ -1592,11 +1606,9 @@ body {
     gap: 2rem;
   }
 
-  .social-proof,
-  .trust-badge {
-    position: static;
-    text-align: center;
-    transform: none;
+  .social-proof-float,
+  .trust-badge-float {
+    display: none;
   }
 
   .avatar-group {
