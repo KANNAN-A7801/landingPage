@@ -462,6 +462,15 @@
 @media (max-width: 640px) {
   .contact-cards-grid {
     grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .contact-card {
+    padding: 16px 24px;
+  }
+
+  .card-icon {
+    margin-bottom: 8px;
   }
 
   .hero-title {

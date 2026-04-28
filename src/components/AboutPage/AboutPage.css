@@ -2027,6 +2027,13 @@ img {
   height: auto;
 }
 
+/* Mobile Fixes for Impact Cards */
+@media (max-width: 768px) {
+  .impact-card.active {
+    transform: none !important;
+  }
+}
+
 /* Ensure no horizontal overflow */
 body {
   overflow-x: hidden;

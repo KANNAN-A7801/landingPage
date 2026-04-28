@@ -99,7 +99,7 @@ body {
 
 .hero-content-top {
   width: 100%;
-  max-width: 1200px;
+  max-width: 1600px;
   /* Increased to allow room for floating elements on sides */
   margin: 0 auto 0rem;
   /* Pull phones up even more */
@@ -161,7 +161,7 @@ body {
 .hero-visual-wrapper {
   position: relative;
   width: 100%;
-  max-width: 1300px;
+  max-width: 1700px;
   margin: -35px auto 0;
   /* Lowered by 15px as requested */
   display: flex;
@@ -600,7 +600,7 @@ body {
 
 .search-visual {
   position: relative;
-  max-width: 1000px;
+  max-width: 1400px;
   margin: 0 auto;
 }
 
@@ -976,6 +976,7 @@ body {
 .job-card-top {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   margin-bottom: 2rem;
 }
 
@@ -1006,6 +1007,11 @@ body {
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  white-space: nowrap;
 }
 
 .tag-blue {
@@ -1083,7 +1089,7 @@ body {
 
 .carousel-container {
   position: relative;
-  max-width: 1000px;
+  max-width: 1400px;
   margin: 0 auto;
 }
 
@@ -1236,7 +1242,7 @@ body {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
-  max-width: 1200px;
+  max-width: 1600px;
   margin: 0 auto;
 }
 
@@ -1321,7 +1327,7 @@ body {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 4rem;
-  max-width: 1200px;
+  max-width: 1600px;
   margin: 0 auto;
 }
 
@@ -1481,8 +1487,8 @@ body {
 .marquee-content {
   display: flex !important;
   width: max-content;
-  animation: marquee 40s linear infinite;
-  /* Slower for readability */
+  animation: marquee 25s linear infinite;
+  /* Slightly faster for better engagement */
   gap: 2rem;
   will-change: transform;
 }
@@ -1587,23 +1593,31 @@ body {
   }
 }
 
+.mobile-break {
+  display: none;
+}
+
 /* Mobile Responsiveness */
 @media (max-width: 768px) {
   .hero {
-    padding: 2rem 5% 0;
+    padding: 2rem 4% 0;
+    min-height: auto;
   }
 
   .main-headline {
-    font-size: 2.2rem;
-    margin-bottom: 20px;
+    font-size: 2rem;
+    margin-bottom: 16px;
+    line-height: 1.15;
   }
 
-  .hero-wrapper {
-    height: auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 2rem;
+  .hero-content-top {
+    min-height: auto;
+  }
+
+  .hero-visual-wrapper {
+    margin-top: 0;
+    min-height: auto;
+    padding-bottom: 0;
   }
 
   .social-proof-float,
@@ -1615,27 +1629,39 @@ body {
     justify-content: center;
   }
 
-  .phones-container {
-    position: static;
-    margin-top: 2rem;
-    gap: 10px;
+  /* Phones: shrink to fit mobile width */
+  .phones-display {
+    gap: 8px;
+    align-items: flex-end;
+    padding-bottom: 0;
+  }
+
+  .phone-mock {
+    border-radius: 22px;
+    border-width: 7px;
   }
 
   .p-side {
-    width: 100px;
-    height: 220px;
+    width: 90px;
+    opacity: 0.9;
   }
 
   .p-center {
-    width: 140px;
-    height: 280px;
-    margin-bottom: 0;
+    width: 120px;
+  }
+
+  .p-left-wrap {
+    transform: translateY(10px) rotate(-4deg);
+  }
+
+  .p-right-wrap {
+    transform: translateY(10px) rotate(4deg);
   }
 
   .dark-section {
-    margin-top: 2rem;
-    padding: 40px 5%;
-    border-radius: 30px 30px 0 0;
+    margin-top: 1rem;
+    padding: 36px 5% 50px;
+    border-radius: 28px 28px 0 0;
   }
 
   .dark-grid {
@@ -1679,6 +1705,10 @@ body {
     font-size: 2rem;
   }
 
+  .mobile-break {
+    display: block;
+  }
+
   .main-search-img {
     height: 250px;
   }
@@ -1705,8 +1735,43 @@ body {
     grid-template-columns: 1fr;
   }
 
+  .expertise-card {
+    padding: 1.5rem;
+  }
+
+  .expertise-card h3 {
+    font-size: 1.3rem;
+  }
+
+  .jobs-header h2 {
+    font-size: 2.2rem !important;
+    line-height: 1.2 !important;
+  }
+
   .jobs-grid {
     grid-template-columns: 1fr;
+    margin-top: 1.5rem;
+  }
+
+  .job-card-top {
+    gap: 1.5rem;
+  }
+
+  .job-card-footer {
+    gap: 1rem;
+  }
+
+  .job-card {
+    padding: 1.5rem;
+  }
+
+  .job-card h3 {
+    font-size: 1.25rem;
+  }
+
+  .job-meta {
+    gap: 0.8rem;
+    flex-wrap: wrap;
   }
 
   .tips-header h2 {
@@ -1717,9 +1782,29 @@ body {
     flex-direction: column;
   }
 
+  .tip-category {
+    padding: 1.5rem;
+    height: auto;
+  }
+
+  .carousel-container {
+    padding-bottom: 5rem;
+  }
+
   .prev-btn,
   .next-btn {
-    display: none;
+    display: flex;
+    top: auto;
+    bottom: 0;
+    transform: none;
+  }
+
+  .prev-btn {
+    left: calc(50% - 40px);
+  }
+
+  .next-btn {
+    right: calc(50% - 40px);
   }
 
   .insights-header h2 {
@@ -1747,5 +1832,81 @@ body {
     flex-direction: column;
     text-align: center;
     gap: 1.5rem;
+  }
+}
+
+/* Extra-small screens (≤ 400px) */
+@media (max-width: 400px) {
+  .main-headline {
+    font-size: 1.75rem;
+  }
+
+  .sub-headline {
+    font-size: 0.75rem;
+  }
+
+  .p-side {
+    width: 72px;
+  }
+
+  .p-center {
+    width: 96px;
+  }
+
+  .phones-display {
+    gap: 6px;
+  }
+
+  .phone-mock {
+    border-radius: 18px;
+    border-width: 6px;
+  }
+
+  .dark-section {
+    padding: 28px 4% 40px;
+    border-radius: 22px 22px 0 0;
+  }
+
+  .cta-title {
+    font-size: 1.8rem;
+  }
+
+  .steps-left h2 {
+    font-size: 1.8rem;
+  }
+
+  .jobs-header h2 {
+    font-size: 1.8rem !important;
+    line-height: 1.2 !important;
+  }
+
+  .jobs-grid {
+    grid-template-columns: 1fr;
+    margin-top: 1rem;
+  }
+
+  .job-card {
+    padding: 1.25rem;
+  }
+
+  .job-card h3 {
+    font-size: 1.15rem;
+  }
+
+  .search-today-header h2 {
+    font-size: 1.6rem;
+  }
+
+  .expertise-header h2 {
+    font-size: 1.6rem;
+  }
+
+  .expertise-card {
+    padding: 1.25rem;
+  }
+
+  .expertise-card h3 {
+    font-size: 1.1rem;
+    white-space: nowrap;
   }
 }

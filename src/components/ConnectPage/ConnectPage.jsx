@@ -7,6 +7,7 @@ import Footer from '../Footer/Footer';
 const ConnectPage = () => {
   const [activeTab, setActiveTab] = useState(0);
   const [activeFeature, setActiveFeature] = useState(null);
+  const [activeDashTab, setActiveDashTab] = useState('Dashboard');
   const [visibleCards, setVisibleCards] = useState(new Set());
   const cardRefs = useRef([]);
   const navigate = useNavigate();
@@ -14,7 +15,7 @@ const ConnectPage = () => {
   const handleSmartDownload = (e) => {
     if (e) e.preventDefault();
     const userAgent = navigator.userAgent || navigator.vendor || window.opera;
-    
+
     let targetUrl = "https://apps.microsoft.com/home";
 
     if (/android/i.test(userAgent)) {
@@ -22,7 +23,7 @@ const ConnectPage = () => {
     } else if (/iPad|iPhone|iPod/.test(userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1)) {
       targetUrl = "https://www.apple.com/app-store/";
     }
-    
+
     window.location.href = targetUrl;
   };
 
@@ -236,7 +237,7 @@ const ConnectPage = () => {
 
           <div className="cn-social-proof">
             <div className="cn-proof-main">
-              <span className="cn-proof-count">>100k+ People Join</span>
+              <span className="cn-proof-count">100k+ People Join</span>
               <div className="cn-proof-avatars">
                 <img src="https://i.pravatar.cc/100?u=1" alt="User" />
                 <img src="https://i.pravatar.cc/100?u=2" alt="User" />
@@ -536,10 +537,15 @@ const ConnectPage = () => {
             <h2>Global Talent & Connection Ecosystem</h2>
           </div>
           <div className="cn-dash-tabs">
-            <span>Statistics</span>
-            <span>Overview</span>
-            <span className="active">Dashboard</span>
-            <span>Analytics</span>
+            {['Statistics', 'Overview', 'Dashboard', 'Analytics'].map(tab => (
+              <span 
+                key={tab} 
+                className={activeDashTab === tab ? 'active' : ''}
+                onClick={() => setActiveDashTab(tab)}
+              >
+                {tab}
+              </span>
+            ))}
           </div>
         </div>
 
@@ -643,19 +649,43 @@ const ConnectPage = () => {
         {/* Bottom Metrics Bar */}
         <div className="cn-dashboard-footer">
           <div className="cn-footer-metric">
-            <div className="metric-circle"><svg><circle className="progress" cx="30" cy="30" r="26" strokeDasharray="163" strokeDashoffset="45"></circle></svg><span>72%</span></div>
+            <div className="metric-circle" style={{ flexShrink: 0 }}>
+              <svg viewBox="0 0 60 60" width="60" height="60" style={{ overflow: 'visible' }}>
+                <circle cx="30" cy="30" r="24" fill="none" stroke="#f1f5f9" strokeWidth="6"></circle>
+                <circle className="metric-progress-ring" cx="30" cy="30" r="24" fill="none" stroke="#3b44f6" strokeWidth="6" strokeLinecap="round" pathLength="100" style={{ strokeDasharray: '72 100', strokeDashoffset: 0, transform: 'rotate(-90deg)', transformOrigin: '30px 30px' }}></circle>
+              </svg>
+              <span>72%</span>
+            </div>
             <div className="metric-info"><strong>Growth Rate</strong><span>+15% this year</span></div>
           </div>
           <div className="cn-footer-metric pink">
-            <div className="metric-circle"><svg><circle className="progress" cx="30" cy="30" r="26" strokeDasharray="163" strokeDashoffset="68"></circle></svg><span>58%</span></div>
+            <div className="metric-circle" style={{ flexShrink: 0 }}>
+              <svg viewBox="0 0 60 60" width="60" height="60" style={{ overflow: 'visible' }}>
+                <circle cx="30" cy="30" r="24" fill="none" stroke="#f1f5f9" strokeWidth="6"></circle>
+                <circle className="metric-progress-ring" cx="30" cy="30" r="24" fill="none" stroke="#ec4899" strokeWidth="6" strokeLinecap="round" pathLength="100" style={{ strokeDasharray: '58 100', strokeDashoffset: 0, transform: 'rotate(-90deg)', transformOrigin: '30px 30px' }}></circle>
+              </svg>
+              <span>58%</span>
+            </div>
             <div className="metric-info"><strong>Success Matching</strong><span>4.8k matches</span></div>
           </div>
           <div className="cn-footer-metric orange">
-            <div className="metric-circle"><svg><circle className="progress" cx="30" cy="30" r="26" strokeDasharray="163" strokeDashoffset="90"></circle></svg><span>45%</span></div>
+            <div className="metric-circle" style={{ flexShrink: 0 }}>
+              <svg viewBox="0 0 60 60" width="60" height="60" style={{ overflow: 'visible' }}>
+                <circle cx="30" cy="30" r="24" fill="none" stroke="#f1f5f9" strokeWidth="6"></circle>
+                <circle className="metric-progress-ring" cx="30" cy="30" r="24" fill="none" stroke="#f59e0b" strokeWidth="6" strokeLinecap="round" pathLength="100" style={{ strokeDasharray: '45 100', strokeDashoffset: 0, transform: 'rotate(-90deg)', transformOrigin: '30px 30px' }}></circle>
+              </svg>
+              <span>45%</span>
+            </div>
             <div className="metric-info"><strong>Global Reach</strong><span>120+ Countries</span></div>
           </div>
           <div className="cn-footer-metric green">
-            <div className="metric-circle"><svg><circle className="progress" cx="30" cy="30" r="26" strokeDasharray="163" strokeDashoffset="20"></circle></svg><span>88%</span></div>
+            <div className="metric-circle" style={{ flexShrink: 0 }}>
+              <svg viewBox="0 0 60 60" width="60" height="60" style={{ overflow: 'visible' }}>
+                <circle cx="30" cy="30" r="24" fill="none" stroke="#f1f5f9" strokeWidth="6"></circle>
+                <circle className="metric-progress-ring" cx="30" cy="30" r="24" fill="none" stroke="#10b981" strokeWidth="6" strokeLinecap="round" pathLength="100" style={{ strokeDasharray: '88 100', strokeDashoffset: 0, transform: 'rotate(-90deg)', transformOrigin: '30px 30px' }}></circle>
+              </svg>
+              <span>88%</span>
+            </div>
             <div className="metric-info"><strong>Mentor Rating</strong><span>Top 1% Experts</span></div>
           </div>
         </div>

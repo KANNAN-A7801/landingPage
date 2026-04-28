@@ -310,7 +310,7 @@ function Home() {
       <section className="search-today-section">
         <div className="search-today-header">
           <h4 style={{ color: '#3b44f6', fontWeight: '700', fontSize: '2rem', marginBottom: '1rem' }}>About Us</h4>
-          <h2>Start Your <span style={{ color: '#3b44f6' }}>Job Search</span> Today</h2>
+          <h2>Start Your <br className="mobile-break" /><span style={{ color: '#3b44f6' }}>Job Search</span> Today</h2>
         </div>
         <div className="search-visual">
           <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Professional Workspace" className="main-search-img" />

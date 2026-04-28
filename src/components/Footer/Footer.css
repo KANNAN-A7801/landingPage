@@ -246,12 +246,12 @@
   }
 
   .footer-links-container {
-    gap: 35px;
+    gap: 20px;
   }
 
   .footer-links-group {
-    flex: 1 1 160px;
-    min-width: 140px;
+    flex: 1 1 110px;
+    min-width: 110px;
   }
 }
 
@@ -332,14 +332,14 @@
   }
 
   .footer-links-container {
-    flex-wrap: wrap;
+    flex-direction: column;
     gap: 30px;
-    justify-content: flex-start;
+    align-items: flex-start;
   }
 
   .footer-links-group {
-    flex: 1 1 calc(50% - 30px);
-    min-width: 160px;
+    flex: 1 1 100%;
+    min-width: 100%;
   }
 
   .footer-links-group h4 {
@@ -427,12 +427,14 @@
   }
 
   .footer-links-container {
+    flex-direction: column;
     gap: 25px;
+    align-items: flex-start;
   }
 
   .footer-links-group {
-    flex: 1 1 calc(50% - 25px);
-    min-width: 140px;
+    flex: 1 1 100%;
+    min-width: 100%;
   }
 
   .footer-links-group h4 {

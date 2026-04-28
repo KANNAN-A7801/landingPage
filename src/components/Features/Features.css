@@ -1492,6 +1492,17 @@
   .lpf-feature-sm h4 {
     font-size: 1rem;
   }
+
+  .lpf-search-visual {
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .lpf-search-metrics {
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
 }
 
 @media (min-width: 1600px) {
