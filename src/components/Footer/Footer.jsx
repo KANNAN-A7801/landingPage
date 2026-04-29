@@ -65,28 +65,28 @@ const Footer = () => {
             <div className="footer-links-group">
               <h4>PLATFORM</h4>
               <ul>
-                <li><a href="#">Features</a></li>
-                <li><a href="#">Explore Jobs</a></li>
-                <li><a href="#">Connect</a></li>
-                <li><a href="#">Featured Jobs</a></li>
+                <li><a href="/features">Features</a></li>
+                <li><a href="/explore">Explore Jobs</a></li>
+                <li><a href="/connect">Connect</a></li>
+                <li><a href="features">Featured Jobs</a></li>
               </ul>
             </div>
 
             <div className="footer-links-group">
               <h4>RESOURCES</h4>
               <ul>
-                <li><a href="#">Career Guide</a></li>
-                <li><a href="#">Resume Tips</a></li>
-                <li><a href="#">Interview Prep</a></li>
-                <li><a href="#">Salary Insights</a></li>
+                <li><a href="/contactnav">Career Guide</a></li>
+                <li><a href="/contactnav">Resume Tips</a></li>
+                <li><a href="/contactnav">Interview Prep</a></li>
+                <li><a href="/contactnav">Salary Insights</a></li>
               </ul>
             </div>
 
             <div className="footer-links-group">
               <h4>COMPANY</h4>
               <ul>
-                <li><a href="#">About Us</a></li>
-                <li><a href="#">Contact</a></li>
+                <li><a href="/about">About Us</a></li>
+                <li><a href="/ccontactnav">Contact</a></li>
                 <li><a href="#">Privacy Policy</a></li>
                 <li><a href="#">Terms of Service</a></li>
               </ul>

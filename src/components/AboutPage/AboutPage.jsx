@@ -104,75 +104,79 @@ const AboutPage = () => {
               </div>
             </div>
           </div>
+<div className="ab-map-visual">
+  {/* World Map Image */}
+  <img src={worldMap} alt="World Map" className="ab-world-map" />
 
-          <div className="ab-map-visual">
-            {/* World Map Image */}
-            <img src={worldMap} alt="World Map" className="ab-world-map" />
+  {/* Pin 1 - North America */}
+  <div className="ab-pin pin-1" style={{ top: '30%', left: '15%' }}>
+    <div className="ab-dot"></div>
+    <div className="ab-tooltip">
+      <i className="ri-briefcase-line"></i>
+      <span className="move-text-right">10k+ Tech Jobs</span>
+    </div>
+  </div>
 
-            {/* Pop-up Pins - Repositioned for standard map layout */}
-            <div className="ab-pin pin-1" style={{ top: '30%', left: '15%' }}>
-              <div className="ab-dot"></div>
-              <div className="ab-tooltip">
-                <i className="ri-briefcase-line"></i>
-                <span>10k+ Tech Jobs</span>
-              </div>
-            </div>
+  {/* Pin 2 - Europe */}
+  <div className="ab-pin pin-2" style={{ top: '25%', left: '50%' }}>
+    <div className="ab-dot"></div>
+    <div className="ab-tooltip">
+      <i className="ri-community-line"></i>
+      <span className="move-text-right">Global Network</span>
+    </div>
+  </div>
 
-            <div className="ab-pin pin-2" style={{ top: '25%', left: '50%' }}>
-              <div className="ab-dot"></div>
-              <div className="ab-tooltip">
-                <i className="ri-community-line"></i>
-                <span>Global Network</span>
-              </div>
-            </div>
+  {/* Pin 3 - Asia */}
+  <div className="ab-pin pin-3" style={{ top: '45%', left: '72%' }}>
+    <div className="ab-dot"></div>
+    <div className="ab-tooltip">
+      <i className="ri-line-chart-line"></i>
+      <span className="move-text-right-md">Career Growth</span>
+    </div>
+  </div>
 
-            <div className="ab-pin pin-3 pin-featured" style={{ top: '45%', left: '72%' }}>
-              <div className="ab-dot"></div>
-              <div className="ab-tooltip">
-                <i className="ri-line-chart-line"></i>
-                <span>Career Growth</span>
-              </div>
-              <div className="ab-badge">Top Rated</div>
-            </div>
+  {/* Pin 4 - South America */}
+  <div className="ab-pin pin-4" style={{ top: '65%', left: '30%' }}>
+    <div className="ab-dot"></div>
+    <div className="ab-tooltip">
+      <i className="ri-home-4-line"></i>
+      <span className="move-text-right">Remote Jobs</span>
+    </div>
+  </div>
 
-            <div className="ab-pin pin-4" style={{ top: '65%', left: '30%' }}>
-              <div className="ab-dot"></div>
-              <div className="ab-tooltip">
-                <i className="ri-home-4-line"></i>
-                <span>Remote Jobs</span>
-              </div>
-            </div>
+  {/* Pin 5 - Middle East */}
+  <div className="ab-pin pin-5" style={{ top: '55%', left: '52%' }}>
+    <div className="ab-dot"></div>
+    <div className="ab-tooltip">
+      <i className="ri-user-star-line"></i>
+      <span className="move-text-right">Expert Mentors</span>
+    </div>
+  </div>
 
-            <div className="ab-pin pin-5" style={{ top: '55%', left: '52%' }}>
-              <div className="ab-dot"></div>
-              <div className="ab-tooltip">
-                <i className="ri-user-star-line"></i>
-                <span>Expert Mentors</span>
-              </div>
-            </div>
+  {/* Pin 6 - Australia */}
+  <div className="ab-pin pin-6" style={{ top: '75%', left: '85%' }}>
+    <div className="ab-dot"></div>
+    <div className="ab-tooltip">
+      <i className="ri-building-4-line"></i>
+      <span className="move-text-right">Top Companies</span>
+    </div>
+  </div>
 
-            <div className="ab-pin pin-6" style={{ top: '75%', left: '85%' }}>
-              <div className="ab-dot"></div>
-              <div className="ab-tooltip">
-                <i className="ri-building-4-line"></i>
-                <span>Top Companies</span>
-              </div>
-            </div>
+  {/* Pin 7 - East Asia */}
+  <div className="ab-pin pin-7" style={{ top: '30%', left: '80%' }}>
+    <div className="ab-dot"></div>
+    <div className="ab-tooltip">
+      <i className="ri-verified-badge-line"></i>
+      <span className="move-text-right">Verified Profiles</span>
+    </div>
+  </div>
 
-            <div className="ab-pin pin-7" style={{ top: '30%', left: '80%' }}>
-              <div className="ab-dot"></div>
-              <div className="ab-tooltip">
-                <i className="ri-verified-badge-line"></i>
-                <span>Verified Profiles</span>
-              </div>
-            </div>
-
-            {/* Connection Lines */}
-            <svg className="ab-map-lines">
-              <path d="M100,260 Q250,150 450,220" stroke="rgba(255,107,43,0.2)" fill="none" strokeDasharray="5,5" />
-              <path d="M450,220 Q650,350 850,120" stroke="rgba(255,107,43,0.2)" fill="none" strokeDasharray="5,5" />
-            </svg>
-          </div>
+  {/* Connection Lines */}
+  <svg className="ab-map-lines">
+    <path d="M100,260 Q250,150 450,220" stroke="rgba(255,107,43,0.2)" fill="none" strokeDasharray="5,5" />
+    <path d="M450,220 Q650,350 850,120" stroke="rgba(255,107,43,0.2)" fill="none" strokeDasharray="5,5" />
+  </svg>
+</div>
         </div>
 
 

@@ -363,12 +363,13 @@
 
   .footer-bottom {
     padding: 20px 0;
+  
   }
 
   .footer-bottom-content {
     flex-direction: column;
-    text-align: left;
-    align-items: flex-start;
+    text-align: center;
+    align-items: center;
     gap: 12px;
   }
 

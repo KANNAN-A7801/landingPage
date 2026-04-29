@@ -1372,6 +1372,7 @@
 
   .lpf-hero-title {
     font-size: 2rem;
+    text-align: center;
   }
 
   .lpf-hero p {
@@ -1445,9 +1446,13 @@
   .lpf-features-container {
     padding: 30px 4%;
   }
+  .lpf-section-label{
+    text-align: center;
+  }
 
   .lpf-features-header {
     margin-bottom: 30px;
+    text-align: center;
   }
 
   .lpf-features-header h2 {

@@ -48,7 +48,8 @@
 
 .ab-hero-subtitle {
   font-size: 1.1rem;
-  color: #64748b;
+  color: #0f172a;
+  /* changed from #64748b to black */
   line-height: 1.7;
   max-width: 500px;
   margin-bottom: 2.5rem;
@@ -109,7 +110,8 @@
 .ab-field label {
   font-size: 0.8rem;
   font-weight: 700;
-  color: #94a3b8;
+  color: #0f172a;
+  /* changed from #94a3b8 to black */
   margin-bottom: 4px;
   display: flex;
   align-items: center;
@@ -127,7 +129,8 @@
 
 .ab-field span {
   font-size: 0.75rem;
-  color: #cbd5e1;
+  color: #0f172a;
+  /* changed from #cbd5e1 to black */
 }
 
 .ab-field-row {
@@ -173,148 +176,64 @@
 
 .ab-pin {
   position: absolute;
-  width: 20px;
-  height: 20px;
+  width: auto;
+  height: auto;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
+  justify-content: center;
   transform: translate(-50%, -50%);
-}
-
-/* Stats Card Replacement */
-.ab-stats-card {
-  background: white;
-  padding: 2.5rem;
-  border-radius: 32px;
-  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.08);
-  border: 1px solid #f1f5f9;
-}
-
-.ab-stats-header {
-  margin-bottom: 2rem;
-  text-align: center;
-}
-
-.ab-stats-header h3 {
-  font-size: 1.8rem;
-  font-weight: 800;
-  color: #0f172a;
-}
-
-.ab-stats-header p {
-  color: #64748b;
-  font-size: 0.95rem;
-}
-
-.ab-stats-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1.5rem;
-}
-
-.ab-stat-box {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 1.5rem;
-  background: #f8fafc;
-  border-radius: 20px;
-  transition: transform 0.3s ease;
-}
-
-.ab-stat-box:hover {
-  transform: translateY(-5px);
-  background: #ffffff;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
-}
-
-.ab-stat-icon {
-  width: 40px;
-  height: 40px;
-  background: #3b44f6;
-  color: white;
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.2rem;
-}
-
-.ab-stat-info h4 {
-  font-size: 1.1rem;
-  font-weight: 800;
-  color: #0f172a;
-  margin: 0;
-}
-
-.ab-stat-info span {
-  font-size: 0.8rem;
-  color: #64748b;
-}
-
-.ab-stats-footer {
-  margin-top: 2rem;
-}
-
-.ab-btn-join-now {
-  width: 100%;
-  background: #0f172a;
-  color: white;
-  border: none;
-  padding: 18px;
-  border-radius: 16px;
-  font-weight: 700;
+  /* Center the pin exactly on coordinates */
   cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  transition: background 0.3s ease;
 }
 
-.ab-btn-join-now:hover {
-  background: #3b44f6;
-}
-
+/* Fix icon inside circle: perfect centering - the dot is the circle */
 .ab-dot {
-  width: 12px;
-  height: 12px;
+  width: 14px;
+  height: 14px;
   background: #3b44f6;
   border-radius: 50%;
   border: 2px solid white;
   box-shadow: 0 0 15px rgba(59, 68, 246, 0.5);
   position: relative;
   z-index: 2;
+  transition: transform 0.2s ease;
+  display: block;
+  /* ensure it's a block for centering */
+  margin: 0 auto;
 }
 
+/* Pulsing ring effect - centered around dot using proper positioning */
 .ab-dot::after {
   content: '';
   position: absolute;
-  top: -4px;
-  left: -4px;
-  right: -4px;
-  bottom: -4px;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  transform: translate(-50%, -50%);
   border-radius: 50%;
   border: 2px solid #3b44f6;
   animation: ab-pulse 2s infinite;
   opacity: 0;
+  pointer-events: none;
 }
 
 @keyframes ab-pulse {
   0% {
-    transform: scale(1);
+    transform: translate(-50%, -50%) scale(1);
     opacity: 0.8;
   }
 
   100% {
-    transform: scale(2.5);
+    transform: translate(-50%, -50%) scale(2.5);
     opacity: 0;
   }
 }
 
+/* Tooltip styles - all text forced to black as requested */
 .ab-tooltip {
   background: #1e293b;
-  color: white;
   padding: 8px 12px;
   border-radius: 12px;
   font-size: 0.85rem;
@@ -323,7 +242,7 @@
   align-items: center;
   gap: 8px;
   position: absolute;
-  bottom: 20px;
+  bottom: 28px;
   left: 50%;
   transform: translateX(-50%);
   white-space: nowrap;
@@ -331,11 +250,25 @@
   transition: transform 0.3s ease;
 }
 
+/* enforce black color for all text inside tooltip */
+.ab-tooltip span,
+.ab-tooltip .tooltip-text {
+  color: #000000 !important;
+  font-weight: 600;
+}
+
+/* keep icon visible but not interfering with text color */
 .ab-tooltip i {
-  color: #94a3b8;
+  color: #3b44f6;
   font-size: 1rem;
 }
 
+/* Override any inherited white from parent */
+.ab-tooltip span {
+  color: #000000;
+}
+
+/* For pin hover effect */
 .ab-pin:hover .ab-tooltip {
   transform: translateX(-50%) translateY(-5px);
 }
@@ -347,6 +280,10 @@
 
 .pin-featured .ab-tooltip i {
   color: white;
+}
+
+.pin-featured .ab-tooltip span {
+  color: #ffffff !important;
 }
 
 .ab-badge {
@@ -438,6 +375,7 @@
   font-size: 3.5rem;
   font-weight: 900;
   line-height: 1.1;
+  color: #0f172a;
 }
 
 .ab-trust-header {
@@ -454,6 +392,7 @@
   align-items: center;
   gap: 6px;
   justify-content: flex-start;
+  color: #0f172a;
 }
 
 .ab-trust-stars {
@@ -487,6 +426,7 @@
   display: flex;
   justify-content: space-between;
   margin-bottom: 2rem;
+  color: #0f172a;
 }
 
 .ab-stars-gold {
@@ -513,7 +453,8 @@
 .ab-quote-card p {
   font-size: 1.4rem;
   line-height: 1.6;
-  color: #334155;
+  color: #0f172a;
+  /* black/dark text */
   margin-bottom: 2rem;
   font-weight: 500;
 }
@@ -521,11 +462,12 @@
 .ab-quote-user strong {
   display: block;
   font-size: 1.1rem;
+  color: #0f172a;
 }
 
 .ab-quote-user span {
   font-size: 0.9rem;
-  color: #64748b;
+  color: #0f172a;
 }
 
 .ab-test-btns {
@@ -627,7 +569,7 @@
 
 .p-meta span {
   font-size: 0.8rem;
-  color: #64748b;
+  color: #0f172a;
   display: flex;
   align-items: center;
   gap: 4px;
@@ -729,11 +671,13 @@
   font-weight: 800;
   margin-bottom: 0.5rem;
   letter-spacing: -2px;
+  color: white;
 }
 
 .ab-community-footer p {
   font-size: 1.1rem;
   opacity: 0.9;
+  color: white;
 }
 
 /* Bottom / Footer */
@@ -753,6 +697,7 @@
   font-size: 4rem;
   font-weight: 900;
   line-height: 1;
+  color: #0f172a;
 }
 
 .ab-bottom-social {
@@ -760,13 +705,13 @@
   display: flex;
   gap: 15px;
   font-weight: 600;
-  color: #94a3b8;
+  color: #0f172a;
 }
 
 .ab-bottom-right p {
   font-size: 1.2rem;
   line-height: 1.6;
-  color: #64748b;
+  color: #0f172a;
   margin-bottom: 3rem;
 }
 
@@ -807,7 +752,7 @@
 
 .ab-bottom-links a {
   text-decoration: none;
-  color: #64748b;
+  color: #0f172a;
   font-weight: 600;
 }
 
@@ -829,11 +774,12 @@
   font-weight: 900;
   line-height: 1.1;
   margin-bottom: 2rem;
+  color: #0f172a;
 }
 
 .ab-impact-left p {
   font-size: 1.1rem;
-  color: #64748b;
+  color: #0f172a;
   line-height: 1.7;
   margin-bottom: 3rem;
 }
@@ -886,7 +832,7 @@
 
 .impact-card p {
   font-size: 0.95rem;
-  color: #64748b;
+  color: #0f172a;
 }
 
 .impact-card.active {
@@ -1680,6 +1626,7 @@
 
   .ab-tag {
     font-size: 1.2rem;
+    text-align: center;
   }
 
   .ab-hero {
@@ -1688,6 +1635,7 @@
 
   .ab-hero-title {
     font-size: 1.6rem;
+    text-align: center;
   }
 
   .ab-hero-subtitle {
@@ -1895,6 +1843,7 @@
 
   .ab-impact-left h2 {
     font-size: 1.4rem;
+    text-align: center;
   }
 
   .ab-impact-left p {
@@ -2115,4 +2064,81 @@ body {
 * {
   max-width: 100%;
   box-sizing: border-box;
+}
+/* Update tooltip styles */
+.ab-tooltip {
+  background: #1e293b;
+  padding: 8px 12px;
+  border-radius: 12px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: absolute;
+  bottom: 28px;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease;
+}
+
+/* Style for the icons inside tooltip */
+.ab-tooltip i {
+  color: #3b44f6;
+  font-size: 1rem;
+  transition: transform 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Style for the text inside tooltip - BLACK color with ability to move right */
+.ab-tooltip span {
+  color: #000000 !important;
+  font-weight: 600;
+  display: inline-block;
+  transition: transform 0.2s ease;
+}
+
+/* Move text right classes - add these to the span tag */
+.ab-tooltip span.move-text-right {
+  transform: translateX(4px);
+}
+
+.ab-tooltip span.move-text-right-md {
+  transform: translateX(8px);
+}
+
+.ab-tooltip span.move-text-right-lg {
+  transform: translateX(12px);
+}
+
+/* Keep the blue dot centered and unchanged */
+.ab-dot {
+  width: 14px;
+  height: 14px;
+  background: #3b44f6;
+  border-radius: 50%;
+  border: 2px solid white;
+  box-shadow: 0 0 15px rgba(59, 68, 246, 0.5);
+  position: relative;
+  z-index: 2;
+  transition: transform 0.2s ease;
+  display: block;
+  margin: 0 auto;
+}
+
+/* Pin container - unchanged */
+.ab-pin {
+  position: absolute;
+  width: auto;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
 }

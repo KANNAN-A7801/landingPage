@@ -2912,3 +2912,43 @@ body {
   max-width: 100%;
   box-sizing: border-box;
 }
+/* Add this to your Explore.css file - ONLY affects 320px screens */
+
+/* Move center image slightly left on 320px screens only */
+@media (max-width: 320px) {
+  .hero-visual-new {
+    transform: translateX(-15px);
+  }
+}
+
+/* Move the 20K+ stat (second stat item) slightly right on 320px screens only */
+@media (max-width: 320px) {
+  .hero-stats-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .h-stat-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    flex: 1;
+  }
+  
+  /* Target the second stat item (20K+ People Got Hired) */
+  .h-stat-item:nth-child(2) {
+    position: relative;
+    left: 14px;
+  }
+    .h-stat-item:nth-child(3) {
+    position: relative;
+    right: 1px;
+  }
+    .h-stat-item:nth-child(1) {
+    position: relative;
+    left: 1px;
+  }
+}
