@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Connect.css';
+import SEO from '../SEO/SEO';
 import Footer from '../Footer/Footer';
 import avatarOne from '../../assets/testimonials/cartoon_female_1.png';
 import avatarTwo from '../../assets/testimonials/cartoon_female_2.png';
@@ -205,8 +206,19 @@ const Connect = () => {
 
   return (
     <div className="connect-page-wrapper">
-
-      {/* ====== SECTION 1: Hero Section ====== */}
+      <SEO
+        title="Connect – Build Your Professional Network | Garuda Career"
+        description="Connect with industry peers, mentors, recruiters & entrepreneurs. Access the hidden job market through professional networking. Join 40K+ professionals on Garuda Career."
+        canonical="/connect"
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://garudacareer.com/" },
+            { "@type": "ListItem", "position": 2, "name": "Connect", "item": "https://garudacareer.com/connect" }
+          ]
+        }}
+      />
       <header className="cn-hero" id="connect">
         <div className="cn-hero-content">
           <div className="cn-hero-badge-wrap">
@@ -608,11 +620,11 @@ const Connect = () => {
           {/* Central Map Area */}
           <div className="cn-dash-center" style={{ position: 'relative' }}>
             
-            <div className="cn-map-big-title" style={{ position: 'absolute', top: '30px', left: '70px', zIndex: 10, textAlign: 'left' }}>
-              <h2 style={{ fontSize: '2.8rem', fontWeight: '800', color: '#0f172a', lineHeight: '1.15', fontFamily: 'var(--font-heading)' }}>
-                Discover Your <br /> <span style={{ color: '#3b44f6' }}>Global Reach</span>
+            <div className="cn-map-big-title">
+              <h2>
+                Discover Your <br /> <span>Global Reach</span>
               </h2>
-              <p style={{ color: '#64748b', fontSize: '1rem', marginTop: '10px', maxWidth: '300px' }}>
+              <p>
                 Connect with professionals worldwide and expand your career opportunities.
               </p>
             </div>

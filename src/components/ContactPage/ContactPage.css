@@ -164,20 +164,71 @@
   align-items: center;
 }
 
-.map-stat {
+.map-pin {
   position: absolute;
-  font-size: 0.78rem;
-  font-weight: 800;
-  color: #1e293b;
-  white-space: nowrap;
-  transform: translateX(-50%);
-  transition: transform 0.3s ease;
-  cursor: default;
+  display: flex;
+  align-items: center;
+  transform: translate(-7px, -50%);
+  /* Centering 14px dot on coords */
+  cursor: pointer;
   z-index: 10;
 }
 
-.map-stat:hover {
-  transform: translateX(-50%) scale(1.2);
+.map-dot {
+  width: 14px;
+  height: 14px;
+  background: #3b44f6;
+  border-radius: 50%;
+  border: 2px solid white;
+  box-shadow: 0 0 12px rgba(59, 68, 246, 0.4);
+  position: relative;
+  z-index: 2;
+  transition: transform 0.2s ease;
+}
+
+.map-dot::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  border: 2px solid #3b44f6;
+  animation: map-pulse 2s infinite;
+  opacity: 0;
+}
+
+@keyframes map-pulse {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.8;
+  }
+
+  100% {
+    transform: translate(-50%, -50%) scale(2.8);
+    opacity: 0;
+  }
+}
+
+.map-label {
+  font-size: 0.82rem;
+  font-weight: 700;
+  margin-left: 12px;
+  white-space: nowrap;
+  color: #000000;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
+  pointer-events: none;
+  transition: transform 0.3s ease;
+}
+
+.map-pin:hover .map-label {
+  transform: translateX(5px);
+}
+
+.map-pin:hover .map-dot {
+  transform: scale(1.15);
 }
 
 .map-image {
@@ -258,9 +309,7 @@
 
 }
 
-.card-action:hover {
-  background: var(--primary-hover);
-}
+.card-action:hover {}
 
 .card-link {
   font-weight: 600;
@@ -532,6 +581,17 @@
     transform: none;
   }
 
+  /* Map Congestion Fix */
+  .map-dot {
+    width: 10px;
+    height: 10px;
+  }
+
+  .map-label {
+    font-size: 0.65rem;
+    margin-left: 8px;
+  }
+
   .faq-section {
     padding: 60px 20px;
   }
@@ -550,5 +610,27 @@
 
   .footer-content p {
     font-size: 16px;
+  }
+}
+
+/* Specific congestion fix for very small screens */
+@media (max-width: 500px) {
+  .map-dot {
+    width: 7px;
+    height: 8px;
+    border-width: 1.5px;
+  }
+
+  .map-label {
+    font-size: 0.5rem;
+    margin-left: 5px;
+  }
+
+  /* Hide secondary pins to reduce overlap clutter */
+  .pin-3,
+  .pin-6,
+  .pin-8,
+  .pin-10 {
+    display: none;
   }
 }

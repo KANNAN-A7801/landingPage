@@ -1,5 +1,6 @@
 import React from 'react';
 import './AboutPage.css';
+import SEO from '../SEO/SEO';
 import Navbar from '../Navbar/Navbar';
 import Footer from '../Footer/Footer';
 import worldMap from '../../assets/world image.jpg';
@@ -49,6 +50,19 @@ const AboutPage = () => {
 
   return (
     <div className="about-page">
+      <SEO
+        title="About Us – Garuda Career | Trusted Job Search Platform in India"
+        description="Learn how Garuda Career connects job seekers with top employers across India. 30k+ active job seekers, 5k+ partner companies, and 15k+ successful placements since 2024."
+        canonical="/about"
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://garudacareer.com/" },
+            { "@type": "ListItem", "position": 2, "name": "About Us", "item": "https://garudacareer.com/about" }
+          ]
+        }}
+      />
       {/* <Navbar /> */}
 
       {/* Hero Section - Redesigned to Editorial Style */}
@@ -116,79 +130,72 @@ const AboutPage = () => {
               </div>
             </div>
           </div>
-<div className="ab-map-visual">
-  {/* World Map Image */}
-  <img src={worldMap} alt="World Map" className="ab-world-map" />
+          <div className="ab-map-visual">
+            {/* World Map Image */}
+            <img src={worldMap} alt="Garuda Career global presence world map showing job opportunities across continents" className="ab-world-map" />
 
-  {/* Pin 1 - North America */}
-  <div className="ab-pin pin-1" style={{ top: '30%', left: '15%' }}>
-    <div className="ab-dot"></div>
-    <div className="ab-tooltip">
-      <i className="ri-briefcase-line"></i>
-      <span className="move-text-right">10k+ Tech Jobs</span>
-    </div>
-  </div>
+            {/* Pin 1 - North America */}
+            <div className="ab-pin pin-1" style={{ top: '30%', left: '15%' }}>
+              <div className="ab-dot"></div>
+              <div className="ab-tooltip">
+                <span>10k+ Tech Jobs</span>
+              </div>
+            </div>
 
-  {/* Pin 2 - Europe */}
-  <div className="ab-pin pin-2" style={{ top: '25%', left: '50%' }}>
-    <div className="ab-dot"></div>
-    <div className="ab-tooltip">
-      <i className="ri-community-line"></i>
-      <span className="move-text-right">Global Network</span>
-    </div>
-  </div>
+            {/* Pin 2 - Europe */}
+            <div className="ab-pin pin-2" style={{ top: '25%', left: '50%' }}>
+              <div className="ab-dot"></div>
+              <div className="ab-tooltip">
+                <span>Global Network</span>
+              </div>
+            </div>
 
-  {/* Pin 3 - Asia */}
-  <div className="ab-pin pin-3" style={{ top: '45%', left: '72%' }}>
-    <div className="ab-dot"></div>
-    <div className="ab-tooltip">
-      <i className="ri-line-chart-line"></i>
-      <span className="move-text-right-md">Career Growth</span>
-    </div>
-  </div>
+            {/* Pin 3 - Asia */}
+            <div className="ab-pin pin-3" style={{ top: '45%', left: '72%' }}>
+              <div className="ab-dot"></div>
+              <div className="ab-tooltip">
+                <span>Career Growth</span>
+              </div>
+            </div>
 
-  {/* Pin 4 - South America */}
-  <div className="ab-pin pin-4" style={{ top: '65%', left: '30%' }}>
-    <div className="ab-dot"></div>
-    <div className="ab-tooltip">
-      <i className="ri-home-4-line"></i>
-      <span className="move-text-right">Remote Jobs</span>
-    </div>
-  </div>
+            {/* Pin 4 - South America */}
+            <div className="ab-pin pin-4" style={{ top: '65%', left: '30%' }}>
+              <div className="ab-dot"></div>
+              <div className="ab-tooltip">
+                <span>Remote Jobs</span>
+              </div>
+            </div>
 
-  {/* Pin 5 - Middle East */}
-  <div className="ab-pin pin-5" style={{ top: '55%', left: '52%' }}>
-    <div className="ab-dot"></div>
-    <div className="ab-tooltip">
-      <i className="ri-user-star-line"></i>
-      <span className="move-text-right">Expert Mentors</span>
-    </div>
-  </div>
+            {/* Pin 5 - Middle East */}
+            <div className="ab-pin pin-5" style={{ top: '55%', left: '52%' }}>
+              <div className="ab-dot"></div>
+              <div className="ab-tooltip">
+                <span>Expert Mentors</span>
+              </div>
+            </div>
 
-  {/* Pin 6 - Australia */}
-  <div className="ab-pin pin-6" style={{ top: '75%', left: '85%' }}>
-    <div className="ab-dot"></div>
-    <div className="ab-tooltip">
-      <i className="ri-building-4-line"></i>
-      <span className="move-text-right">Top Companies</span>
-    </div>
-  </div>
+            {/* Pin 6 - Australia */}
+            <div className="ab-pin pin-6" style={{ top: '75%', left: '85%' }}>
+              <div className="ab-dot"></div>
+              <div className="ab-tooltip">
+                <span>Top Companies</span>
+              </div>
+            </div>
 
-  {/* Pin 7 - East Asia */}
-  <div className="ab-pin pin-7" style={{ top: '30%', left: '80%' }}>
-    <div className="ab-dot"></div>
-    <div className="ab-tooltip">
-      <i className="ri-verified-badge-line"></i>
-      <span className="move-text-right">Verified Profiles</span>
-    </div>
-  </div>
+            {/* Pin 7 - East Asia */}
+            <div className="ab-pin pin-7" style={{ top: '30%', left: '80%' }}>
+              <div className="ab-dot"></div>
+              <div className="ab-tooltip">
+                <span>Verified Profiles</span>
+              </div>
+            </div>
 
-  {/* Connection Lines */}
-  <svg className="ab-map-lines">
-    <path d="M100,260 Q250,150 450,220" stroke="rgba(255,107,43,0.2)" fill="none" strokeDasharray="5,5" />
-    <path d="M450,220 Q650,350 850,120" stroke="rgba(255,107,43,0.2)" fill="none" strokeDasharray="5,5" />
-  </svg>
-</div>
+            {/* Connection Lines */}
+            <svg className="ab-map-lines">
+              <path d="M100,260 Q250,150 450,220" stroke="rgba(255,107,43,0.2)" fill="none" strokeDasharray="5,5" />
+              <path d="M450,220 Q650,350 850,120" stroke="rgba(255,107,43,0.2)" fill="none" strokeDasharray="5,5" />
+            </svg>
+          </div>
         </div>
 
 
@@ -202,27 +209,23 @@ const AboutPage = () => {
             <div className="ab-header-row">
               <h2>Why Job Seekers <br /> Choose Garuda</h2>
               <p className="ab-value-desc">
-                We combine cutting-edge AI technology with a human-first approach to help professionals at every stage of their career. From smart job matching to expert mentorship, Garuda Career is built to give you the edge you deserve.
+                We combine cutting-edge AI technology with a human-first approach to help professionals at every stage of their career. From smart job matching to expert mentorship, Garuda provides the tools you need to elevate your career with confidence.
               </p>
             </div>
           </div>
 
           <div className="ab-test-content">
             <div className="ab-test-image">
-              <img src={ourValueImg} alt="Our Values" />
+              <img src={ourValueImg} alt="Garuda Career core values - empowering job seekers with AI-driven career tools" />
             </div>
             <div className="ab-test-details">
-              <div className="ab-reviews-meta">
-                <span>Core Mission</span>
-                <div className="ab-stars-gold">
-                  <i className="ri-heart-fill"></i>
-                  <span>User Centric</span>
-                </div>
-              </div>
-
               <div className="ab-quote-card">
-                <i className="ri-focus-3-line"></i>
-                <p>Our mission is to bridge the gap between talent and opportunity. We provide a seamless, AI-driven experience that empowers you to take control of your career journey and reach heights you never thought possible.</p>
+                <div className="ab-quote-header">
+                  <i className="ri-focus-3-line"></i>
+                  <span className="ab-mission-label">SHAPING YOUR CAREER PATH</span>
+                </div>
+                <h3 className="ab-quote-title">Our Vision for Your Future</h3>
+                <p>Our mission is to bridge the gap between talent and opportunity. We provide a seamless, AI-driven experience that empowers you to take control of your career journey and reach heights you never thought possible.By leveraging sophisticated algorithms, we ensure every connection is meaningful.</p>
                 <div className="ab-quote-user">
                   <strong>Career Empowerment</strong>
                   <span>Since 2024</span>
@@ -279,7 +282,7 @@ const AboutPage = () => {
       <section className="ab-community">
         <div className="ab-community-orange">
           {/* Floating Avatars */}
-          <img className="av av-1" src={av1} alt="user" />
+          <img className="av av-1" src={av1} alt="Garuda Career community member" />
           <img className="av av-2" src={av2} alt="user" />
           <img className="av av-3" src={av3} alt="user" />
           <img className="av av-4" src={av4} alt="user" />
@@ -291,7 +294,7 @@ const AboutPage = () => {
           <div className="ab-community-center">
             <div className="ab-polaroid p-left">
               <div className="p-img">
-                <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&q=80&w=400" alt="Event" />
+                <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&q=80&w=400" alt="Design portfolio workshop event for career professionals" />
               </div>
               <div className="p-content">
                 <h4>Design Portfolio <br /> Workshop</h4>
@@ -308,7 +311,7 @@ const AboutPage = () => {
 
             <div className="ab-polaroid p-right">
               <div className="p-img">
-                <img src="https://images.unsplash.com/photo-1515187029135-18ee286d815b?auto=format&fit=crop&q=80&w=400" alt="Event" />
+                <img src="https://images.unsplash.com/photo-1515187029135-18ee286d815b?auto=format&fit=crop&q=80&w=400" alt="Global career networking event in Bengaluru India" />
               </div>
               <div className="p-content">
                 <h4>Global Career <br /> Networking</h4>

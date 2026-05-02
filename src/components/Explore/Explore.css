@@ -77,7 +77,7 @@
   font-size: 4rem;
   line-height: 1.1;
   font-weight: 800;
-  margin-bottom: 25px;
+  margin-bottom: 15px; /* Reduced from 25px */
   color: var(--text-dark);
 }
 
@@ -668,7 +668,7 @@
 
 .how-header h2 {
   font-size: 3rem;
-  margin: 20px 0 25px;
+  margin: 10px 0 15px; /* Reduced top/bottom margins */
   line-height: 1.1;
   font-weight: 800;
   background: linear-gradient(135deg, var(--text-dark) 0%, var(--primary-blue) 100%);
@@ -1418,7 +1418,7 @@
 
 /* 5. Why Choose Us Section - Simple & Strong */
 .why-choose-us {
-  padding: 150px 20px;
+  padding: 80px 20px;
   background: linear-gradient(135deg, #1E40AF 0%, #3B82F6 100%);
   position: relative;
   overflow: hidden;
@@ -2071,7 +2071,7 @@
   }
 
   .hero-content h1 br {
-    display: none;
+    display: block; /* Restored to ensure two-line title as requested */
   }
 
   .hero-desc {
@@ -2130,6 +2130,7 @@
 
   .how-header h2 {
     font-size: 2.5rem;
+    margin-bottom: 10px; /* Reduced gap for 1024px */
   }
 
   .how-steps {
@@ -2294,12 +2295,16 @@
   .hero-stats-bar {
     flex-direction: column;
     align-items: center;
+    gap: 25px;
+    padding: 30px 5%;
   }
 
   .h-stat-item {
-    width: 100%;
-    justify-content: center;
-    padding: 0 20px;
+    width: 220px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 20px;
   }
 
   .hero-visual-new {
@@ -2547,12 +2552,19 @@
   }
 
   .hero-stats-bar {
-    padding: 30px 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+    padding: 40px 5%;
   }
 
   .h-stat-item {
-    gap: 12px;
-    justify-content: center;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 220px; /* Fixed width for perfect vertical alignment */
+    gap: 20px;
   }
 
   .hero-header-img {
@@ -2964,44 +2976,4 @@ body {
 * {
   max-width: 100%;
   box-sizing: border-box;
-}
-/* Add this to your Explore.css file - ONLY affects 320px screens */
-
-/* Move center image slightly left on 320px screens only */
-@media (max-width: 320px) {
-  .hero-visual-new {
-    transform: translateX(-15px);
-  }
-}
-
-/* Move the 20K+ stat (second stat item) slightly right on 320px screens only */
-@media (max-width: 320px) {
-  .hero-stats-bar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 10px;
-  }
-  
-  .h-stat-item {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    flex: 1;
-  }
-  
-  /* Target the second stat item (20K+ People Got Hired) */
-  .h-stat-item:nth-child(2) {
-    position: relative;
-    left: 14px;
-  }
-    .h-stat-item:nth-child(3) {
-    position: relative;
-    right: 1px;
-  }
-    .h-stat-item:nth-child(1) {
-    position: relative;
-    left: 1px;
-  }
 }

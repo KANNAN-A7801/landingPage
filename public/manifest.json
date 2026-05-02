@@ -1,11 +1,12 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Garuda Career",
+  "name": "Garuda Career – Find Your Dream Job",
+  "description": "India's trusted job search platform. Search and apply for full-time, part-time, remote & government jobs. Upload your resume & get hired today.",
   "icons": [
     {
-      "src": "favicon.ico",
+      "src": "favicon.png",
       "sizes": "64x64 32x32 24x24 16x16",
-      "type": "image/x-icon"
+      "type": "image/png"
     },
     {
       "src": "logo192.png",
@@ -20,6 +21,8 @@
   ],
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "theme_color": "#3b44f6",
+  "background_color": "#ffffff",
+  "categories": ["business", "productivity"],
+  "lang": "en-IN"
 }

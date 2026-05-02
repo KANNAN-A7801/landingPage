@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './Home.css';
+import SEO from '../SEO/SEO';
 import phone1 from '../../assets/phone4.png';
 import phone2 from '../../assets/phone2.png';
 import phone3 from '../../assets/phone3.png';
@@ -92,6 +93,18 @@ function Home() {
 
   return (
     <div className="app-container">
+      <SEO
+        title="Find Your Dream Job | Garuda Career – Jobs for Freshers & Professionals"
+        description="Search thousands of job openings across India. Apply to full-time, part-time, remote & government jobs. Upload your resume & get hired today on Garuda Career."
+        canonical="/"
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://garudacareer.com/" }
+          ]
+        }}
+      />
       {/* Hero Section - Ditto Alignment */}
       <header className="hero">
         <div className="hero-content-top">
@@ -100,10 +113,10 @@ function Home() {
             <h3>5k+</h3>
             <p>Active Users</p>
             <div className="avatar-group">
-              <img src={avatarOne} alt="A1" className="avatar" />
-              <img src={avatarTwo} alt="A2" className="avatar" />
-              <img src={avatarThree} alt="A3" className="avatar" />
-              <img src={avatarFour} alt="A4" className="avatar" />
+              <img src={avatarOne} alt="Female job seeker using Garuda Career app" className="avatar" />
+              <img src={avatarTwo} alt="Professional woman finding remote jobs online" className="avatar" />
+              <img src={avatarThree} alt="Male professional exploring career opportunities" className="avatar" />
+              <img src={avatarFour} alt="Job seeker who got hired through Garuda Career" className="avatar" />
               <div className="avatar-plus">+</div>
             </div>
           </div>
@@ -132,13 +145,13 @@ function Home() {
           {/* Overlapping Phones */}
           <div className="phones-display">
             <div className="phone-wrapper p-left-wrap">
-              <img src={phone1} alt="Listing" className="phone-mock p-side" />
+              <img src={phone1} alt="Garuda Career mobile app job listings screen" className="phone-mock p-side" />
             </div>
             <div className="phone-wrapper p-center-wrap">
-              <img src={phone2} alt="Home" className="phone-mock p-center" />
+              <img src={phone2} alt="Garuda Career app home screen with job search" className="phone-mock p-center" />
             </div>
             <div className="phone-wrapper p-right-wrap">
-              <img src={phone3} alt="Chat" className="phone-mock p-side" />
+              <img src={phone3} alt="Garuda Career in-app chat with recruiters" className="phone-mock p-side" />
             </div>
           </div>
         </div>
@@ -330,9 +343,9 @@ function Home() {
       {/* Start Your Job Search Today Section */}
       <section className="search-today-section">
         <div className="search-today-top">
-          <div className="search-today-header" style={{ textAlign: 'left' }}>
+          <div className="search-today-header">
             <h4 style={{ color: '#3b44f6', fontWeight: '700', fontSize: '1.2rem', marginBottom: '0.8rem' }}>About Us</h4>
-            <h2 style={{ textAlign: 'left' }}>Start Your <br className="mobile-break" /><span style={{ color: '#3b44f6' }}>Job Search</span> Today</h2>
+            <h2>Start Your <br className="mobile-break" /><span style={{ color: '#3b44f6' }}>Job Search</span> Today</h2>
           </div>
           <div className="search-today-desc">
             <p style={{ color: '#64748b', fontSize: '1.1rem', lineHeight: '1.8', maxWidth: '500px' }}>
@@ -341,7 +354,7 @@ function Home() {
           </div>
         </div>
         <div className="search-visual">
-          <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Team Collaboration" className="main-search-img" />
+          <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Team of professionals collaborating on career growth strategies" className="main-search-img" />
           <div className="vision-mission-cards">
             <div className="vm-card card-blue">
               <h3>Our Vision</h3>
@@ -364,9 +377,9 @@ function Home() {
       {/* Trust Our Expertise Section */}
       <section className="expertise-section">
         <div className="expertise-top">
-          <div className="expertise-header" style={{ textAlign: 'left' }}>
+          <div className="expertise-header">
             <h4 style={{ color: '#3b44f6', fontWeight: '700', fontSize: '1.2rem', marginBottom: '0.8rem' }}>What We Offer</h4>
-            <h2 style={{ textAlign: 'left' }}>Trust Our <span style={{ color: '#3b44f6' }}>Expertise</span></h2>
+            <h2>Trust Our <span style={{ color: '#3b44f6' }}>Expertise</span></h2>
           </div>
           <div className="expertise-desc">
             <p style={{ color: '#64748b', fontSize: '1.05rem', lineHeight: '1.8', maxWidth: '480px' }}>
@@ -377,7 +390,7 @@ function Home() {
         <div className="expertise-grid">
           <div className="expertise-card">
             <div className="expertise-img-wrapper">
-              <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Job Recommendation" className="expertise-img" />
+              <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="AI-powered job recommendation engine matching skills to career opportunities" className="expertise-img" />
             </div>
             <h3>Job Recommendation</h3>
             <p>Get personalized job suggestions based on your profile, search history, and career preferences, powered by our advanced AI matching engine.</p>
@@ -385,7 +398,7 @@ function Home() {
           </div>
           <div className="expertise-card">
             <div className="expertise-img-wrapper">
-              <img src="https://images.unsplash.com/photo-1586281380349-632531db7ed4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Profile Building" className="expertise-img" />
+              <img src="https://images.unsplash.com/photo-1586281380349-632531db7ed4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Professional building a resume and profile for job applications" className="expertise-img" />
             </div>
             <h3>Create & Build Profile</h3>
             <p>Build a professional profile that stands out to recruiters. Showcase your achievements, skills, and portfolio in a modern, interactive way.</p>
@@ -397,9 +410,9 @@ function Home() {
       {/* Most Recent Jobs Section - Localized for India */}
       <section className="jobs-section">
         <div className="jobs-top">
-          <div className="jobs-header" style={{ textAlign: 'left' }}>
+          <div className="jobs-header">
             <h4 style={{ color: '#3b44f6', fontWeight: '700', fontSize: '1.2rem', marginBottom: '0.8rem' }}>Latest Jobs</h4>
-            <h2 style={{ fontSize: '3rem', fontWeight: '800', fontFamily: 'var(--font-heading)', textAlign: 'left' }}>Most <span style={{ color: '#3b44f6' }}>Recent Jobs</span></h2>
+            <h2 style={{ fontSize: '3rem', fontWeight: '800', fontFamily: 'var(--font-heading)' }}>Most <span style={{ color: '#3b44f6' }}>Recent Jobs</span></h2>
           </div>
           <div className="jobs-desc">
             <p style={{ color: '#64748b', fontSize: '1.05rem', lineHeight: '1.8', maxWidth: '480px' }}>
@@ -408,60 +421,49 @@ function Home() {
           </div>
         </div>
 
-        <div className="jobs-grid">
+        <div className="jobs-grid-v4">
           {[
-            { title: "Marketing Manager", company: "Hindustan Unilever", icon: "fa-bullhorn", location: "Mumbai, India", salary: "₹18L - ₹25L", type: "Full Time", desc: "Lead regional marketing campaigns and drive brand awareness through innovative digital strategies." },
-            { title: "Sales Director", company: "Reliance Industries", icon: "fa-handshake", location: "Mumbai, India", salary: "₹25L - ₹40L", type: "Full Time", desc: "Oversee national sales operations and build strategic partnerships with key enterprise clients." },
-            { title: "Human Resources Lead", company: "Tata Motors", icon: "fa-users-gear", location: "Pune, India", salary: "₹15L - ₹22L", type: "Hybrid", desc: "Manage end-to-end talent acquisition and implement employee engagement programs across multiple plants." },
-            { title: "Financial Analyst", company: "HDFC Bank", icon: "fa-file-invoice-dollar", location: "Mumbai, India", salary: "₹12L - ₹18L", type: "Full Time", desc: "Perform detailed financial modeling and provide actionable insights for investment banking divisions." },
-            { title: "Content Strategist", company: "Zomato", icon: "fa-pen-nib", location: "Gurgaon, India", salary: "₹10L - ₹15L", type: "Remote", desc: "Create compelling brand stories and manage cross-platform content delivery for food tech ecosystems." },
-            { title: "Operations Manager", company: "Flipkart", icon: "fa-gears", location: "Bangalore, India", salary: "₹16L - ₹24L", type: "Full Time", desc: "Optimize supply chain logistics and improve delivery efficiency across south Indian fulfillment centers." }
+            { title: "Marketing Manager", company: "Hindustan Unilever", icon: "ri-megaphone-line", location: "Mumbai, India", salary: "₹18L - ₹25L", type: "Full Time", desc: "Lead regional marketing campaigns and drive brand awareness through innovative digital strategies." },
+            { title: "Sales Director", company: "Reliance Industries", icon: "ri-briefcase-line", location: "Mumbai, India", salary: "₹25L - ₹40L", type: "Full Time", desc: "Oversee national sales operations and build strategic partnerships with key enterprise clients." },
+            { title: "Human Resources Lead", company: "Tata Motors", icon: "ri-user-settings-line", location: "Pune, India", salary: "₹15L - ₹22L", type: "Hybrid", desc: "Manage talent acquisition and implement employee engagement programs across multiple plants." },
+            { title: "Financial Analyst", company: "HDFC Bank", icon: "ri-bank-line", location: "Mumbai, India", salary: "₹12L - ₹18L", type: "Full Time", desc: "Perform detailed financial modeling and provide actionable insights for investment banking divisions." },
+            { title: "Content Strategist", company: "Zomato", icon: "ri-edit-box-line", location: "Gurgaon, India", salary: "₹10L - ₹15L", type: "Remote", desc: "Create compelling brand stories and manage cross-platform content delivery for food tech ecosystems." },
+            { title: "Operations Manager", company: "Flipkart", icon: "ri-settings-4-line", location: "Bangalore, India", salary: "₹16L - ₹24L", type: "Full Time", desc: "Optimize supply chain logistics and improve delivery efficiency across south Indian fulfillment centers." },
+            { title: "Product Manager", company: "Paytm", icon: "ri-rocket-line", location: "Noida, India", salary: "₹20L - ₹30L", type: "Full Time", desc: "Drive product lifecycle from concept to launch, focusing on user experience and market competitiveness." },
+            { title: "Data Scientist", company: "Swiggy", icon: "ri-database-2-line", location: "Bangalore, India", salary: "₹18L - ₹28L", type: "Hybrid", desc: "Apply machine learning algorithms to optimize delivery routes and enhance user personalization." }
           ].map((job, idx) => (
-            <div key={idx} className="job-card-curved">
-              {/* Outer Border Layer */}
-              <div className="curved-card-border-wrapper">
-                <div className="curved-card-main">
-                  {/* Vertically Stacked Info in shoulder area */}
-                  <div className="curved-info-stack">
-                    <div className="curved-company-row-top">
-                      <div className="curved-company-logo">
-                        <i className={`fa-solid ${job.icon}`}></i>
-                      </div>
-                      <span className="comp-name-top">{job.company}</span>
-                    </div>
-
-                    <div className="curved-details-stack">
-                      <h3 className="curved-job-title-top">{job.title}</h3>
-                      <div className="curved-job-meta-top">
-                        <span><i className="fa-solid fa-location-dot"></i> {job.location}</span>
-                        <span className="sep">•</span>
-                        <span>{job.type}</span>
-                      </div>
-                    </div>
+            <div key={idx} className="job-card-v4" onClick={handleSmartDownload}>
+              <div className="jc-content-v4">
+                <div className="jc-top-v4">
+                  <div className="jc-icon-v4">
+                    <i className={job.icon}></i>
                   </div>
-
-                  <p className="curved-job-description">
-                    {job.desc}
-                  </p>
-
-                  <div className="curved-card-footer">
-                    <div className="curved-status-badge">
-                      <span className="status-dot-pulse"></span>
-                      Active recruiting
-                    </div>
-                    <div className="curved-salary-stat">
-                      <span className="salary-label">Starting at</span>
-                      <span className="salary-val">{job.salary}</span>
-                    </div>
+                  <div className="jc-status-v4">
+                    <span className="status-dot"></span>
+                    Active recruiting
                   </div>
+                </div>
+                
+                <div className="jc-body-v4">
+                  <span className="jc-company-v4">{job.company}</span>
+                  <h3 className="jc-title-v4">{job.title}</h3>
+                  <div className="jc-meta-v4">
+                    <span><i className="ri-map-pin-line"></i> {job.location}</span>
+                    <span><i className="ri-time-line"></i> {job.type}</span>
+                  </div>
+                  <p className="jc-desc-v4">{job.desc}</p>
                 </div>
               </div>
 
-              {/* Apply Button sits OUTSIDE the clip-path wrapper so it's visible in the gap */}
-              <button onClick={handleSmartDownload} className="curved-apply-btn-top">
-                <span>APPLY</span>
-                <i className="fa-solid fa-bolt-lightning"></i>
-              </button>
+              <div className="jc-footer-v4">
+                <div className="jc-salary-v4">
+                  <small>STARTING AT</small>
+                  <h4>{job.salary}</h4>
+                </div>
+                <button className="jc-apply-v4">
+                  <i className="ri-arrow-right-line"></i>
+                </button>
+              </div>
             </div>
           ))}
         </div>

@@ -71,17 +71,50 @@ export default function ContactPage() {
         <div className="map-container">
           <img src={mapImg} alt="World Map Location" className="map-image" />
 
-          <span className="map-stat" style={{ top: '27%', left: '15%' }}>12k+ Jobs</span>
-          <span className="map-stat" style={{ top: '35%', left: '13%' }}>8.5k+ Hires</span>
-          <span className="map-stat" style={{ top: '30%', left: '28%' }}>6k+ Offers</span>
-          <span className="map-stat" style={{ top: '16%', left: '52%' }}>4.2k+ Teams</span>
-          <span className="map-stat" style={{ top: '25%', left: '47%' }}>15k+ Users</span>
-          <span className="map-stat" style={{ top: '30%', left: '50%' }}>9k+ Companies</span>
-          <span className="map-stat" style={{ top: '30%', left: '56%' }}>7k+ Careers</span>
-          <span className="map-stat" style={{ top: '42%', left: '55%' }}>11k+ Placements</span>
-          <span className="map-stat" style={{ top: '28%', left: '71%' }}>5.5k+ Partners</span>
-          <span className="map-stat" style={{ top: '59%', left: '81%' }}>3k+ Startups</span>
-          <span className="map-stat" style={{ top: '67%', left: '88%' }}>2k+ Remote</span>
+          <div className="map-pin pin-1" style={{ top: '35%', left: '20%' }}>
+            <div className="map-dot"></div>
+            <div className="map-label"><span>12k+ Jobs</span></div>
+          </div>
+          <div className="map-pin pin-2" style={{ top: '45%', left: '22%' }}>
+            <div className="map-dot"></div>
+            <div className="map-label"><span>8.5k+ Hires</span></div>
+          </div>
+          <div className="map-pin pin-3" style={{ top: '55%', left: '30%' }}>
+            <div className="map-dot"></div>
+            <div className="map-label"><span>6k+ Offers</span></div>
+          </div>
+          <div className="map-pin pin-4" style={{ top: '22%', left: '52%' }}>
+            <div className="map-dot"></div>
+            <div className="map-label"><span>4.2k+ Teams</span></div>
+          </div>
+          <div className="map-pin pin-5" style={{ top: '30%', left: '49%' }}>
+            <div className="map-dot"></div>
+            <div className="map-label"><span>15k+ Users</span></div>
+          </div>
+          <div className="map-pin pin-6" style={{ top: '52%', left: '51%' }}>
+            <div className="map-dot"></div>
+            <div className="map-label"><span>9k+ Companies</span></div>
+          </div>
+          <div className="map-pin pin-7" style={{ top: '38%', left: '56%' }}>
+            <div className="map-dot"></div>
+            <div className="map-label"><span>7k+ Careers</span></div>
+          </div>
+          <div className="map-pin pin-8" style={{ top: '60%', left: '57%' }}>
+            <div className="map-dot"></div>
+            <div className="map-label"><span>11k+ Placements</span></div>
+          </div>
+          <div className="map-pin pin-9" style={{ top: '36%', left: '69%' }}>
+            <div className="map-dot"></div>
+            <div className="map-label"><span>5.5k+ Partners</span></div>
+          </div>
+          <div className="map-pin pin-10" style={{ top: '44%', left: '60%' }}>
+            <div className="map-dot"></div>
+            <div className="map-label"><span>3k+ Startups</span></div>
+          </div>
+          <div className="map-pin pin-11" style={{ top: '32%', left: '64%' }}>
+            <div className="map-dot"></div>
+            <div className="map-label"><span>2k+ Remote</span></div>
+          </div>
         </div>
       </section>
 
@@ -113,7 +146,7 @@ export default function ContactPage() {
             <div className="card-icon"><FiPhone size={24} /></div>
             <h3>Call us</h3>
             <p>Mon-Fri from 8am to 5pm.</p>
-            <a href="tel:+15550000000" className="card-link">+1 (555) 000-0000</a>
+            <a href="tel:6383612020" className="card-link">6383612020</a>
           </div>
         </div>
       </section>

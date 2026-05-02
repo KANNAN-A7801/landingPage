@@ -18,7 +18,8 @@
   display: flex;
   justify-content: space-between;
   gap: 48px;
-  padding: 64px 0 48px 0;
+  padding: 32px 0 48px 0;
+  /* Reduced top padding from 64px to 32px */
   border-bottom: 1px solid #eef2f6;
 }
 
@@ -30,27 +31,31 @@
 .brand-logo {
   display: flex;
   align-items: center;
-  gap: 8px;
   margin-bottom: 16px;
 }
 
-.brand-logo svg {
-  color: #2563eb;
-  stroke-width: 1.5;
-}
-
-.brand-logo span {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: #111827;
-  letter-spacing: -0.3px;
+.footer-logo-img {
+  height: 110px;
+  /* Restored to original size */
+  width: auto;
+  display: block;
+  mix-blend-mode: darken;
+  filter: contrast(115%) brightness(105%);
+  margin-left: -30px;
+  /* Restored for alignment */
+  margin-top: 10px;
+  /* Restored for alignment */
 }
 
 .brand-tagline {
-  color: #6b7280;
-  font-size: 0.9rem;
-  line-height: 1.5;
-  margin-bottom: 24px;
+  color: #64748b;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-top: -20px;
+  /* Restored to pull closer to large logo */
+  position: relative;
+  z-index: 2;
+  font-weight: 500;
 }
 
 .social-links {
@@ -83,6 +88,8 @@
   flex-wrap: wrap;
   justify-content: space-between;
   width: 100%;
+  padding-top: 40px;
+  /* Push links down slightly to align with logo's vertical center/top better */
 }
 
 .footer-links-group {
@@ -313,28 +320,46 @@
   }
 
   .footer-top {
-    padding: 45px 0 35px;
-    gap: 35px;
+    padding: 30px 0 20px;
+    /* Reduced from 45px/35px */
+    gap: 20px;
+    /* Reduced from 35px */
   }
 
-  .brand-logo span {
-    font-size: 1.4rem;
+  .brand-logo {
+    justify-content: center;
+    margin-bottom: 8px;
+  }
+
+  .footer-logo-img {
+    height: 120px;
+    margin: 0 auto;
   }
 
   .brand-tagline {
     font-size: 0.85rem;
-    padding: 0 15px;
+    padding: 0;
+    margin: -10px auto 12px;
+    text-align: center;
+    max-width: 280px;
+  }
+
+  .social-links {
+    justify-content: center;
+    margin-bottom: 12px;
   }
 
   .social-links a {
-    width: 34px;
-    height: 34px;
+    width: 36px;
+    height: 36px;
   }
 
   .footer-links-container {
     flex-direction: column;
-    gap: 30px;
+    gap: 20px;
+    /* Reduced from 30px */
     align-items: flex-start;
+    padding-top: 0 !important;
   }
 
   .footer-links-group {
@@ -344,7 +369,8 @@
 
   .footer-links-group h4 {
     font-size: 0.7rem;
-    margin-bottom: 16px;
+    margin-bottom: 10px;
+    /* Reduced from 16px */
   }
 
   .footer-links-group a {
@@ -363,7 +389,7 @@
 
   .footer-bottom {
     padding: 20px 0;
-  
+
   }
 
   .footer-bottom-content {
@@ -395,22 +421,19 @@
   }
 
   .footer-top {
-    padding: 40px 0 30px;
-    gap: 30px;
+    padding: 25px 0 15px;
+    gap: 15px;
   }
 
-  .brand-logo svg {
-    width: 28px;
-    height: 28px;
-  }
-
-  .brand-logo span {
-    font-size: 1.3rem;
+  .footer-logo-img {
+    height: 110px;
+    margin: 0 auto;
   }
 
   .brand-tagline {
     font-size: 0.8rem;
-    margin-bottom: 20px;
+    margin: -10px auto 12px;
+    text-align: center;
   }
 
   .social-links {
@@ -428,9 +451,7 @@
   }
 
   .footer-links-container {
-    flex-direction: column;
-    gap: 25px;
-    align-items: flex-start;
+    padding-top: 0 !important;
   }
 
   .footer-links-group {
@@ -497,17 +518,24 @@
   }
 
   .footer-top {
-    padding: 35px 0 25px;
-    gap: 28px;
+    padding: 20px 0 10px;
+    gap: 10px;
   }
 
-  .brand-logo span {
-    font-size: 1.2rem;
+  .footer-logo-img {
+    height: 100px;
+    margin: 0 auto;
   }
 
   .brand-tagline {
     font-size: 0.75rem;
-    padding: 0 10px;
+    padding: 0;
+    text-align: center;
+    margin: -8px auto 10px;
+  }
+
+  .footer-links-container {
+    padding-top: 0 !important;
   }
 
   .social-links a {
@@ -571,18 +599,19 @@
     gap: 25px;
   }
 
-  .brand-logo svg {
-    width: 24px;
-    height: 24px;
-  }
-
-  .brand-logo span {
-    font-size: 1.1rem;
+  .footer-logo-img {
+    height: 80px;
+    margin: 0 auto;
   }
 
   .brand-tagline {
     font-size: 0.7rem;
-    margin-bottom: 16px;
+    margin: -8px auto 10px;
+    text-align: center;
+  }
+
+  .footer-links-container {
+    padding-top: 0 !important;
   }
 
   .social-links {

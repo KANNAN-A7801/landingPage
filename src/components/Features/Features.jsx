@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './Features.css';
+import SEO from '../SEO/SEO';
 import hero1Image from '../../assets/phone5.png';
 import phone3 from '../../assets/phone5.png';
 import phone4 from '../../assets/phone5.png';
@@ -100,6 +101,19 @@ const Features = () => {
 
   return (
     <>
+      <SEO
+        title="Job Search Features – AI-Powered Matching & Smart Filters | Garuda Career"
+        description="Discover powerful job search features on Garuda Career. AI-powered matching, smart filters, real-time job tracking, and instant applications. Find IT, engineering, finance & healthcare jobs faster."
+        canonical="/features"
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://garudacareer.com/" },
+            { "@type": "ListItem", "position": 2, "name": "Features", "item": "https://garudacareer.com/features" }
+          ]
+        }}
+      />
       {/* Section 1: Hero - Redesigned to 3-Column Showcase */}
       <header className="lpf-hero-v2">
         <div className="lpf-hero-content-v2">
@@ -300,26 +314,26 @@ const Features = () => {
           </div>
 
           <div className="lpf-fj-grid">
-            {jobs.map((job) => (
-              <div key={job.id} onClick={handleSmartDownload} className="lpf-job-card" style={{ cursor: 'pointer' }}>
+            {jobs?.map((job) => (
+              <div key={job?.id} onClick={handleSmartDownload} className="lpf-job-card" style={{ cursor: 'pointer' }}>
                 <div className="lpf-jc-top">
-                  <div className="lpf-jc-logo" style={{ background: job.logoBg, color: job.logoColor }}>{job.logo}</div>
+                  <div className="lpf-jc-logo" style={{ background: job?.logoBg, color: job?.logoColor }}>{job?.logo}</div>
                   <div className="lpf-jc-title">
-                    <h5>{job.title}</h5>
-                    <p>{job.company}</p>
+                    <h5>{job?.title}</h5>
+                    <p>{job?.company}</p>
                   </div>
                 </div>
                 <div className="lpf-jc-tags">
-                  {job.tags.map((tag, i) => <span key={i}>{tag}</span>)}
+                  {job?.tags?.map((tag, i) => <span key={i}>{tag}</span>)}
                 </div>
                 <div className="lpf-jc-bottom">
                   <div className="lpf-jc-faces">
-                    {job.faces.map((face, i) => (
+                    {job?.faces?.map((face, i) => (
                       <img key={i} src={`https://ui-avatars.com/api/?name=${face}&background=random`} alt="face" />
                     ))}
-                    <small>{job.applicants}</small>
+                    <small>{job?.applicants}</small>
                   </div>
-                  <div className="lpf-jc-salary">{job.salary}</div>
+                  <div className="lpf-jc-salary">{job?.salary}</div>
                 </div>
               </div>
             ))}
@@ -433,11 +447,10 @@ const Features = () => {
             <i className="ri-briefcase-line"></i> Jobs Hub
           </div>
           <div className="lpf-aj-header">
-            <h2>Find Your <span style={{ color: 'var(--primary)' }}>Perfect Job</span></h2>
+            <h2>Find Your Perfect <span style={{ color: 'var(--primary)' }}>Dream Job</span> Today</h2>
             <p>
-              Search through thousands of opportunities across every industry and sector. Filter by category, location, and salary 
-              to find your dream job in minutes. Our platform connects you with verified employers and provides real-time updates 
-              on your application status, ensuring you never miss a career-defining opportunity.
+              Search through thousands of opportunities across every industry and sector. Our platform connects you with verified employers 
+              and provides real-time updates on your application status, ensuring you never miss a career-defining opportunity.
             </p>
           </div>
 
@@ -470,6 +483,7 @@ const Features = () => {
                   Search through thousands of roles across every sector including Healthcare, Education, Logistics, Finance, Retail, Hospitality, and more. 
                   Our advanced filters help you find exactly what you're looking for by analyzing your specific career requirements and preferences.
                   Experience a seamless search process that connects you with the most relevant opportunities in your field.
+                  Our platform ensures you are always presented with verified listings that match your unique professional trajectory.
                 </p>
               </div>
             </div>
@@ -501,6 +515,7 @@ const Features = () => {
                   Get matched with jobs based on your unique skills and experience - whether you're a Teacher, Nurse, Sales Professional, or Engineer. 
                   Our AI analyzes your background and profile to find the perfect career fit, ensuring you only apply to roles where you are highly qualified.
                   Stay ahead of the curve with intelligent matching that evolves as your professional profile grows and your experience expands.
+                  We bridge the gap between your current expertise and your future career aspirations.
                 </p>
               </div>
             </div>
@@ -532,6 +547,7 @@ const Features = () => {
                   Apply to multiple jobs instantly with our one-click application system. Your profile is automatically optimized for each job type, increasing your chances of getting hired faster.
                   Stop wasting time on repetitive forms and let our platform handle the submission process across thousands of compatible job openings.
                   Track your application status in real-time and receive instant updates as soon as recruiters interact with your submitted profile.
+                  Leverage our automation to focus on what truly matters: preparing for your next successful interview.
                 </p>
               </div>
             </div>

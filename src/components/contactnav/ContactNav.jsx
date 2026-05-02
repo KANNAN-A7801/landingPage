@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './ContactNav.css';
+import SEO from '../SEO/SEO';
 import Footer from '../Footer/Footer';
 
 
@@ -55,6 +56,19 @@ const ContactNav = () => {
 
   return (
     <div className="ct-contact-page">
+      <SEO
+        title="Contact Us – Garuda Career | Get Job Search Help & Support"
+        description="Get in touch with the Garuda Career team. Visit our office in Dharmapuri, Tamil Nadu or reach us at support@hirenest.com. We're here to help with your career journey."
+        canonical="/contactnav"
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://garudacareer.com/" },
+            { "@type": "ListItem", "position": 2, "name": "Contact Us", "item": "https://garudacareer.com/contactnav" }
+          ]
+        }}
+      />
 
 
       <main className="ct-main-content">
@@ -147,7 +161,7 @@ const ContactNav = () => {
                       <div className="ct-icon"><i className="fa-solid fa-location-dot"></i></div>
                       <div className="ct-text">
                         <strong>Our Office</strong>
-                        <span>Oldpatti  Harur(post or Tk ) Dharmapuri (Dt) 636903.</span>
+                        <span>Oldpatti Harur(post or Tk) <br /> Dharmapuri (Dt) 636903.</span>
                       </div>
                     </div>
                     <div className="ct-info-item">

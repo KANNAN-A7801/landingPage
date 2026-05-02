@@ -1,4 +1,5 @@
 import './Explore.css';
+import SEO from '../SEO/SEO';
 import heroImage from '../../assets/hero-job-search.png';
 import headerImg from '../../assets/HEADER.png';
 import garudaAppImg from '../../assets/garudaapp.png';
@@ -27,6 +28,19 @@ const Explore = () => {
 
     return (
         <div className="explore-container">
+            <SEO
+              title="Explore Jobs – Latest Job Vacancies & Career Opportunities | Garuda Career"
+              description="Browse 50,000+ job vacancies updated daily. Find full-time, part-time, remote & fresher jobs near you. Filter by location, salary & category. Apply instantly on Garuda Career."
+              canonical="/explore"
+              schema={{
+                "@context": "https://schema.org",
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                  { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://garudacareer.com/" },
+                  { "@type": "ListItem", "position": 2, "name": "Explore Jobs", "item": "https://garudacareer.com/explore" }
+                ]
+              }}
+            />
             {/* 1. Hero Section (Full Width Version) */}
             <section className="explore-hero">
                 <div className="hero-main-container">
@@ -55,7 +69,7 @@ const Explore = () => {
                         </svg>
                     </div>
                     <div className="hero-visual-new">
-                        <img src={headerImg} alt="AI Job Search" className="hero-header-img" />
+                        <img src={headerImg} alt="AI-powered job search platform helping candidates find dream jobs online" className="hero-header-img" />
                     </div>
                 </div>
                 <div className="hero-stats-bar">

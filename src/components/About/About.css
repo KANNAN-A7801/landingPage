@@ -334,12 +334,8 @@
   }
 
   .about-hero-right {
-    height: 360px;
-  }
-
-  .hero-img-circle-wrap {
-    width: 300px;
-    height: 300px;
+    height: auto;
+    justify-content: center;
   }
 
   .strengths-grid {
@@ -352,8 +348,30 @@
     padding: 60px 24px 0;
   }
 
+  .about-hero-inner-v2 {
+    gap: 40px;
+  }
+
   .about-hero-heading {
-    font-size: 2.2rem;
+    font-size: 2.5rem;
+    margin-bottom: 16px;
+  }
+
+  .about-us-label {
+    margin-bottom: 12px;
+  }
+
+  .about-hero-desc {
+    font-size: 0.9rem;
+  }
+
+  .discover-more-btn {
+    margin-top: 24px;
+    align-self: center;
+  }
+
+  .about-achievements-card {
+    padding: 28px 20px;
   }
 
   .about-cards-v2 {
@@ -368,6 +386,11 @@
     padding: 40px 24px 60px;
   }
 
+  .core-strengths-title {
+    font-size: 2rem;
+    margin-bottom: 40px;
+  }
+
   .strengths-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 20px;
@@ -375,11 +398,15 @@
 }
 
 @media (max-width: 480px) {
-  .strengths-grid {
-    grid-template-columns: 1fr 1fr;
+  .about-hero-heading {
+    font-size: 2rem;
   }
 
-  .about-hero-heading {
-    font-size: 1.9rem;
+  .about-achievements-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .strengths-grid {
+    grid-template-columns: 1fr;
   }
 }
