@@ -2270,3 +2270,494 @@
     transform: scale(1);
   }
 }
+
+/* ===== 320px Screen Specific Fixes ===== */
+@media (max-width: 380px) {
+
+  /* Simple Steps Section - Center align numbers */
+  .cn-simple-steps-grid {
+    gap: 2.5rem;
+  }
+
+  .cn-simple-step {
+    text-align: center;
+  }
+
+  .cn-step-top {
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .cn-step-index {
+    font-size: 2.5rem;
+    display: inline-block;
+  }
+
+  .cn-geom {
+    display: none;
+  }
+
+  .cn-step-title-box {
+    transform: rotate(0deg);
+    padding: 6px 16px;
+  }
+
+  .cn-step-title-box h3 {
+    font-size: 1.2rem;
+    white-space: normal;
+  }
+
+  .cn-step-divider {
+    margin: 1rem 0;
+  }
+
+  .cn-simple-step p {
+    font-size: 0.9rem;
+    text-align: center;
+  }
+
+  /* Hero Section */
+  .cn-hero {
+    padding: 2rem 4% 6rem;
+  }
+
+  .cn-hero-title {
+    font-size: 2rem;
+  }
+
+  .cn-hero-badge-text {
+    font-size: 0.75rem;
+  }
+
+  .cn-search-bar {
+    padding: 12px;
+  }
+
+  .cn-search-btn {
+    padding: 10px 16px;
+    font-size: 0.85rem;
+  }
+
+  .cn-search-inputs input {
+    font-size: 0.85rem;
+  }
+
+  .cn-proof-main {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+  }
+
+  /* Stats Bar */
+  .cn-stats-inner {
+    gap: 1rem;
+  }
+
+  .cn-stat-item {
+    padding: 1rem;
+  }
+
+  .cn-stat-value {
+    font-size: 1.5rem;
+  }
+
+  .cn-stat-label {
+    font-size: 0.75rem;
+  }
+
+  /* Section Titles */
+  .cn-section-title {
+    font-size: 1.6rem;
+  }
+
+  .cn-section-tag {
+    font-size: 1rem;
+  }
+
+  .cn-section-desc {
+    font-size: 0.9rem;
+    padding: 0 10px;
+  }
+
+  /* Category Tabs - 2 column but smaller */
+  .cn-category-tabs {
+    gap: 8px;
+  }
+
+  .cn-tab {
+    padding: 8px 8px;
+    font-size: 0.7rem;
+  }
+
+  .cn-tab-icon {
+    font-size: 0.9rem;
+  }
+
+  .cn-tab-count {
+    padding: 1px 6px;
+    font-size: 0.65rem;
+  }
+
+  /* Member Cards */
+  .cn-members-grid {
+    gap: 1rem;
+  }
+
+  .cn-member-card {
+    padding: 1.5rem;
+  }
+
+  .cn-member-name {
+    font-size: 1rem;
+  }
+
+  .cn-member-role {
+    font-size: 0.75rem;
+  }
+
+  .cn-btn-connect {
+    padding: 8px 16px;
+    font-size: 0.75rem;
+  }
+
+  /* Benefits Section */
+  .cn-benefits {
+    padding: 2rem 4%;
+  }
+
+  .cn-benefit-card {
+    padding: 1.5rem;
+  }
+
+  .cn-benefit-icon-wrap {
+    width: 50px;
+    height: 50px;
+    font-size: 1.3rem;
+  }
+
+  .cn-benefit-title {
+    font-size: 1.2rem;
+  }
+
+  .cn-benefit-desc {
+    font-size: 0.85rem;
+  }
+
+  /* Features Explorer */
+  .cn-features-explorer {
+    padding: 2rem 4%;
+    text-align: center;
+  }
+
+  .cn-features-title-group h2 {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+
+  .cn-feature-item {
+    grid-template-columns: 40px 1fr 30px;
+    padding: 1rem 0;
+  }
+
+  .cn-feature-number {
+    font-size: 0.7rem;
+  }
+
+  .cn-feature-title {
+    font-size: 0.8rem;
+  }
+
+  .cn-feature-arrow {
+    width: 28px;
+    height: 28px;
+  }
+
+  .cn-feature-arrow i {
+    font-size: 0.7rem;
+  }
+
+  /* Analytics Dashboard */
+  .cn-analytics-dashboard {
+    padding: 2rem 4%;
+  }
+
+  .cn-dash-title h2 {
+    font-size: 1.6rem;
+    text-align: center;
+  }
+  .cn-sub-label{
+    text-align: center;
+  }
+
+  .cn-dash-tabs span {
+    padding: 6px 10px;
+    font-size: 0.7rem;
+  }
+
+  .cn-dash-card {
+    padding: 1.2rem;
+  }
+
+  .cn-card-head h3 {
+    font-size: 1.5rem;
+  }
+
+  .cn-card-head .trend {
+    font-size: 0.7rem;
+    padding: 3px 6px;
+  }
+
+  .prog-item {
+    font-size: 0.8rem;
+  }
+
+  /* Map Section */
+  .cn-map-container {
+    height: 280px;
+  }
+
+  .cn-map-total h2 {
+    font-size: 1.8rem;
+  }
+
+  .cn-map-total .label {
+    font-size: 0.8rem;
+  }
+
+  .cn-time-filters span {
+    font-size: 0.7rem;
+  }
+
+  /* Dashboard Footer */
+  .cn-dashboard-footer {
+    padding: 1.5rem;
+    gap: 1rem;
+  }
+
+  .cn-footer-metric {
+    gap: 10px;
+  }
+
+  .metric-circle {
+    width: 45px;
+    height: 45px;
+    min-width: 45px;
+    min-height: 45px;
+  }
+
+  .metric-circle svg {
+    width: 45px;
+    height: 45px;
+  }
+
+  .metric-circle span {
+    margin-left: 25%;
+    font-size: 0.7rem;
+    margin-bottom: -40%;
+  }
+
+  .metric-info strong {
+    font-size: 0.9rem;
+    margin-left: 10%;
+  }
+
+  .metric-info span {
+    font-size: 0.7rem;
+    margin-left: 10%;
+  }
+
+  /* CTA Section */
+  .cn-cta-section {
+    padding: 2rem 4%;
+  }
+
+  .cn-cta-title {
+    font-size: 1.6rem;
+  }
+
+  .cn-cta-subtitle {
+    font-size: 0.9rem;
+  }
+
+  .cn-btn-cta-primary,
+  .cn-btn-cta-secondary {
+    padding: 12px 20px;
+    font-size: 0.85rem;
+  }
+
+  .cn-cta-trust p {
+    font-size: 0.75rem;
+  }
+
+  .cn-cta-avatars img {
+    width: 28px;
+    height: 28px;
+  }
+
+  /* Footer */
+  .footer-container {
+    padding: 0 15px;
+  }
+
+  .footer-top {
+    padding: 30px 0 20px;
+  }
+
+  .brand-logo span {
+    font-size: 1.2rem;
+  }
+
+  .brand-tagline {
+    font-size: 0.75rem;
+  }
+
+  .footer-links-group h4 {
+    font-size: 0.65rem;
+  }
+
+  .footer-links-group a {
+    font-size: 0.75rem;
+  }
+
+  .app-store-btn {
+    padding: 6px 12px;
+    font-size: 0.7rem;
+  }
+
+  .footer-bottom-content p,
+  .footer-legal-links a {
+    font-size: 0.7rem;
+  }
+
+  /* Fix for any remaining number misalignment */
+  .cn-step-index br {
+    display: none;
+  }
+
+  .cn-simple-step .cn-step-index {
+    margin-bottom: 0.5rem;
+  }
+
+  /* Stats numbers center fix */
+  .cn-stat-item {
+    text-align: center;
+  }
+
+  /* Feature numbers alignment */
+  .cn-feature-number {
+    text-align: left;
+  }
+
+  /* Dashboard numbers */
+  .cn-dash-card h3 {
+    flex-wrap: wrap;
+  }
+
+  /* Bubble chart responsive */
+  .cn-bubble-chart {
+    flex-wrap: wrap;
+    height: auto;
+    gap: 12px;
+  }
+
+  .cn-bubble-chart .bubble {
+    margin: 0 !important;
+  }
+
+  /* Progress items */
+  .cn-card-progress {
+    margin-top: 1rem;
+  }
+
+  /* Map nodes hide on 320px for cleaner look */
+  .cn-map-node {
+    display: none;
+  }
+
+  /* Time filters spacing */
+  .cn-time-filters {
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+/* Extra small devices (320px and below) */
+@media (max-width: 320px) {
+  .cn-hero-title {
+    font-size: 1.8rem;
+  }
+
+  .cn-section-title {
+    font-size: 1.4rem;
+  }
+
+  .cn-step-index {
+    font-size: 2rem;
+  }
+
+  .cn-step-title-box h3 {
+    font-size: 1rem;
+  }
+
+  .cn-member-avatar {
+    width: 60px;
+    height: 60px;
+  }
+
+  .cn-card-head h3 {
+    font-size: 1.3rem;
+  }
+
+  .cn-map-total h2 {
+    font-size: 1.5rem;
+  }
+
+  .cn-cta-title {
+    font-size: 1.4rem;
+  }
+
+  .footer-links-group {
+    min-width: auto;
+  }
+
+  .app-buttons {
+    flex-direction: column;
+  }
+
+  .app-store-btn {
+    justify-content: center;
+  }
+}
+
+/* Add this to your ConnectPage.css file - ONLY moves 5.0 and stars on 320px screens */
+
+@media (max-width: 320px) {
+
+  /* Only target the rating and stars - move them to bottom */
+  .cn-proof-rating {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-top: 8px;
+  }
+
+  /* Keep the 5.0 and stars in a row */
+  .cn-proof-rating span {
+    display: inline-block;
+    margin-top: 10%;
+  }
+
+  .cn-stars {
+    display: inline-flex;
+    gap: 2px;
+    margin-top: 10%;
+  }
+
+  .cn-hero-partners {
+    margin-bottom: 20%;
+  }
+}

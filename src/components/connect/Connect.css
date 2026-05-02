@@ -381,7 +381,7 @@ body {
   }
 
   .cn-hero-subtitle {
-    margin: 0 auto 3rem;
+    margin: 0 auto 1.5rem; /* Reduced from 3rem */
   }
 
   .cn-search-bar {
@@ -470,7 +470,7 @@ body {
 .cn-section-header {
   text-align: center;
   max-width: 650px;
-  margin: 0 auto 4rem;
+  margin: 0 auto 2rem; /* Reduced from 4rem */
 }
 
 .cn-section-tag {
@@ -488,7 +488,7 @@ body {
   font-size: 3rem;
   font-weight: 800;
   color: #0f172a;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem; /* Reduced from 1rem */
   line-height: 1.15;
   text-align: center;
 }
@@ -686,18 +686,39 @@ body {
   margin-top: 3rem;
 }
 
-.cn-benefit-card {
-  background: white;
-  padding: 3rem 2.5rem;
-  border-radius: 24px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  text-align: center;
+.cn-benefit-card-outer {
+  position: relative;
+  transition: all 0.4s ease;
+  height: 100%;
 }
 
-.cn-benefit-card:hover {
+.cn-curved-border-wrapper {
+  padding: 3px;
+  height: 100%;
+  width: 100%;
+  border-radius: 35px;
+  clip-path: url(#smooth-curved-clip);
+  transition: all 0.4s ease;
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.06);
+}
+
+.cn-curved-card-main {
+  background: #ffffff;
+  padding: 3rem 2.5rem;
+  height: 100%;
+  width: 100%;
+  clip-path: inherit;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  border-radius: inherit;
+  text-align: left;
+}
+
+.cn-benefit-card-outer:hover .cn-curved-border-wrapper {
   transform: translateY(-10px);
-  box-shadow: 0 20px 40px rgba(59, 68, 246, 0.1);
+  box-shadow: 0 15px 30px rgba(59, 68, 246, 0.15);
 }
 
 .cn-benefit-icon-wrap {
@@ -708,7 +729,7 @@ body {
   align-items: center;
   justify-content: center;
   font-size: 1.8rem;
-  margin: 0 auto 1.5rem;
+  margin-bottom: 1.5rem;
 }
 
 .cn-benefit-title {
@@ -923,6 +944,10 @@ body {
 
   .cn-cta-title {
     font-size: 2.2rem;
+  }
+
+  .cn-float-stat {
+    display: none !important;
   }
 
   .cn-cta-actions {
@@ -1613,6 +1638,34 @@ body {
   overflow: hidden;
 }
 
+/* Big Map Title */
+.cn-map-big-title {
+  position: absolute;
+  top: 30px;
+  left: 70px;
+  z-index: 10;
+  text-align: left;
+}
+
+.cn-map-big-title h2 {
+  font-size: 2.8rem;
+  font-weight: 800;
+  color: #0f172a;
+  line-height: 1.15;
+  font-family: var(--font-heading);
+}
+
+.cn-map-big-title h2 span {
+  color: #3b44f6;
+}
+
+.cn-map-big-title p {
+  color: #64748b;
+  font-size: 1rem;
+  margin-top: 10px;
+  max-width: 300px;
+}
+
 .cn-map-container {
   position: relative;
   width: 100%;
@@ -1933,7 +1986,7 @@ body {
   }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 1024px) {
   .cn-dash-left {
     flex-direction: column;
     flex: none;
@@ -1965,10 +2018,10 @@ body {
   }
   
   .cn-dash-center {
-    background-position: center 60% !important;
-    background-size: 95% auto !important;
+    background-position: center bottom -10px !important;
+    background-size: 100% auto !important;
     padding: 1.5rem !important;
-    height: 380px !important;
+    height: 420px !important; /* Increased to accommodate content */
     display: block;
     background-repeat: no-repeat !important;
     position: relative;
@@ -1986,39 +2039,61 @@ body {
   }
 
   .cn-map-arches {
+    top: 120px !important; /* Pushed down more */
+    height: calc(100% - 120px) !important;
     overflow: hidden !important;
+  }
+
+  .cn-map-big-title {
+    position: absolute !important;
+    top: 20px !important;
+    left: 0 !important;
+    width: 100% !important;
+    text-align: center !important;
+    z-index: 10;
+    padding: 0 15px;
+  }
+
+  .cn-map-big-title h2 {
+    font-size: 1.8rem !important; /* Slightly larger than before for better readability */
+    margin-bottom: 5px;
+  }
+
+  .cn-map-big-title p {
+    display: none !important;
   }
 
   .cn-map-total {
     position: absolute !important;
-    top: 20px !important;
-    right: 20px !important;
-    left: auto !important;
-    text-align: right !important;
+    top: 110px !important; /* Increased from 70px to prevent overlap with title */
+    left: 0 !important;
+    right: 0 !important;
+    text-align: center !important;
     background: transparent !important;
     padding: 0 !important;
     z-index: 10;
   }
 
   .cn-map-total .label {
-    font-size: 0.8rem !important;
-    color: #94a3b8 !important;
+    font-size: 0.85rem !important;
+    color: #64748b !important;
+    margin-bottom: 0;
   }
 
   .cn-map-total h2 {
-    font-size: 1.8rem !important;
-    margin: 2px 0 !important;
+    font-size: 2.2rem !important; /* Adjusted for better balance */
+    margin: 0 !important;
     color: #0f172a !important;
   }
 
   .cn-time-filters {
-    justify-content: flex-end !important;
+    justify-content: center !important;
     gap: 10px !important;
     margin-top: 5px !important;
   }
 
   .cn-time-filters span {
-    font-size: 0.7rem !important;
+    font-size: 0.75rem !important;
   }
 
   .cn-analytics-dashboard {
@@ -2433,4 +2508,59 @@ body {
     font-size: 2.5rem !important;
     word-wrap: break-word;
   }
+}
+
+/* ====== CTA Floating Stat Bubbles ====== */
+.cn-float-stat {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+  animation: cn-float 6s ease-in-out infinite;
+  z-index: 5;
+  text-align: center;
+  padding: 10px;
+}
+
+.cn-float-stat:nth-child(2) { animation-delay: 0s; width: 100px; height: 100px; }
+.cn-float-stat:nth-child(3) { animation-delay: 1.2s; width: 88px; height: 88px; }
+.cn-float-stat:nth-child(4) { animation-delay: 2.4s; width: 95px; height: 95px; }
+.cn-float-stat:nth-child(5) { animation-delay: 0.6s; width: 105px; height: 105px; }
+.cn-float-stat:nth-child(6) { animation-delay: 1.8s; width: 90px; height: 90px; }
+.cn-float-stat:nth-child(7) { animation-delay: 3s; width: 108px; height: 108px; }
+
+.cn-float-stat-num {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1;
+  letter-spacing: -0.5px;
+}
+
+.cn-float-stat-label {
+  font-size: 0.65rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.8);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-top: 4px;
+}
+
+@keyframes cn-float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-14px); }
+}
+
+.cn-cta-section {
+  position: relative;
+  overflow: hidden;
 }

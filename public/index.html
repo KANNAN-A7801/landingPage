@@ -3,19 +3,169 @@
 
 <head>
   <meta charset="utf-8" />
-  <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+  <link rel="icon" href="%PUBLIC_URL%/favicon.png" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#000000" />
-  <meta name="description" content="JobSeeker - Landing Page" />
-  <title>JobSeeker - Features</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
-    rel="stylesheet">
+  <meta name="theme-color" content="#3b44f6" />
+
+  <!-- Primary SEO Meta Tags -->
+  <title>Find Your Dream Job | Garuda Career – Jobs for Freshers & Professionals</title>
+  <meta name="description" content="Search thousands of job openings across India. Apply to full-time, part-time, remote & government jobs. Upload your resume & get hired today on Garuda Career." />
+  <meta name="keywords" content="job search, find jobs online, jobs near me, job openings 2026, apply for jobs, job vacancies, full time jobs, part time jobs, work from home jobs, remote jobs, fresher jobs, entry level jobs, career opportunities, employment portal, hiring now, Garuda Career" />
+  <meta name="author" content="Garuda Career" />
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  <link rel="canonical" href="https://garudacareer.com/" />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://garudacareer.com/" />
+  <meta property="og:title" content="Find Your Dream Job | Garuda Career – Jobs for Freshers & Professionals" />
+  <meta property="og:description" content="Search thousands of job openings across India. Apply to full-time, part-time, remote & government jobs. Upload your resume & get hired today." />
+  <meta property="og:image" content="%PUBLIC_URL%/logo512.png" />
+  <meta property="og:site_name" content="Garuda Career" />
+  <meta property="og:locale" content="en_IN" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Find Your Dream Job | Garuda Career" />
+  <meta name="twitter:description" content="Search thousands of job openings across India. Apply to full-time, part-time, remote & government jobs." />
+  <meta name="twitter:image" content="%PUBLIC_URL%/logo512.png" />
+
+  <!-- Additional SEO -->
+  <meta name="application-name" content="Garuda Career" />
+  <meta name="apple-mobile-web-app-title" content="Garuda Career" />
+  <meta name="format-detection" content="telephone=no" />
+  <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+  <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+
+  <!-- Preconnect for Performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+
+  <!-- Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+
+  <!-- JSON-LD: Organization Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Garuda Career",
+    "url": "https://garudacareer.com",
+    "logo": "https://garudacareer.com/logo512.png",
+    "description": "Garuda Career is India's trusted job search platform connecting job seekers with top employers. Find full-time, part-time, remote and government jobs across India.",
+    "foundingDate": "2024",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+91-6383612020",
+      "contactType": "customer support",
+      "email": "support@hirenest.com",
+      "areaServed": "IN",
+      "availableLanguage": ["English", "Hindi", "Tamil"]
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Oldpatti Harur (post or Tk)",
+      "addressLocality": "Dharmapuri",
+      "addressRegion": "Tamil Nadu",
+      "postalCode": "636903",
+      "addressCountry": "IN"
+    },
+    "sameAs": [
+      "https://www.linkedin.com/company/garudacareer",
+      "https://www.instagram.com/garudacareer",
+      "https://www.facebook.com/garudacareer",
+      "https://twitter.com/garudacareer"
+    ]
+  }
+  </script>
+
+  <!-- JSON-LD: WebSite Schema with SearchAction (enables Google Sitelinks Search) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Garuda Career",
+    "url": "https://garudacareer.com",
+    "description": "India's trusted employment portal for job seekers and recruiters. Search and apply for jobs online.",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://garudacareer.com/explore?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
+
+  <!-- JSON-LD: FAQPage Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How do I find a job on Garuda Career?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Simply create an account, build your professional profile with skills and experience, then explore thousands of job listings. Our AI-powered matching engine will recommend the best career opportunities based on your profile."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is Garuda Career free for job seekers?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, Garuda Career is completely free for job seekers. You can create a profile, search for jobs, upload your resume, and apply to unlimited job openings at no cost."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What types of jobs are available on Garuda Career?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Garuda Career offers full-time, part-time, remote, hybrid, contract, and government jobs across IT, engineering, finance, healthcare, marketing, and 150+ other categories."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How can freshers find entry-level jobs?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Freshers can use our dedicated filters for entry-level and fresher jobs. Our platform lists walk-in interview opportunities, internships, and graduate programs from top companies hiring in India."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <!-- JSON-LD: LocalBusiness Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Garuda Career",
+    "image": "https://garudacareer.com/logo512.png",
+    "telephone": "+91-6383612020",
+    "email": "support@hirenest.com",
+    "url": "https://garudacareer.com",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Oldpatti Harur (post or Tk)",
+      "addressLocality": "Dharmapuri",
+      "addressRegion": "Tamil Nadu",
+      "postalCode": "636903",
+      "addressCountry": "IN"
+    },
+    "openingHours": "Mo-Fr 09:00-18:00",
+    "priceRange": "Free"
+  }
+  </script>
 </head>
 
 <body>
-  <noscript>You need to enable JavaScript to run this app.</noscript>
+  <noscript>Garuda Career – India's trusted job search platform. Enable JavaScript to search and apply for thousands of job openings, including full-time, remote, and fresher jobs across India.</noscript>
   <div id="root"></div>
 </body>
 

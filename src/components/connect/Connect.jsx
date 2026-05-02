@@ -1,7 +1,14 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Connect.css';
+import SEO from '../SEO/SEO';
 import Footer from '../Footer/Footer';
+import avatarOne from '../../assets/testimonials/cartoon_female_1.png';
+import avatarTwo from '../../assets/testimonials/cartoon_female_2.png';
+import avatarThree from '../../assets/testimonials/cartoon_male_1.png';
+import avatarFour from '../../assets/testimonials/cartoon_male_2.png';
+import avatarFive from '../../assets/testimonials/female_avatar.png';
+import avatarSix from '../../assets/testimonials/male_avatar.png';
 
 const Connect = () => {
 
@@ -199,8 +206,19 @@ const Connect = () => {
 
   return (
     <div className="connect-page-wrapper">
-
-      {/* ====== SECTION 1: Hero Section ====== */}
+      <SEO
+        title="Connect – Build Your Professional Network | Garuda Career"
+        description="Connect with industry peers, mentors, recruiters & entrepreneurs. Access the hidden job market through professional networking. Join 40K+ professionals on Garuda Career."
+        canonical="/connect"
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://garudacareer.com/" },
+            { "@type": "ListItem", "position": 2, "name": "Connect", "item": "https://garudacareer.com/connect" }
+          ]
+        }}
+      />
       <header className="cn-hero" id="connect">
         <div className="cn-hero-content">
           <div className="cn-hero-badge-wrap">
@@ -260,7 +278,7 @@ const Connect = () => {
           <div className="cn-hero-blue-box">
             <div className="cn-blue-grid"></div>
             <img
-              src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&q=80&w=800"
+              src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=800"
               alt="Networking Professionals"
               className="cn-hero-main-img"
             />
@@ -372,7 +390,7 @@ const Connect = () => {
       </section>
 
       {/* ====== SECTION 4: Community Highlights ====== */}
-      <section className="cn-community">
+      {/* <section className="cn-community">
         <div className="cn-section-header">
           <span className="cn-section-tag">Our Community</span>
           <h2 className="cn-section-title">
@@ -383,7 +401,6 @@ const Connect = () => {
           </p>
         </div>
 
-        {/* Category tabs */}
         <div className="cn-category-tabs">
           {networkingCategories.map((cat, idx) => (
             <button
@@ -398,7 +415,6 @@ const Connect = () => {
           ))}
         </div>
 
-        {/* Member cards */}
         <div className="cn-members-grid">
           {currentMembers.map((member, idx) => (
             <div
@@ -434,7 +450,7 @@ const Connect = () => {
             </div>
           ))}
         </div>
-      </section>
+      </section> */}
 
       {/* ====== SECTION 5: Networking Benefits ====== */}
       <section className="cn-benefits">
@@ -449,12 +465,16 @@ const Connect = () => {
         </div>
         <div className="cn-benefits-grid">
           {networkingBenefits.map((b, idx) => (
-            <div key={idx} className="cn-benefit-card" style={{ borderBottom: `6px solid ${b.color}` }}>
-              <div className="cn-benefit-icon-wrap" style={{ background: `${b.color}15`, color: b.color }}>
-                {b.icon}
+            <div key={idx} className="cn-benefit-card-outer">
+              <div className="cn-curved-border-wrapper" style={{ background: b.color }}>
+                <div className="cn-curved-card-main" style={{ background: b.color }}>
+                  <div className="cn-benefit-icon-wrap" style={{ background: 'rgba(255, 255, 255, 0.2)', color: 'white', marginLeft: 0 }}>
+                    {b.icon}
+                  </div>
+                  <h3 className="cn-benefit-title" style={{ color: 'white' }}>{b.title}</h3>
+                  <p className="cn-benefit-desc" style={{ color: 'rgba(255, 255, 255, 0.9)' }}>{b.desc}</p>
+                </div>
               </div>
-              <h3 className="cn-benefit-title">{b.title}</h3>
-              <p className="cn-benefit-desc">{b.desc}</p>
             </div>
           ))}
         </div>
@@ -551,17 +571,32 @@ const Connect = () => {
                 <h3>12,450 <span className="trend up"><i className="fa-solid fa-arrow-up"></i> 12%</span></h3>
                 <span className="sub-text">Compared to last month</span>
               </div>
-              <div className="cn-bubble-chart">
-                <div className="bubble b1"></div>
-                <div className="bubble b2"></div>
-                <div className="bubble b3"></div>
-                <div className="bubble b4"></div>
-                <div className="bubble b5"></div>
+              <div className="cn-bar-chart" style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', height: '80px', marginTop: '20px', marginBottom: '20px', padding: '0 10px' }}>
+                <div style={{ width: '14%', height: '40%', background: '#60a5fa', borderRadius: '6px' }}></div>
+                <div style={{ width: '14%', height: '70%', background: '#3b82f6', borderRadius: '6px' }}></div>
+                <div style={{ width: '14%', height: '100%', background: '#8b5cf6', borderRadius: '6px' }}></div>
+                <div style={{ width: '14%', height: '60%', background: '#ec4899', borderRadius: '6px' }}></div>
+                <div style={{ width: '14%', height: '35%', background: '#f59e0b', borderRadius: '6px' }}></div>
               </div>
-              <div className="cn-card-progress">
-                <div className="prog-item"><span className="dot tech"></span> Tech <span>68%</span></div>
-                <div className="prog-item"><span className="dot design"></span> Design <span>42%</span></div>
-                <div className="prog-item"><span className="dot mgmt"></span> Management <span>35%</span></div>
+              <div className="cn-card-progress-bars" style={{ display: 'flex', flexDirection: 'column', gap: '15px', marginTop: '20px' }}>
+                <div className="bar-item">
+                  <div className="bar-label" style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.85rem', fontWeight: '600', marginBottom: '6px', color: '#0f172a' }}><span>Tech</span><span>68%</span></div>
+                  <div className="bar-bg" style={{ height: '8px', background: '#f1f5f9', borderRadius: '4px', overflow: 'hidden' }}>
+                    <div className="bar-fill" style={{ width: '68%', height: '100%', background: '#3b44f6', borderRadius: '4px' }}></div>
+                  </div>
+                </div>
+                <div className="bar-item">
+                  <div className="bar-label" style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.85rem', fontWeight: '600', marginBottom: '6px', color: '#0f172a' }}><span>Design</span><span>42%</span></div>
+                  <div className="bar-bg" style={{ height: '8px', background: '#f1f5f9', borderRadius: '4px', overflow: 'hidden' }}>
+                    <div className="bar-fill" style={{ width: '42%', height: '100%', background: '#ec4899', borderRadius: '4px' }}></div>
+                  </div>
+                </div>
+                <div className="bar-item">
+                  <div className="bar-label" style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.85rem', fontWeight: '600', marginBottom: '6px', color: '#0f172a' }}><span>Management</span><span>35%</span></div>
+                  <div className="bar-bg" style={{ height: '8px', background: '#f1f5f9', borderRadius: '4px', overflow: 'hidden' }}>
+                    <div className="bar-fill" style={{ width: '35%', height: '100%', background: '#f59e0b', borderRadius: '4px' }}></div>
+                  </div>
+                </div>
               </div>
             </div>
 
@@ -583,8 +618,18 @@ const Connect = () => {
           </div>
 
           {/* Central Map Area */}
-          <div className="cn-dash-center">
-            <div className="cn-map-container">
+          <div className="cn-dash-center" style={{ position: 'relative' }}>
+            
+            <div className="cn-map-big-title">
+              <h2>
+                Discover Your <br /> <span>Global Reach</span>
+              </h2>
+              <p>
+                Connect with professionals worldwide and expand your career opportunities.
+              </p>
+            </div>
+
+            <div className="cn-map-container" style={{ position: 'relative', marginTop: '60px' }}>
               <div className="cn-map-bg"></div>
 
               {/* Connection Arches (SVG) */}
@@ -663,7 +708,35 @@ const Connect = () => {
       {/* ====== SECTION 6: CTA Section ====== */}
       <section className="cn-cta-section">
         <div className="cn-cta-bg-pattern"></div>
-        <div className="cn-cta-content">
+        
+        {/* Floating Stat Bubbles - Left Side */}
+        <div className="cn-float-stat" style={{ top: '12%', left: '6%' }}>
+          <span className="cn-float-stat-num">50K+</span>
+          <span className="cn-float-stat-label">Members</span>
+        </div>
+        <div className="cn-float-stat" style={{ top: '50%', left: '3%' }}>
+          <span className="cn-float-stat-num">98%</span>
+          <span className="cn-float-stat-label">Satisfaction</span>
+        </div>
+        <div className="cn-float-stat" style={{ bottom: '12%', left: '10%' }}>
+          <span className="cn-float-stat-num">4.2M</span>
+          <span className="cn-float-stat-label">Connections</span>
+        </div>
+        {/* Floating Stat Bubbles - Right Side */}
+        <div className="cn-float-stat" style={{ top: '15%', right: '6%' }}>
+          <span className="cn-float-stat-num">120+</span>
+          <span className="cn-float-stat-label">Countries</span>
+        </div>
+        <div className="cn-float-stat" style={{ top: '48%', right: '3%' }}>
+          <span className="cn-float-stat-num">12K</span>
+          <span className="cn-float-stat-label">Jobs Posted</span>
+        </div>
+        <div className="cn-float-stat" style={{ bottom: '12%', right: '9%' }}>
+          <span className="cn-float-stat-num">92%</span>
+          <span className="cn-float-stat-label">Response Rate</span>
+        </div>
+
+        <div className="cn-cta-content" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', textAlign: 'center' }}>
           <h2 className="cn-cta-title">
             Ready to Grow Your <br />
             <span className="cn-cta-highlight">Professional Network?</span>
@@ -683,16 +756,32 @@ const Connect = () => {
           </div>
           <div className="cn-cta-trust">
             <div className="cn-cta-avatars">
-              <img src="https://i.pravatar.cc/60?u=50" alt="User" />
-              <img src="https://i.pravatar.cc/60?u=51" alt="User" />
-              <img src="https://i.pravatar.cc/60?u=52" alt="User" />
-              <img src="https://i.pravatar.cc/60?u=53" alt="User" />
+              <img src={avatarOne} alt="User 1" />
+              <img src={avatarTwo} alt="User 2" />
+              <img src={avatarThree} alt="User 3" />
+              <img src={avatarFour} alt="User 4" />
             </div>
             <p><strong>4,200+</strong> professionals joined this month</p>
           </div>
         </div>
       </section>
       <Footer />
+      
+      {/* Hidden SVG for mathematically perfect smooth curved clipPath */}
+      <svg width="0" height="0" style={{ position: 'absolute', pointerEvents: 'none' }}>
+        <defs>
+          <clipPath id="smooth-curved-clip" clipPathUnits="objectBoundingBox">
+            <path d="M 0,0 
+                     L 0.55,0 
+                     C 0.58,0 0.60,0.02 0.62,0.12 
+                     C 0.64,0.22 0.67,0.24 0.72,0.24 
+                     L 1,0.24 
+                     L 1,1 
+                     L 0,1 
+                     Z" />
+          </clipPath>
+        </defs>
+      </svg>
     </div>
   );
 };

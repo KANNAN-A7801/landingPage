@@ -12,68 +12,188 @@
 }
 
 .ab-tag {
-  display: block;
-  font-size: 2rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.85rem;
+  /* Smaller, more professional tag */
   font-weight: 700;
   color: #3b44f6;
   text-transform: uppercase;
-  letter-spacing: 1px;
-  margin-bottom: 1rem;
+  letter-spacing: 1.5px;
+  margin-bottom: 1.5rem;
+  background: rgba(59, 68, 246, 0.05);
+  padding: 6px 14px;
+  border-radius: 50px;
 }
 
-/* Hero Section */
 .ab-hero {
   padding: 4rem 0 3rem;
   background: #ffffff;
 }
 
-.ab-hero-grid {
+.ab-editorial-header {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 4rem;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 5rem;
+  align-items: center;
+  margin-bottom: 3rem;
+}
+
+.ab-header-left {
+  display: flex;
+  flex-direction: column;
   align-items: flex-start;
-  position: relative;
-  z-index: 10;
-  /* Bring content to the top layer */
 }
 
 .ab-hero-title {
   font-size: 4.5rem;
   font-weight: 900;
-  line-height: 1.1;
+  line-height: 1.05;
   color: #0f172a;
-  margin-bottom: 2rem;
-  letter-spacing: -2px;
-}
-
-.ab-hero-subtitle {
-  font-size: 1.1rem;
-  color: #64748b;
-  line-height: 1.7;
-  max-width: 500px;
-  margin-bottom: 2.5rem;
+  margin-bottom: 1.5rem;
+  letter-spacing: -3px;
 }
 
 .ab-btn-outline {
-  border: 1px solid #e2e8f0;
-  background: white;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
   padding: 14px 28px;
-  border-radius: 50px;
+  background: transparent;
+  color: #0f172a;
+  border: 2px solid #e2e8f0;
+  border-radius: 100px;
+  font-size: 0.95rem;
   font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 0.5rem;
+}
+
+.ab-btn-outline:hover {
+  border-color: #3b44f6;
+  color: #3b44f6;
+  transform: translateX(4px);
+}
+
+.ab-header-right {
+  display: flex;
+  align-items: flex-start;
+}
+
+.ab-hero-subtitle {
+  font-size: 1.05rem;
+  color: #64748b;
+  line-height: 1.8;
+  margin-top: 0;
+}
+
+.ab-hero-visuals {
+  position: relative;
+  z-index: 10;
+  margin-bottom: 4rem;
+  display: none;
+  /* Hidden — card is now part of the header grid */
+}
+
+/* Achievement Stats Card */
+.ab-stats-card {
+  background: #ffffff;
+  border-radius: 28px;
+  padding: 36px 32px 28px;
+  box-shadow: 0 8px 40px rgba(37, 99, 235, 0.1);
+  border: 1px solid rgba(37, 99, 235, 0.07);
+  width: 100%;
+}
+
+.ab-stats-header {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.ab-stats-header h3 {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0 0 6px 0;
+}
+
+.ab-stats-header p {
+  font-size: 0.85rem;
+  color: #94a3b8;
+  margin: 0;
+}
+
+.ab-stats-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-bottom: 22px;
+}
+
+.ab-stat-box {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: #f8fafc;
+  border-radius: 16px;
+  padding: 16px;
+  border: 1px solid #e2e8f0;
+}
+
+.ab-stat-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: #dbeafe;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  color: #2563eb;
+  flex-shrink: 0;
+}
+
+.ab-stat-info h4 {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0 0 2px 0;
+}
+
+.ab-stat-info span {
+  font-size: 0.75rem;
+  color: #64748b;
+  font-weight: 500;
+}
+
+.ab-stats-footer {
+  margin-top: 4px;
+}
+
+.ab-btn-join-now {
+  width: 100%;
+  padding: 16px;
+  background: #0f172a;
+  color: #ffffff;
+  font-size: 0.95rem;
+  font-weight: 700;
+  border: none;
+  border-radius: 14px;
   cursor: pointer;
   display: flex;
   align-items: center;
-  gap: 10px;
-  color: #0f172a;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.3s ease;
+  letter-spacing: 0.3px;
 }
 
-/* Search Card */
-.ab-search-card {
-  background: white;
-  padding: 2.5rem;
-  border-radius: 32px;
-  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.06);
-  border: 1px solid #f1f5f9;
+.ab-btn-join-now:hover {
+  background: #1e293b;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.25);
 }
 
 .ab-search-header {
@@ -109,7 +229,8 @@
 .ab-field label {
   font-size: 0.8rem;
   font-weight: 700;
-  color: #94a3b8;
+  color: #0f172a;
+  /* changed from #94a3b8 to black */
   margin-bottom: 4px;
   display: flex;
   align-items: center;
@@ -127,7 +248,8 @@
 
 .ab-field span {
   font-size: 0.75rem;
-  color: #cbd5e1;
+  color: #0f172a;
+  /* changed from #cbd5e1 to black */
 }
 
 .ab-field-row {
@@ -173,180 +295,105 @@
 
 .ab-pin {
   position: absolute;
-  width: 20px;
-  height: 20px;
+  width: auto;
+  height: auto;
   display: flex;
-  justify-content: center;
+  flex-direction: row;
   align-items: center;
-  transform: translate(-50%, -50%);
-}
-
-/* Stats Card Replacement */
-.ab-stats-card {
-  background: white;
-  padding: 2.5rem;
-  border-radius: 32px;
-  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.08);
-  border: 1px solid #f1f5f9;
-}
-
-.ab-stats-header {
-  margin-bottom: 2rem;
-  text-align: center;
-}
-
-.ab-stats-header h3 {
-  font-size: 1.8rem;
-  font-weight: 800;
-  color: #0f172a;
-}
-
-.ab-stats-header p {
-  color: #64748b;
-  font-size: 0.95rem;
-}
-
-.ab-stats-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1.5rem;
-}
-
-.ab-stat-box {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 1.5rem;
-  background: #f8fafc;
-  border-radius: 20px;
-  transition: transform 0.3s ease;
-}
-
-.ab-stat-box:hover {
-  transform: translateY(-5px);
-  background: #ffffff;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
-}
-
-.ab-stat-icon {
-  width: 40px;
-  height: 40px;
-  background: #3b44f6;
-  color: white;
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.2rem;
-}
-
-.ab-stat-info h4 {
-  font-size: 1.1rem;
-  font-weight: 800;
-  color: #0f172a;
-  margin: 0;
-}
-
-.ab-stat-info span {
-  font-size: 0.8rem;
-  color: #64748b;
-}
-
-.ab-stats-footer {
-  margin-top: 2rem;
-}
-
-.ab-btn-join-now {
-  width: 100%;
-  background: #0f172a;
-  color: white;
-  border: none;
-  padding: 18px;
-  border-radius: 16px;
-  font-weight: 700;
+  justify-content: flex-start;
+  transform: translate(-7px, -50%);
+  /* Offset by half dot width (14px/2) so dot is centered on coordinates */
   cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  transition: background 0.3s ease;
+  z-index: 5;
 }
 
-.ab-btn-join-now:hover {
-  background: #3b44f6;
-}
-
+/* Fix icon inside circle: perfect centering - the dot is the circle */
 .ab-dot {
-  width: 12px;
-  height: 12px;
+  width: 14px;
+  height: 14px;
   background: #3b44f6;
   border-radius: 50%;
   border: 2px solid white;
   box-shadow: 0 0 15px rgba(59, 68, 246, 0.5);
   position: relative;
   z-index: 2;
+  transition: transform 0.2s ease;
+  display: block;
+  /* ensure it's a block for centering */
+  margin: 0 auto;
 }
 
+/* Pulsing ring effect - centered around dot using proper positioning */
 .ab-dot::after {
   content: '';
   position: absolute;
-  top: -4px;
-  left: -4px;
-  right: -4px;
-  bottom: -4px;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  transform: translate(-50%, -50%);
   border-radius: 50%;
   border: 2px solid #3b44f6;
   animation: ab-pulse 2s infinite;
   opacity: 0;
+  pointer-events: none;
 }
 
 @keyframes ab-pulse {
   0% {
-    transform: scale(1);
+    transform: translate(-50%, -50%) scale(1);
     opacity: 0.8;
   }
 
   100% {
-    transform: scale(2.5);
+    transform: translate(-50%, -50%) scale(2.5);
     opacity: 0;
   }
 }
 
+/* Tooltip styles */
 .ab-tooltip {
-  background: #1e293b;
-  color: white;
-  padding: 8px 12px;
-  border-radius: 12px;
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   font-weight: 700;
   display: flex;
   align-items: center;
   gap: 8px;
-  position: absolute;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
+  margin-left: 12px;
   white-space: nowrap;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
   transition: transform 0.3s ease;
+  pointer-events: none;
 }
 
+/* enforce dark color for all text inside tooltip */
+.ab-tooltip span,
+.ab-tooltip .tooltip-text {
+  color: #000000 !important;
+  font-weight: 600;
+}
+
+/* keep icon visible */
 .ab-tooltip i {
-  color: #94a3b8;
+  color: #3b44f6;
   font-size: 1rem;
 }
 
+/* Override any inherited white from parent */
+.ab-tooltip span {
+  color: #000000;
+}
+
+/* For pin hover effect */
 .ab-pin:hover .ab-tooltip {
-  transform: translateX(-50%) translateY(-5px);
+  transform: translateX(5px);
 }
 
 /* Featured Pin Style */
 .pin-featured .ab-tooltip {
-  background: #3b44f6;
+  color: #3b44f6;
 }
 
-.pin-featured .ab-tooltip i {
-  color: white;
+.pin-featured .ab-tooltip span {
+  color: #3b44f6 !important;
 }
 
 .ab-badge {
@@ -377,32 +424,32 @@
 
 /* Specific pin adjustments for better visual distribution */
 .pin-1 {
-  transform: scale(0.9);
+  transform: translate(-7px, -50%) scale(0.9);
 }
 
 .pin-2 {
-  transform: scale(1);
+  transform: translate(-7px, -50%) scale(1);
 }
 
 .pin-3 {
-  transform: scale(1.1);
+  transform: translate(-7px, -50%) scale(1.1);
   z-index: 10;
 }
 
 .pin-4 {
-  transform: scale(0.95);
+  transform: translate(-7px, -50%) scale(0.95);
 }
 
 .pin-5 {
-  transform: scale(1);
+  transform: translate(-7px, -50%) scale(1);
 }
 
 .pin-6 {
-  transform: scale(0.9);
+  transform: translate(-7px, -50%) scale(0.9);
 }
 
 .pin-7 {
-  transform: scale(1);
+  transform: translate(-7px, -50%) scale(1);
 }
 
 /* Partners */
@@ -431,13 +478,26 @@
 .ab-header-row {
   display: flex;
   justify-content: space-between;
-  align-items: flex-end;
+  align-items: flex-start;
+  gap: 4rem; /* Base gap reduced as requested in history, but space-between pushes to ends */
+}
+
+.ab-value-desc {
+  font-size: 1rem;
+  color: #64748b;
+  line-height: 1.7;
+  max-width: 550px;
+  margin: 0;
+  text-align: left;
 }
 
 .ab-test-header h2 {
   font-size: 3.5rem;
   font-weight: 900;
   line-height: 1.1;
+  color: #0f172a;
+  max-width: 600px;
+  margin: 0;
 }
 
 .ab-trust-header {
@@ -454,6 +514,7 @@
   align-items: center;
   gap: 6px;
   justify-content: flex-start;
+  color: #0f172a;
 }
 
 .ab-trust-stars {
@@ -473,7 +534,7 @@
   grid-template-columns: 0.8fr 1.2fr;
   gap: 5rem;
   margin-top: 4rem;
-  align-items: center;
+  align-items: flex-start;
 }
 
 .ab-test-image img {
@@ -487,6 +548,7 @@
   display: flex;
   justify-content: space-between;
   margin-bottom: 2rem;
+  color: #0f172a;
 }
 
 .ab-stars-gold {
@@ -501,19 +563,44 @@
   padding: 4rem;
   border-radius: 40px;
   position: relative;
+  margin-top: 0;
+}
+
+.ab-quote-header {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-bottom: 2rem;
+}
+
+.ab-mission-label {
+  display: block;
+  font-size: 1.3rem;
+  font-weight: 900;
+  color: #3b44f6;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.ab-quote-title {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
 }
 
 .ab-quote-card i {
   font-size: 3rem;
   color: #3b44f6;
   display: block;
-  margin-bottom: 1rem;
 }
 
 .ab-quote-card p {
   font-size: 1.4rem;
   line-height: 1.6;
-  color: #334155;
+  color: #0f172a;
+  /* black/dark text */
   margin-bottom: 2rem;
   font-weight: 500;
 }
@@ -521,11 +608,12 @@
 .ab-quote-user strong {
   display: block;
   font-size: 1.1rem;
+  color: #0f172a;
 }
 
 .ab-quote-user span {
   font-size: 0.9rem;
-  color: #64748b;
+  color: #0f172a;
 }
 
 .ab-test-btns {
@@ -627,7 +715,7 @@
 
 .p-meta span {
   font-size: 0.8rem;
-  color: #64748b;
+  color: #0f172a;
   display: flex;
   align-items: center;
   gap: 4px;
@@ -729,11 +817,13 @@
   font-weight: 800;
   margin-bottom: 0.5rem;
   letter-spacing: -2px;
+  color: white;
 }
 
 .ab-community-footer p {
   font-size: 1.1rem;
   opacity: 0.9;
+  color: white;
 }
 
 /* Bottom / Footer */
@@ -753,6 +843,7 @@
   font-size: 4rem;
   font-weight: 900;
   line-height: 1;
+  color: #0f172a;
 }
 
 .ab-bottom-social {
@@ -760,13 +851,13 @@
   display: flex;
   gap: 15px;
   font-weight: 600;
-  color: #94a3b8;
+  color: #0f172a;
 }
 
 .ab-bottom-right p {
   font-size: 1.2rem;
   line-height: 1.6;
-  color: #64748b;
+  color: #0f172a;
   margin-bottom: 3rem;
 }
 
@@ -807,7 +898,7 @@
 
 .ab-bottom-links a {
   text-decoration: none;
-  color: #64748b;
+  color: #0f172a;
   font-weight: 600;
 }
 
@@ -829,11 +920,12 @@
   font-weight: 900;
   line-height: 1.1;
   margin-bottom: 2rem;
+  color: #0f172a;
 }
 
 .ab-impact-left p {
   font-size: 1.1rem;
-  color: #64748b;
+  color: #0f172a;
   line-height: 1.7;
   margin-bottom: 3rem;
 }
@@ -886,13 +978,12 @@
 
 .impact-card p {
   font-size: 0.95rem;
-  color: #64748b;
+  color: #0f172a;
 }
 
 .impact-card.active {
   background: #3b44f6;
   border-color: #3b44f6;
-  transform: translateX(-20px);
   box-shadow: 0 20px 40px rgba(59, 68, 246, 0.2);
 }
 
@@ -924,7 +1015,7 @@
   }
 
   .ab-pin {
-    transform: translate(-50%, -50%) scale(1.3);
+    transform: translate(-7px, -50%) scale(1.3);
   }
 
   .ab-hero-grid {
@@ -952,6 +1043,11 @@
 
   .ab-test-header h2 {
     font-size: 3.2rem;
+    max-width: 550px;
+  }
+
+  .ab-header-row {
+    gap: 3rem;
   }
 
   .ab-community-footer h2 {
@@ -995,6 +1091,11 @@
 
   .ab-test-header h2 {
     font-size: 2.8rem;
+    max-width: 480px;
+  }
+
+  .ab-header-row {
+    gap: 2rem;
   }
 
   .ab-test-image img {
@@ -1102,13 +1203,13 @@
   }
 
   .ab-pin {
-    transform: scale(0.8);
+    transform: translate(-7px, -50%) scale(0.8);
   }
 
   .ab-tooltip {
-    font-size: 0.7rem;
-    padding: 4px 8px;
+    font-size: 0.75rem;
     white-space: nowrap;
+    margin-left: 8px;
   }
 
   .ab-community-orange {
@@ -1302,12 +1403,12 @@
   }
 
   .ab-pin {
-    transform: scale(0.7);
+    transform: translate(-7px, -50%) scale(0.7);
   }
 
   .ab-tooltip {
-    font-size: 0.65rem;
-    padding: 3px 6px;
+    font-size: 0.7rem;
+    margin-left: 6px;
   }
 
   .ab-badge {
@@ -1461,7 +1562,7 @@
   }
 
   .ab-tag {
-    font-size: 1.5rem;
+    font-size: 0.75rem;
   }
 
   .ab-hero-title {
@@ -1523,6 +1624,12 @@
     font-size: 1.8rem;
   }
 
+  .ab-header-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
   .ab-trust-top {
     font-size: 0.9rem;
   }
@@ -1560,31 +1667,16 @@
   }
 
   .ab-pin {
-    transform: scale(0.6);
+    transform: translate(-7px, -50%) scale(0.6);
   }
 
   .ab-tooltip {
-    font-size: 0.55rem;
-    padding: 2px 5px;
-    bottom: 15px;
+    font-size: 0.6rem;
+    margin-left: 6px;
   }
 
   .ab-badge {
     display: none;
-  }
-
-  .ab-tooltip {
-    position: relative;
-    bottom: auto;
-    left: auto;
-    transform: none;
-    background: transparent;
-    box-shadow: none;
-    color: #0f172a;
-    padding: 0;
-    font-size: 0.55rem;
-    margin-top: 4px;
-    font-weight: 600;
   }
 
   .ab-community-center {
@@ -1601,8 +1693,6 @@
     position: relative;
     transform: none !important;
   }
-
-
 
   .p-img img {
     height: 150px;
@@ -1679,7 +1769,7 @@
   }
 
   .ab-tag {
-    font-size: 1.2rem;
+    font-size: 0.7rem;
   }
 
   .ab-hero {
@@ -1688,6 +1778,7 @@
 
   .ab-hero-title {
     font-size: 1.6rem;
+    text-align: center;
   }
 
   .ab-hero-subtitle {
@@ -1700,6 +1791,20 @@
     justify-content: center;
     padding: 10px 16px;
     font-size: 0.85rem;
+  }
+
+  .ab-editorial-header {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .ab-header-left {
+    align-items: center;
+    text-align: center;
+  }
+
+  .ab-hero-title {
+    text-align: center;
   }
 
   .ab-hero-grid,
@@ -1754,6 +1859,12 @@
     font-size: 1.5rem;
   }
 
+  .ab-header-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
   .ab-trust-top {
     font-size: 0.8rem;
   }
@@ -1792,25 +1903,19 @@
 
   .ab-map-visual {
     height: 220px;
-    margin: 0rem auto 0;
+    margin: 2rem auto 0;
   }
 
   .ab-pin {
-    transform: translate(-50%, -50%) scale(0.5);
+    transform: translate(-7px, -50%) scale(0.5);
   }
 
   .ab-pin .ab-tooltip {
-    display: block;
-    position: relative;
-    bottom: auto;
-    left: auto;
-    transform: none;
     background: transparent;
     box-shadow: none;
     color: #0f172a;
-    padding: 0;
-    font-size: 0.5rem;
-    margin-top: 2px;
+    font-size: 0.55rem;
+    margin-left: 4px;
     font-weight: 600;
   }
 
@@ -1856,7 +1961,7 @@
   }
 
   .ab-community-footer {
-    margin-top: 0rem;
+    margin-top: 1rem;
   }
 
   .ab-community-footer h2 {
@@ -1895,6 +2000,7 @@
 
   .ab-impact-left h2 {
     font-size: 1.4rem;
+    text-align: center;
   }
 
   .ab-impact-left p {
@@ -2063,7 +2169,7 @@ body {
   }
 
   .ab-pin {
-    transform: translate(-50%, -50%) scale(1.5);
+    transform: translate(-7px, -50%) scale(1.5);
   }
 
   .ab-hero-grid {
@@ -2108,7 +2214,7 @@ body {
   }
 
   .ab-pin {
-    transform: translate(-50%, -50%) scale(1.8);
+    transform: translate(-7px, -50%) scale(1.8);
   }
 }
 
@@ -2116,3 +2222,5 @@ body {
   max-width: 100%;
   box-sizing: border-box;
 }
+
+/* End of AboutPage styles */

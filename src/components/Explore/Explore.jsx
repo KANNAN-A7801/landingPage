@@ -1,7 +1,9 @@
 import './Explore.css';
+import SEO from '../SEO/SEO';
 import heroImage from '../../assets/hero-job-search.png';
 import headerImg from '../../assets/HEADER.png';
 import garudaAppImg from '../../assets/garudaapp.png';
+import jobRecImg from '../../assets/Job Recommendation.jpg';
 import Footer from '../Footer/Footer';
 import { FaBell, FaCalendarCheck, FaChartLine, FaUserTie, FaBuilding, FaUsers, FaBriefcase, FaSearch } from 'react-icons/fa';
 const Explore = () => {
@@ -26,6 +28,19 @@ const Explore = () => {
 
     return (
         <div className="explore-container">
+            <SEO
+              title="Explore Jobs – Latest Job Vacancies & Career Opportunities | Garuda Career"
+              description="Browse 50,000+ job vacancies updated daily. Find full-time, part-time, remote & fresher jobs near you. Filter by location, salary & category. Apply instantly on Garuda Career."
+              canonical="/explore"
+              schema={{
+                "@context": "https://schema.org",
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                  { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://garudacareer.com/" },
+                  { "@type": "ListItem", "position": 2, "name": "Explore Jobs", "item": "https://garudacareer.com/explore" }
+                ]
+              }}
+            />
             {/* 1. Hero Section (Full Width Version) */}
             <section className="explore-hero">
                 <div className="hero-main-container">
@@ -38,28 +53,13 @@ const Explore = () => {
                             <div className="search-field">
                                 <label>Select Job type</label>
                                 <div className="field-inner">
-                                    <select className="professional-select">
-                                        <option>All Professions</option>
-                                        <option>Software Engineer</option>
-                                        <option>Data Analyst</option>
-                                        <option>Project Manager</option>
-                                        <option>UX/UI Designer</option>
-                                        <option>Business Consultant</option>
-                                    </select>
-                                    <i className="ri-arrow-down-s-line"></i>
+                                    <input type="text" className="professional-input" placeholder="All Professions" />
                                 </div>
                             </div>
                             <div className="search-field">
                                 <label>Location</label>
                                 <div className="field-inner">
-                                    <select className="professional-select">
-                                        <option>CA, Los Angeles</option>
-                                        <option>NY, New York</option>
-                                        <option>London, UK</option>
-                                        <option>Dubai, UAE</option>
-                                        <option>Singapore</option>
-                                    </select>
-                                    <i className="ri-arrow-down-s-line"></i>
+                                    <input type="text" className="professional-input" placeholder="CA, Los Angeles" />
                                 </div>
                             </div>
                             <button onClick={handleSmartDownload} className="search-btn">Explore Now</button>
@@ -69,7 +69,7 @@ const Explore = () => {
                         </svg>
                     </div>
                     <div className="hero-visual-new">
-                        <img src={headerImg} alt="AI Job Search" className="hero-header-img" />
+                        <img src={headerImg} alt="AI-powered job search platform helping candidates find dream jobs online" className="hero-header-img" />
                     </div>
                 </div>
                 <div className="hero-stats-bar">
@@ -94,6 +94,20 @@ const Explore = () => {
                             <p>Companies</p>
                         </div>
                     </div>
+                    <div className="h-stat-item">
+                        <div className="h-stat-icon green"><FaChartLine /></div>
+                        <div className="h-stat-info">
+                            <h3>150+</h3>
+                            <p>Job Categories</p>
+                        </div>
+                    </div>
+                    <div className="h-stat-item">
+                        <div className="h-stat-icon purple"><FaSearch /></div>
+                        <div className="h-stat-info">
+                            <h3>99%</h3>
+                            <p>Success Rate</p>
+                        </div>
+                    </div>
                 </div>
             </section>
 
@@ -105,32 +119,32 @@ const Explore = () => {
                 <div className="marquee-container">
                     <div className="marquee-content-logos">
                         {/* Ultra-stable Wikimedia Commons URLs */}
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" alt="Google" className="company-logo-img" />
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/7/7b/Meta_Platforms_Inc._logo.svg" alt="Meta" className="company-logo-img" />
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Amazon" className="company-logo-img" />
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/9/96/Microsoft_logo_%282012%29.svg" alt="Microsoft" className="company-logo-img" />
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a6/Logo_NIKE.svg" alt="Nike" className="company-logo-img" />
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/6/69/Airbnb_Logo_B%C3%A9lo.svg" alt="Airbnb" className="company-logo-img" />
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/5/58/Uber_logo_2018.svg" alt="Uber" className="company-logo-img" />
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/b/b9/Slack_Technologies_Logo.svg" alt="Slack" className="company-logo-img" />
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/2/26/Spotify_logo_with_text.svg" alt="Spotify" className="company-logo-img" />
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/7/7b/Zoom_Communications_Logo.svg" alt="Zoom" className="company-logo-img" />
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/b/bd/Tesla_Motors.svg" alt="Tesla" className="company-logo-img" />
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/0/0e/Shopify_logo_2018.svg" alt="Shopify" className="company-logo-img" />
+                        <div className="company-logo-wrapper"><img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" alt="Google" className="company-logo-img" /></div>
+                        <div className="company-logo-wrapper"><img src="https://upload.wikimedia.org/wikipedia/commons/7/7b/Meta_Platforms_Inc._logo.svg" alt="Meta" className="company-logo-img" /></div>
+                        <div className="company-logo-wrapper"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Amazon" className="company-logo-img" /></div>
+                        <div className="company-logo-wrapper"><img src="https://upload.wikimedia.org/wikipedia/commons/9/96/Microsoft_logo_%282012%29.svg" alt="Microsoft" className="company-logo-img" /></div>
+                        <div className="company-logo-wrapper"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a6/Logo_NIKE.svg" alt="Nike" className="company-logo-img" /></div>
+                        <div className="company-logo-wrapper"><img src="https://upload.wikimedia.org/wikipedia/commons/6/69/Airbnb_Logo_B%C3%A9lo.svg" alt="Airbnb" className="company-logo-img" /></div>
+                        <div className="company-logo-wrapper"><img src="https://upload.wikimedia.org/wikipedia/commons/5/58/Uber_logo_2018.svg" alt="Uber" className="company-logo-img" /></div>
+                        <div className="company-logo-wrapper"><img src="https://upload.wikimedia.org/wikipedia/commons/b/b9/Slack_Technologies_Logo.svg" alt="Slack" className="company-logo-img" /></div>
+                        <div className="company-logo-wrapper"><img src="https://upload.wikimedia.org/wikipedia/commons/2/26/Spotify_logo_with_text.svg" alt="Spotify" className="company-logo-img" /></div>
+                        <div className="company-logo-wrapper"><img src="https://upload.wikimedia.org/wikipedia/commons/7/7b/Zoom_Communications_Logo.svg" alt="Zoom" className="company-logo-img" /></div>
+                        <div className="company-logo-wrapper"><img src="https://upload.wikimedia.org/wikipedia/commons/b/bd/Tesla_Motors.svg" alt="Tesla" className="company-logo-img" /></div>
+                        <div className="company-logo-wrapper"><img src="https://upload.wikimedia.org/wikipedia/commons/0/0e/Shopify_logo_2018.svg" alt="Shopify" className="company-logo-img" /></div>
 
                         {/* Duplicate for seamless infinite loop */}
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" alt="Google" className="company-logo-img" />
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/7/7b/Meta_Platforms_Inc._logo.svg" alt="Meta" className="company-logo-img" />
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Amazon" className="company-logo-img" />
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/9/96/Microsoft_logo_%282012%29.svg" alt="Microsoft" className="company-logo-img" />
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a6/Logo_NIKE.svg" alt="Nike" className="company-logo-img" />
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/6/69/Airbnb_Logo_B%C3%A9lo.svg" alt="Airbnb" className="company-logo-img" />
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/5/58/Uber_logo_2018.svg" alt="Uber" className="company-logo-img" />
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/b/b9/Slack_Technologies_Logo.svg" alt="Slack" className="company-logo-img" />
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/2/26/Spotify_logo_with_text.svg" alt="Spotify" className="company-logo-img" />
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/7/7b/Zoom_Communications_Logo.svg" alt="Zoom" className="company-logo-img" />
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/b/bd/Tesla_Motors.svg" alt="Tesla" className="company-logo-img" />
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/0/0e/Shopify_logo_2018.svg" alt="Shopify" className="company-logo-img" />
+                        <div className="company-logo-wrapper"><img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" alt="Google" className="company-logo-img" /></div>
+                        <div className="company-logo-wrapper"><img src="https://upload.wikimedia.org/wikipedia/commons/7/7b/Meta_Platforms_Inc._logo.svg" alt="Meta" className="company-logo-img" /></div>
+                        <div className="company-logo-wrapper"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Amazon" className="company-logo-img" /></div>
+                        <div className="company-logo-wrapper"><img src="https://upload.wikimedia.org/wikipedia/commons/9/96/Microsoft_logo_%282012%29.svg" alt="Microsoft" className="company-logo-img" /></div>
+                        <div className="company-logo-wrapper"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a6/Logo_NIKE.svg" alt="Nike" className="company-logo-img" /></div>
+                        <div className="company-logo-wrapper"><img src="https://upload.wikimedia.org/wikipedia/commons/6/69/Airbnb_Logo_B%C3%A9lo.svg" alt="Airbnb" className="company-logo-img" /></div>
+                        <div className="company-logo-wrapper"><img src="https://upload.wikimedia.org/wikipedia/commons/5/58/Uber_logo_2018.svg" alt="Uber" className="company-logo-img" /></div>
+                        <div className="company-logo-wrapper"><img src="https://upload.wikimedia.org/wikipedia/commons/b/b9/Slack_Technologies_Logo.svg" alt="Slack" className="company-logo-img" /></div>
+                        <div className="company-logo-wrapper"><img src="https://upload.wikimedia.org/wikipedia/commons/2/26/Spotify_logo_with_text.svg" alt="Spotify" className="company-logo-img" /></div>
+                        <div className="company-logo-wrapper"><img src="https://upload.wikimedia.org/wikipedia/commons/7/7b/Zoom_Communications_Logo.svg" alt="Zoom" className="company-logo-img" /></div>
+                        <div className="company-logo-wrapper"><img src="https://upload.wikimedia.org/wikipedia/commons/b/bd/Tesla_Motors.svg" alt="Tesla" className="company-logo-img" /></div>
+                        <div className="company-logo-wrapper"><img src="https://upload.wikimedia.org/wikipedia/commons/0/0e/Shopify_logo_2018.svg" alt="Shopify" className="company-logo-img" /></div>
                     </div>
                 </div>
             </section>
@@ -286,9 +300,10 @@ const Explore = () => {
                     </div>
                     <div className="wcur-image-side">
                         <img
-                            src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&q=80&w=1200&h=800"
-                            alt="Team Success"
+                            src={jobRecImg}
+                            alt="Job Recommendation Features"
                             className="wcur-main-img"
+                            style={{ objectFit: 'cover', width: '100%', height: '100%', background: 'transparent', borderRadius: '20px', boxShadow: '0 20px 40px rgba(0,0,0,0.08)' }}
                         />
                     </div>
                 </div>
@@ -302,6 +317,8 @@ const Explore = () => {
                         <p>
                             Connect with industry giants like Apple, Google, and Meta.
                             The <strong>Garuda App</strong> is your new professional home.
+                            Experience a frictionless job search where your profile actively works for you 24/7.
+                            Get real-time notifications for roles that perfectly match your unique skillset and career ambitions.
                         </p>
                         <div className="qap-store-badges">
                             <img

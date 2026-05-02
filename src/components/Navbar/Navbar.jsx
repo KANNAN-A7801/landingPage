@@ -1,63 +1,80 @@
 import React, { useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import './Navbar.css';
+import logo from '../../assets/garuda-logo.png';
 
 const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [toggle, setToggle] = useState(false);
 
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
-  };
+  const handleGetApp = (e) => {
+    e.preventDefault();
+    const ua = navigator.userAgent || navigator.vendor || window.opera;
 
-  const closeMenu = () => {
-    setIsOpen(false);
+    let url = '#download';
+
+    // iOS (iPhone / iPad / iPod)
+    if (/iPad|iPhone|iPod/.test(ua) && !window.MSStream) {
+      url = 'https://apps.apple.com'; // Replace with your actual App Store link
+    }
+    // Android
+    else if (/android/i.test(ua)) {
+      url = 'https://play.google.com/store'; // Replace with your actual Play Store link
+    }
+    // Windows Desktop or Windows Phone
+    else if (/windows phone/i.test(ua) || /Win/.test(navigator.platform)) {
+      url = 'https://www.microsoft.com/store/apps'; // Replace with your actual MS Store link
+    }
+    // macOS / Linux fallback
+    else {
+      url = '#download';
+    }
+
+    if (url !== '#download') {
+      window.open(url, '_blank', 'noopener,noreferrer');
+    } else {
+      const el = document.getElementById('download');
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
+    }
   };
 
   return (
-    <nav className="navbar">
-      <div className="nav-logo">
-        <i className="ri-briefcase-4-fill"></i> Garuda Career
-      </div>
+    <nav className="navbar-v7">
+      <div className="nav-container-v7">
+        <div className="nav-logo-v7">
+          <Link to="/" className="nav-brand-v7">
+            <img src={logo} alt="Garuda Career Logo" className="nav-logo-img" />
+          </Link>
+        </div>
 
+        <ul className={`nav-links-v7 ${toggle ? 'active' : ''}`}>
+          {[
+            { name: "Home", path: "/" },
+            { name: "Features", path: "/features" },
+            { name: "Explore", path: "/explore" },
+            { name: "Connect", path: "/connect" },
+            { name: "Contact Us", path: "/contactnav" },
+            { name: "About Us", path: "/about" }
+          ].map((item) => (
+            <li key={item.name}>
+              <NavLink
+                to={item.path}
+                className={({ isActive }) => isActive ? "active" : ""}
+                onClick={() => setToggle(false)}
+              >
+                {item.name}
+              </NavLink>
+            </li>
+          ))}
+        </ul>
 
-      <ul className={`nav-links ${isOpen ? 'active' : ''}`}>
-        <li>
-          <NavLink to="/" onClick={closeMenu} className={({ isActive }) => (isActive ? 'active-link' : '')}>
-            Home
-          </NavLink>
-        </li>
-        <li>
-          <NavLink to="/features" onClick={closeMenu} className={({ isActive }) => (isActive ? 'active-link' : '')}>
-            Features
-          </NavLink>
-        </li>
-        <li>
-          <NavLink to="/explore" onClick={closeMenu} className={({ isActive }) => (isActive ? 'active-link' : '')}>
-            Explore
-          </NavLink>
-        </li>
-        <li>
-          <NavLink to="/connect" onClick={closeMenu} className={({ isActive }) => (isActive ? 'active-link' : '')}>
-            Connect
-          </NavLink>
-        </li>
-        <li>
-          <NavLink to="/contactnav" onClick={closeMenu} className={({ isActive }) => (isActive ? 'active-link' : '')}>
-            Contact Us
-          </NavLink>
-        </li>
-        <li>
-          <NavLink to="/about" onClick={closeMenu} className={({ isActive }) => (isActive ? 'active-link' : '')}>
-            About Us
-          </NavLink>
-        </li>
-      </ul>
-      <div className="nav-actions" style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
-        <a href="#download" className="btn-primary" style={{ padding: '10px 24px', textDecoration: 'none', borderRadius: '30px', fontSize: '0.9rem', whiteSpace: 'nowrap' }}>
-          <i className="ri-download-cloud-2-line"></i> Get The Application
-        </a>
-        <div className="mobile-menu-icon" onClick={toggleMenu}>
-          <i className={isOpen ? "ri-close-line" : "ri-menu-line"}></i>
+        <div className="nav-actions-v7">
+          <a href="#download" className="btn-v7-solid" onClick={handleGetApp}>
+            <i className="ri-download-cloud-2-line"></i>
+            <span>Get The Application</span>
+          </a>
+          <div className="mobile-toggle-v7" onClick={() => setToggle(!toggle)}>
+            <i className={toggle ? "ri-close-line" : "ri-menu-line"}></i>
+          </div>
         </div>
       </div>
     </nav>
