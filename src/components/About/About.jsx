@@ -81,30 +81,67 @@ const About = () => {
           <div className="about-hero-left">
             <span className="about-us-label">ABOUT US</span>
             <h1 className="about-hero-heading">
-              Intelligent Hiring.<br />
-              Better Connections.<br />
-              <span className="heading-purple">Stronger Future.</span>
+              Get The Best<br />
+              Career Path Here
             </h1>
             <p className="about-hero-desc">
-              We are Garuda Careers team building a next-generation AI-powered recruitment platform designed to transform
-              how talent connects with opportunity across global markets.
+              Find unbeatable opportunities and save more on your career journey with our expert guidance. Where every professional milestone becomes an unforgettable success.
             </p>
-            <p className="about-hero-desc" style={{ marginTop: '16px' }}>
-              Our platform brings together job seekers, recruiters, and administrators into a unified ecosystem with intelligent
-              tools such as AI-driven resume building, smart job matching, real-time communication, and multilingual support.
-            </p>
-            <button className="discover-more-btn">Discover More →</button>
+            <button className="discover-more-btn">Explore More →</button>
           </div>
 
-          {/* RIGHT COLUMN */}
+          {/* RIGHT COLUMN — Achievements Card */}
           <div className="about-hero-right">
-            <img
-              src={aboutUsImg}
-              alt="About Garuda Careers"
-              className="about-hero-img"
-            />
+            <div className="about-achievements-card">
+              <div className="about-achievements-header">
+                <h3>Our Achievements</h3>
+                <p>Building the future of recruitment</p>
+              </div>
+              <div className="about-achievements-grid">
+                <div className="about-stat-item">
+                  <div className="about-stat-icon">
+                    <JobSeekerCardIcon />
+                  </div>
+                  <div>
+                    <span className="about-stat-num">30k+</span>
+                    <span className="about-stat-label">Active Job Seekers</span>
+                  </div>
+                </div>
+                <div className="about-stat-item">
+                  <div className="about-stat-icon">
+                    <RecruiterCardIcon />
+                  </div>
+                  <div>
+                    <span className="about-stat-num">5k+</span>
+                    <span className="about-stat-label">Partner Companies</span>
+                  </div>
+                </div>
+                <div className="about-stat-item">
+                  <div className="about-stat-icon">
+                    <AdminCardIcon />
+                  </div>
+                  <div>
+                    <span className="about-stat-num">15k</span>
+                    <span className="about-stat-label">Successful Placements</span>
+                  </div>
+                </div>
+                <div className="about-stat-item">
+                  <div className="about-stat-icon">
+                    <GlobalIcon />
+                  </div>
+                  <div>
+                    <span className="about-stat-num">10k</span>
+                    <span className="about-stat-label">Worldwide Users</span>
+                  </div>
+                </div>
+              </div>
+              <button className="about-join-btn">Join Our Community →</button>
+            </div>
           </div>
+
         </div>
+        {/* Map background at bottom */}
+        <div className="about-hero-map-bg"></div>
       </section>
 
       {/* ─────────────── USER TYPE CARDS ─────────────── */}

@@ -125,7 +125,7 @@ const ContactNav = () => {
                         name="message"
                         value={formData.message}
                         onChange={handleChange}
-                        rows="5"
+                        rows="2"
                         placeholder="Tell us more about your inquiry..."
                         required
                       ></textarea>
@@ -147,14 +147,14 @@ const ContactNav = () => {
                       <div className="ct-icon"><i className="fa-solid fa-location-dot"></i></div>
                       <div className="ct-text">
                         <strong>Our Office</strong>
-                        <span>123 Career Blvd, Suite 400<br />Silicon Valley, CA 94025</span>
+                        <span>Oldpatti  Harur(post or Tk ) Dharmapuri (Dt) 636903.</span>
                       </div>
                     </div>
                     <div className="ct-info-item">
                       <div className="ct-icon"><i className="fa-solid fa-phone"></i></div>
                       <div className="ct-text">
                         <strong>Phone Number</strong>
-                        <span>+1 (555) 000-0000</span>
+                        <span> 6383612020</span>
                       </div>
                     </div>
                     <div className="ct-info-item">

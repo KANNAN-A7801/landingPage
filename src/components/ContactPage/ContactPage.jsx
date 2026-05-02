@@ -70,6 +70,18 @@ export default function ContactPage() {
       <section className="map-section">
         <div className="map-container">
           <img src={mapImg} alt="World Map Location" className="map-image" />
+
+          <span className="map-stat" style={{ top: '27%', left: '15%' }}>12k+ Jobs</span>
+          <span className="map-stat" style={{ top: '35%', left: '13%' }}>8.5k+ Hires</span>
+          <span className="map-stat" style={{ top: '30%', left: '28%' }}>6k+ Offers</span>
+          <span className="map-stat" style={{ top: '16%', left: '52%' }}>4.2k+ Teams</span>
+          <span className="map-stat" style={{ top: '25%', left: '47%' }}>15k+ Users</span>
+          <span className="map-stat" style={{ top: '30%', left: '50%' }}>9k+ Companies</span>
+          <span className="map-stat" style={{ top: '30%', left: '56%' }}>7k+ Careers</span>
+          <span className="map-stat" style={{ top: '42%', left: '55%' }}>11k+ Placements</span>
+          <span className="map-stat" style={{ top: '28%', left: '71%' }}>5.5k+ Partners</span>
+          <span className="map-stat" style={{ top: '59%', left: '81%' }}>3k+ Startups</span>
+          <span className="map-stat" style={{ top: '67%', left: '88%' }}>2k+ Remote</span>
         </div>
       </section>
 

@@ -4,6 +4,14 @@ import Navbar from '../Navbar/Navbar';
 import Footer from '../Footer/Footer';
 import worldMap from '../../assets/world image.jpg';
 import ourValueImg from '../../assets/our value image.jpg';
+import av1 from '../../assets/testimonials/cartoon_female_1.png';
+import av2 from '../../assets/testimonials/cartoon_female_2.png';
+import av3 from '../../assets/testimonials/cartoon_male_1.png';
+import av4 from '../../assets/testimonials/cartoon_male_2.png';
+import av5 from '../../assets/testimonials/female_avatar.png';
+import av6 from '../../assets/testimonials/male_avatar.png';
+import av7 from '../../assets/testimonials/cartoon_female_3.png';
+import av8 from '../../assets/testimonials/cartoon_male_3.png';
 
 const AboutPage = () => {
   const partners = [
@@ -43,12 +51,15 @@ const AboutPage = () => {
     <div className="about-page">
       {/* <Navbar /> */}
 
-      {/* Hero Section */}
+      {/* Hero Section - Redesigned to Editorial Style */}
       <section className="ab-hero">
         <div className="ab-container">
-          <div className="ab-hero-grid">
-            <div className="ab-hero-left">
-              <span className="ab-tag">ABOUT US</span>
+          <div className="ab-editorial-header">
+            {/* LEFT: Title + button */}
+            <div className="ab-header-left">
+              <span className="ab-tag">
+                <i className="ri-information-line"></i> ABOUT US
+              </span>
               <h1 className="ab-hero-title">Get The Best <br /> Career Path Here</h1>
               <p className="ab-hero-subtitle">
                 Find unbeatable opportunities and save more on your career journey with our expert guidance.
@@ -57,7 +68,8 @@ const AboutPage = () => {
               <button className="ab-btn-outline">Explore More <i className="ri-arrow-right-line"></i></button>
             </div>
 
-            <div className="ab-hero-right">
+            {/* RIGHT: Achievements Card */}
+            <div className="ab-header-right">
               <div className="ab-stats-card">
                 <div className="ab-stats-header">
                   <h3>Our Achievements</h3>
@@ -93,7 +105,7 @@ const AboutPage = () => {
                     <div className="ab-stat-icon"><i className="ri-global-line"></i></div>
                     <div className="ab-stat-info">
                       <h4>10k</h4>
-                      <span>worldwide users</span>
+                      <span>Worldwide Users</span>
                     </div>
                   </div>
                 </div>
@@ -189,18 +201,9 @@ const AboutPage = () => {
             <span className="ab-tag">Our Value</span>
             <div className="ab-header-row">
               <h2>Why Job Seekers <br /> Choose Garuda</h2>
-              <div className="ab-trust-header">
-                <div className="ab-trust-top">
-                  <i className="ri-medal-line"></i> Excellence
-                </div>
-                <div className="ab-trust-stars">
-                  <h3>Certified</h3>
-                  <div className="ab-stars-row">
-                    {[1, 2, 3, 4, 5].map(s => <i key={s} className="ri-checkbox-circle-fill"></i>)}
-                  </div>
-                </div>
-                <p>Verified by 500+ Industry Experts</p>
-              </div>
+              <p className="ab-value-desc">
+                We combine cutting-edge AI technology with a human-first approach to help professionals at every stage of their career. From smart job matching to expert mentorship, Garuda Career is built to give you the edge you deserve.
+              </p>
             </div>
           </div>
 
@@ -276,14 +279,14 @@ const AboutPage = () => {
       <section className="ab-community">
         <div className="ab-community-orange">
           {/* Floating Avatars */}
-          <img className="av av-1" src="https://i.pravatar.cc/150?u=1" alt="user" />
-          <img className="av av-2" src="https://i.pravatar.cc/150?u=2" alt="user" />
-          <img className="av av-3" src="https://i.pravatar.cc/150?u=3" alt="user" />
-          <img className="av av-4" src="https://i.pravatar.cc/150?u=4" alt="user" />
-          <img className="av av-5" src="https://i.pravatar.cc/150?u=5" alt="user" />
-          <img className="av av-6" src="https://i.pravatar.cc/150?u=6" alt="user" />
-          <img className="av av-7" src="https://i.pravatar.cc/150?u=7" alt="user" />
-          <img className="av av-8" src="https://i.pravatar.cc/150?u=8" alt="user" />
+          <img className="av av-1" src={av1} alt="user" />
+          <img className="av av-2" src={av2} alt="user" />
+          <img className="av av-3" src={av3} alt="user" />
+          <img className="av av-4" src={av4} alt="user" />
+          <img className="av av-5" src={av5} alt="user" />
+          <img className="av av-6" src={av6} alt="user" />
+          <img className="av av-7" src={av7} alt="user" />
+          <img className="av av-8" src={av8} alt="user" />
 
           <div className="ab-community-center">
             <div className="ab-polaroid p-left">

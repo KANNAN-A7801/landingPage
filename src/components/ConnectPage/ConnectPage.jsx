@@ -374,7 +374,7 @@ const ConnectPage = () => {
       </section>
 
       {/* ====== SECTION 4: Community Highlights ====== */}
-      <section className="cn-community">
+      {/* <section className="cn-community">
         <div className="cn-section-header">
           <span className="cn-section-tag">Our Community</span>
           <h2 className="cn-section-title">
@@ -385,7 +385,6 @@ const ConnectPage = () => {
           </p>
         </div>
 
-        {/* Category tabs */}
         <div className="cn-category-tabs">
           {networkingCategories.map((cat, idx) => (
             <button
@@ -400,7 +399,6 @@ const ConnectPage = () => {
           ))}
         </div>
 
-        {/* Member cards */}
         <div className="cn-members-grid">
           {currentMembers.map((member, idx) => (
             <div
@@ -436,7 +434,7 @@ const ConnectPage = () => {
             </div>
           ))}
         </div>
-      </section>
+      </section> */}
 
       {/* ====== SECTION 5: Networking Benefits ====== */}
       <section className="cn-benefits">

@@ -1,11 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './Home.css';
-import phone1 from '../../assets/phone1.png';
+import phone1 from '../../assets/phone4.png';
 import phone2 from '../../assets/phone2.png';
 import phone3 from '../../assets/phone3.png';
-import buildProfile from '../../assets/Create & Build Profile.jpg';
 import ContactPage from '../ContactPage/ContactPage';
 import Footer from '../Footer/Footer';
+import avatarOne from '../../assets/testimonials/cartoon_female_1.png';
+import avatarTwo from '../../assets/testimonials/cartoon_female_2.png';
+import avatarThree from '../../assets/testimonials/cartoon_male_1.png';
+import avatarFour from '../../assets/testimonials/cartoon_male_2.png';
 
 function Home() {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -22,6 +25,25 @@ function Home() {
   const goToSlide = (index) => {
     setCurrentSlide(index);
   };
+
+  useEffect(() => {
+    const handleMouseMove = (e) => {
+      const grid = document.querySelector('.features-grid');
+      if (grid) {
+        const cards = grid.querySelectorAll('.feature-card-new');
+        cards.forEach(card => {
+          const rect = card.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+          card.style.setProperty('--x', `${x}px`);
+          card.style.setProperty('--y', `${y}px`);
+        });
+      }
+    };
+
+    window.addEventListener('mousemove', handleMouseMove);
+    return () => window.removeEventListener('mousemove', handleMouseMove);
+  }, []);
 
   const AnimatedNumber = ({ value, duration = 2000 }) => {
     const [count, setCount] = React.useState(1);
@@ -56,7 +78,7 @@ function Home() {
   const handleSmartDownload = (e) => {
     if (e) e.preventDefault();
     const userAgent = navigator.userAgent || navigator.vendor || window.opera;
-    
+
     let targetUrl = "https://apps.microsoft.com/home"; // Default Desktop
 
     if (/android/i.test(userAgent)) {
@@ -64,7 +86,7 @@ function Home() {
     } else if (/iPad|iPhone|iPod/.test(userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1)) {
       targetUrl = "https://www.apple.com/app-store/";
     }
-    
+
     window.location.href = targetUrl;
   };
 
@@ -75,24 +97,24 @@ function Home() {
         <div className="hero-content-top">
           {/* Float Elements moved here for alignment with title */}
           <div className="social-proof-float">
-            <h3>1M+</h3>
+            <h3>5k+</h3>
             <p>Active Users</p>
             <div className="avatar-group">
-              <img src="https://i.pravatar.cc/150?u=1" alt="A1" className="avatar" />
-              <img src="https://i.pravatar.cc/150?u=2" alt="A2" className="avatar" />
-              <img src="https://i.pravatar.cc/150?u=3" alt="A3" className="avatar" />
-              <img src="https://i.pravatar.cc/150?u=4" alt="A4" className="avatar" />
+              <img src={avatarOne} alt="A1" className="avatar" />
+              <img src={avatarTwo} alt="A2" className="avatar" />
+              <img src={avatarThree} alt="A3" className="avatar" />
+              <img src={avatarFour} alt="A4" className="avatar" />
               <div className="avatar-plus">+</div>
             </div>
           </div>
 
           <div className="trust-badge-float">
-            <div className="badge-circle">
-               <div className="badge-inner">
-                  <i className="ri-award-fill"></i>
-                  <span>BEST APPLICATION</span>
-                  <small>100% Quality</small>
-               </div>
+            <div style={{ textAlign: 'left' }}>
+              <h3 style={{ fontSize: '2rem', fontWeight: '800', color: '#111827', marginBottom: '4px' }}>10k+</h3>
+              <p style={{ color: '#6b7280', fontSize: '1rem', marginBottom: '1rem' }}>Top Companies</p>
+              <div style={{ display: 'flex', color: '#fbbf24', fontSize: '1.5rem', letterSpacing: '2px' }}>
+                ★★★★★
+              </div>
             </div>
           </div>
 
@@ -127,7 +149,7 @@ function Home() {
         <div className="dark-grid">
           <div className="cta-left">
             <h2 className="cta-title">
-              Download <span className="yellow">Our Garuda Career</span> <br />
+              Download <span style={{ color: '#3b44f6' }}>Our Garuda Career</span> <br />
               Mobile App Now
             </h2>
             <p style={{ color: '#94a3b8', margin: '1.5rem 0', minWidth: '400px', fontSize: '0.95rem', lineHeight: '1.6' }}>
@@ -156,19 +178,19 @@ function Home() {
               background: '#2d2d35',
               padding: '1.5rem',
               borderRadius: '20px',
-              width: '280px',
+              width: '240px',
               position: 'relative',
               overflow: 'hidden',
               boxShadow: '0 15px 30px rgba(0,0,0,0.3)'
             }}>
               <div className="card-top" style={{ textAlign: 'left', marginBottom: '1.5rem' }}>
-                <h3 style={{ color: 'white', fontSize: '1.5rem', fontWeight: '700', marginBottom: '0.2rem' }}>For iOS</h3>
-                <p style={{ color: '#94a3b8', fontSize: '0.9rem' }}>iOS 15.6+</p>
+                <h3 style={{ color: 'white', fontSize: '1.3rem', fontWeight: '100', marginBottom: '0.2rem' }}>For iOS download</h3>
+                <p style={{ color: '#94a3b8', fontSize: '0.9rem' }}>iOS 15.6+ </p>
               </div>
 
-              <button 
+              <button
                 onClick={() => window.open("https://www.apple.com/app-store/", "_blank")}
-                className="btn-download" 
+                className="btn-download"
                 style={{
                   background: '#3b44f6',
                   color: 'white',
@@ -177,15 +199,16 @@ function Home() {
                   borderRadius: '10px',
                   fontWeight: '600',
                   fontSize: '0.85rem',
-                  marginBottom: '2.5rem',
-                  cursor: 'pointer'
+                  marginBottom: '2rem',
+                  cursor: 'pointer',
+                  width: '100%'
                 }}
               >
                 Download App
               </button>
 
-              <div className="card-bottom" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end' }}>
-                <div className="rating-mini" style={{ background: 'rgba(255,255,255,0.05)', padding: '0.75rem', borderRadius: '12px' }}>
+              <div className="card-bottom" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                <div className="rating-mini" style={{ background: 'rgba(255,255,255,0.05)', padding: '0.75rem', borderRadius: '12px', width: '60%' }}>
                   <div style={{ color: '#fbbf24', fontSize: '1rem', marginBottom: '0.1rem' }}>★★★★★</div>
                   <div style={{ color: 'white', fontWeight: '700', fontSize: '1.2rem' }}>4.9/5</div>
                 </div>
@@ -197,11 +220,9 @@ function Home() {
                   borderRadius: '50%',
                   display: 'flex',
                   alignItems: 'center',
-                  justifyContent: 'center',
-                  marginRight: '-0.5rem',
-                  marginBottom: '-0.5rem'
+                  justifyContent: 'center'
                 }}>
-                  <svg width="32" height="32" viewBox="0 0 384 512" fill="white"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z" /></svg>
+                  <svg width="35" height="35" viewBox="0 0 384 512" fill="white"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z" /></svg>
                 </div>
               </div>
             </div>
@@ -211,19 +232,19 @@ function Home() {
               background: '#2d2d35',
               padding: '1.5rem',
               borderRadius: '20px',
-              width: '280px',
+              width: '240px',
               position: 'relative',
               overflow: 'hidden',
               boxShadow: '0 15px 30px rgba(0,0,0,0.3)'
             }}>
               <div className="card-top" style={{ textAlign: 'left', marginBottom: '1.5rem' }}>
-                <h3 style={{ color: 'white', fontSize: '1.5rem', fontWeight: '700', marginBottom: '0.2rem' }}>For Android</h3>
+                <h3 style={{ color: 'white', fontSize: '1.1rem', fontWeight: '100', marginBottom: '0.2rem' }}>For Android download</h3>
                 <p style={{ color: '#94a3b8', fontSize: '0.9rem' }}>Android 8.0+</p>
               </div>
 
-              <button 
+              <button
                 onClick={() => window.open("https://play.google.com/store/apps", "_blank")}
-                className="btn-download" 
+                className="btn-download"
                 style={{
                   background: '#3b44f6',
                   color: 'white',
@@ -232,15 +253,16 @@ function Home() {
                   borderRadius: '10px',
                   fontWeight: '600',
                   fontSize: '0.85rem',
-                  marginBottom: '2.5rem',
-                  cursor: 'pointer'
+                  marginBottom: '2rem',
+                  cursor: 'pointer',
+                  width: '100%'
                 }}
               >
                 Download App
               </button>
 
-              <div className="card-bottom" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end' }}>
-                <div className="rating-mini" style={{ background: 'rgba(255,255,255,0.05)', padding: '0.75rem', borderRadius: '12px' }}>
+              <div className="card-bottom" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                <div className="rating-mini" style={{ background: 'rgba(255,255,255,0.05)', padding: '0.75rem', borderRadius: '12px', width: '60% ' }}>
                   <div style={{ color: '#fbbf24', fontSize: '1rem', marginBottom: '0.1rem' }}>★★★★★</div>
                   <div style={{ color: 'white', fontWeight: '700', fontSize: '1.1rem' }}>4.9/5</div>
                 </div>
@@ -252,11 +274,9 @@ function Home() {
                   borderRadius: '50%',
                   display: 'flex',
                   alignItems: 'center',
-                  justifyContent: 'center',
-                  marginRight: '-0.5rem',
-                  marginBottom: '-0.5rem'
+                  justifyContent: 'center'
                 }}>
-                  <svg width="32" height="32" viewBox="0 0 576 512" fill="white"><path d="M420.55,301.93a24,24,0,1,1,24-24,24,24,0,0,1-24,24m-265.1,0a24,24,0,1,1,24-24,24,24,0,0,1-24,24m273.7-144.48,47.94-83a10,10,0,1,0-17.27-10l-48.5,83.93a242.13,242.13,0,0,0-246.64,0l-48.5-83.93a10,10,0,1,0-17.27,10l47.94,83A240.79,240.79,0,0,0,64,316.62H512a240.79,240.79,0,0,0-52.85-159.17" /></svg>
+                  <svg width="35" height="35" viewBox="0 0 576 512" fill="white"><path d="M420.55,301.93a24,24,0,1,1,24-24,24,24,0,0,1-24,24m-265.1,0a24,24,0,1,1,24-24,24,24,0,0,1-24,24m273.7-144.48,47.94-83a10,10,0,1,0-17.27-10l-48.5,83.93a242.13,242.13,0,0,0-246.64,0l-48.5-83.93a10,10,0,1,0-17.27,10l47.94,83A240.79,240.79,0,0,0,64,316.62H512a240.79,240.79,0,0,0-52.85-159.17" /></svg>
                 </div>
               </div>
             </div>
@@ -267,38 +287,39 @@ function Home() {
       {/* Quick Steps Section */}
       <section className="steps-section">
         <div className="steps-left">
-          <h4 style={{ color: '#3b44f6', fontWeight: '700', fontSize: '2rem', marginBottom: '1rem' }}>How it Works</h4>
-          <h2>Quick <span className="blue-text">Steps</span> To <br /> Getting A Job</h2>
-          <p style={{ color: '#64748b', fontSize: '1rem', lineHeight: '1.6', maxWidth: '450px' }}>
-            A simple 3-step process to help you find and apply for your dream career without any hassle.
+          <h4 style={{ color: '#3b44f6', fontWeight: '700', fontSize: '1.2rem', marginBottom: '0.8rem' }}>How it Works</h4>
+          <h2 style={{ fontSize: '4rem', fontWeight: '800', lineHeight: '1.1' }}>Quick <span className="blue-text">Steps</span> To <br /> Getting A Job</h2>
+          <p style={{ color: '#64748b', fontSize: '1.15rem', lineHeight: '1.7', maxWidth: '500px', marginTop: '1.5rem' }}>
+            A simple 3-step process to help you find and apply for your dream career without any hassle. <br /><br />
+            Whether you are looking for remote opportunities or a corporate role, our platform streamlines your application journey. Connect with top recruiters and stand out from the crowd effortlessly.
           </p>
         </div>
         <div className="steps-list">
           <div className="step-card">
-            <div className="step-icon icon-pink">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+            <div className="step-icon" style={{ background: '#14b8a6' }}>
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><polyline points="17 11 19 13 23 9"></polyline></svg>
             </div>
             <div className="step-info">
               <h3>Create Account</h3>
-              <p>Sign up in seconds and start your journey with a personalized experience.</p>
+              <p>Sign up in seconds and start your journey with a personalized experience. Join thousands of professionals discovering top-tier opportunities every single day.</p>
             </div>
           </div>
           <div className="step-card">
-            <div className="step-icon icon-blue">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><line x1="10" y1="9" x2="8" y2="9"></line></svg>
+            <div className="step-icon" style={{ background: '#a855f7' }}>
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
             </div>
             <div className="step-info">
               <h3>Completed Your Profile</h3>
-              <p>Add your skills and experience to get the most relevant job matches.</p>
+              <p>Add your skills and experience to get the most relevant job matches. Highlight your unique achievements to stand out to global recruiters instantly.</p>
             </div>
           </div>
           <div className="step-card">
-            <div className="step-icon icon-yellow">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            <div className="step-icon" style={{ background: '#ef4444' }}>
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
             </div>
             <div className="step-info">
               <h3>Finding Jobs</h3>
-              <p>Explore thousands of listings and apply to the ones that fit you best.</p>
+              <p>Explore thousands of listings and apply to the ones that fit you best. Use our smart AI matching to secure your dream role faster and easier.</p>
             </div>
           </div>
         </div>
@@ -308,18 +329,25 @@ function Home() {
 
       {/* Start Your Job Search Today Section */}
       <section className="search-today-section">
-        <div className="search-today-header">
-          <h4 style={{ color: '#3b44f6', fontWeight: '700', fontSize: '2rem', marginBottom: '1rem' }}>About Us</h4>
-          <h2>Start Your <br className="mobile-break" /><span style={{ color: '#3b44f6' }}>Job Search</span> Today</h2>
+        <div className="search-today-top">
+          <div className="search-today-header" style={{ textAlign: 'left' }}>
+            <h4 style={{ color: '#3b44f6', fontWeight: '700', fontSize: '1.2rem', marginBottom: '0.8rem' }}>About Us</h4>
+            <h2 style={{ textAlign: 'left' }}>Start Your <br className="mobile-break" /><span style={{ color: '#3b44f6' }}>Job Search</span> Today</h2>
+          </div>
+          <div className="search-today-desc">
+            <p style={{ color: '#64748b', fontSize: '1.1rem', lineHeight: '1.8', maxWidth: '500px' }}>
+              We are on a mission to revolutionize how talented individuals discover and connect with their dream careers. Our platform leverages cutting-edge
+            </p>
+          </div>
         </div>
         <div className="search-visual">
-          <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Professional Workspace" className="main-search-img" />
+          <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Team Collaboration" className="main-search-img" />
           <div className="vision-mission-cards">
             <div className="vm-card card-blue">
               <h3>Our Vision</h3>
               <p>To empower every individual with the tools and opportunities to build a fulfilling and successful career path.</p>
             </div>
-            <div className="vm-card card-pink">
+            <div className="vm-card card-orange">
               <h3>Our Mission</h3>
               <p>Connecting talent with innovation by bridging the gap between ambitious job seekers and top-tier global companies.</p>
             </div>
@@ -335,14 +363,21 @@ function Home() {
 
       {/* Trust Our Expertise Section */}
       <section className="expertise-section">
-        <div className="expertise-header">
-          <h4 style={{ color: '#3b44f6', fontWeight: '700', fontSize: '2rem', marginBottom: '1rem' }}>What We Offer</h4>
-          <h2>Trust Our <span style={{ color: '#3b44f6' }}>Expertise</span></h2>
+        <div className="expertise-top">
+          <div className="expertise-header" style={{ textAlign: 'left' }}>
+            <h4 style={{ color: '#3b44f6', fontWeight: '700', fontSize: '1.2rem', marginBottom: '0.8rem' }}>What We Offer</h4>
+            <h2 style={{ textAlign: 'left' }}>Trust Our <span style={{ color: '#3b44f6' }}>Expertise</span></h2>
+          </div>
+          <div className="expertise-desc">
+            <p style={{ color: '#64748b', fontSize: '1.05rem', lineHeight: '1.8', maxWidth: '480px' }}>
+              Our expertise lies in understanding the modern job market. We combine intelligent technology with human insight to offer tailored career solutions that truly make a difference.
+            </p>
+          </div>
         </div>
         <div className="expertise-grid">
           <div className="expertise-card">
             <div className="expertise-img-wrapper">
-              <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Job Recommendation" className="expertise-img" />
+              <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Job Recommendation" className="expertise-img" />
             </div>
             <h3>Job Recommendation</h3>
             <p>Get personalized job suggestions based on your profile, search history, and career preferences, powered by our advanced AI matching engine.</p>
@@ -350,7 +385,7 @@ function Home() {
           </div>
           <div className="expertise-card">
             <div className="expertise-img-wrapper">
-              <img src={buildProfile} alt="Profile Building" className="expertise-img" />
+              <img src="https://images.unsplash.com/photo-1586281380349-632531db7ed4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Profile Building" className="expertise-img" />
             </div>
             <h3>Create & Build Profile</h3>
             <p>Build a professional profile that stands out to recruiters. Showcase your achievements, skills, and portfolio in a modern, interactive way.</p>
@@ -361,37 +396,72 @@ function Home() {
 
       {/* Most Recent Jobs Section - Localized for India */}
       <section className="jobs-section">
-        <div className="jobs-header">
-          <h4 style={{ color: '#3b44f6', fontWeight: '700', fontSize: '2rem', marginBottom: '1rem' }}>Latest Jobs</h4>
-          <h2 style={{ fontSize: '3rem', fontWeight: '800', fontFamily: 'var(--font-heading)' }}>Most <span style={{ color: '#3b44f6' }}>Recent Jobs</span></h2>
+        <div className="jobs-top">
+          <div className="jobs-header" style={{ textAlign: 'left' }}>
+            <h4 style={{ color: '#3b44f6', fontWeight: '700', fontSize: '1.2rem', marginBottom: '0.8rem' }}>Latest Jobs</h4>
+            <h2 style={{ fontSize: '3rem', fontWeight: '800', fontFamily: 'var(--font-heading)', textAlign: 'left' }}>Most <span style={{ color: '#3b44f6' }}>Recent Jobs</span></h2>
+          </div>
+          <div className="jobs-desc">
+            <p style={{ color: '#64748b', fontSize: '1.05rem', lineHeight: '1.8', maxWidth: '480px' }}>
+              Explore the latest opportunities from top companies across India. We curate these listings daily to ensure you have access to the best career paths available today.
+            </p>
+          </div>
         </div>
 
         <div className="jobs-grid">
           {[
-            { title: "Marketing Manager", company: "Hindustan Unilever", logo: "H", location: "Mumbai, India", salary: "₹18L - ₹25L", type: "Full Time" },
-            { title: "Sales Director", company: "Reliance Industries", logo: "R", location: "Mumbai, India", salary: "₹25L - ₹40L", type: "Full Time" },
-            { title: "Human Resources Lead", company: "Tata Motors", logo: "T", location: "Pune, India", salary: "₹15L - ₹22L", type: "Hybrid" },
-            { title: "Financial Analyst", company: "HDFC Bank", logo: "H", location: "Mumbai, India", salary: "₹12L - ₹18L", type: "Full Time" },
-            { title: "Content Strategist", company: "Zomato", logo: "Z", location: "Gurgaon, India", salary: "₹10L - ₹15L", type: "Remote" },
-            { title: "Operations Manager", company: "Flipkart", logo: "F", location: "Bangalore, India", salary: "₹16L - ₹24L", type: "Full Time" }
+            { title: "Marketing Manager", company: "Hindustan Unilever", icon: "fa-bullhorn", location: "Mumbai, India", salary: "₹18L - ₹25L", type: "Full Time", desc: "Lead regional marketing campaigns and drive brand awareness through innovative digital strategies." },
+            { title: "Sales Director", company: "Reliance Industries", icon: "fa-handshake", location: "Mumbai, India", salary: "₹25L - ₹40L", type: "Full Time", desc: "Oversee national sales operations and build strategic partnerships with key enterprise clients." },
+            { title: "Human Resources Lead", company: "Tata Motors", icon: "fa-users-gear", location: "Pune, India", salary: "₹15L - ₹22L", type: "Hybrid", desc: "Manage end-to-end talent acquisition and implement employee engagement programs across multiple plants." },
+            { title: "Financial Analyst", company: "HDFC Bank", icon: "fa-file-invoice-dollar", location: "Mumbai, India", salary: "₹12L - ₹18L", type: "Full Time", desc: "Perform detailed financial modeling and provide actionable insights for investment banking divisions." },
+            { title: "Content Strategist", company: "Zomato", icon: "fa-pen-nib", location: "Gurgaon, India", salary: "₹10L - ₹15L", type: "Remote", desc: "Create compelling brand stories and manage cross-platform content delivery for food tech ecosystems." },
+            { title: "Operations Manager", company: "Flipkart", icon: "fa-gears", location: "Bangalore, India", salary: "₹16L - ₹24L", type: "Full Time", desc: "Optimize supply chain logistics and improve delivery efficiency across south Indian fulfillment centers." }
           ].map((job, idx) => (
-            <div key={idx} className="job-card">
-              <div className="job-card-top">
-                <div className="company-logo">{job.logo}</div>
-                <div className="job-tags">
-                  <span className="tag tag-blue">{job.type}</span>
-                  <span className="tag tag-gray">Hot</span>
+            <div key={idx} className="job-card-curved">
+              {/* Outer Border Layer */}
+              <div className="curved-card-border-wrapper">
+                <div className="curved-card-main">
+                  {/* Vertically Stacked Info in shoulder area */}
+                  <div className="curved-info-stack">
+                    <div className="curved-company-row-top">
+                      <div className="curved-company-logo">
+                        <i className={`fa-solid ${job.icon}`}></i>
+                      </div>
+                      <span className="comp-name-top">{job.company}</span>
+                    </div>
+
+                    <div className="curved-details-stack">
+                      <h3 className="curved-job-title-top">{job.title}</h3>
+                      <div className="curved-job-meta-top">
+                        <span><i className="fa-solid fa-location-dot"></i> {job.location}</span>
+                        <span className="sep">•</span>
+                        <span>{job.type}</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <p className="curved-job-description">
+                    {job.desc}
+                  </p>
+
+                  <div className="curved-card-footer">
+                    <div className="curved-status-badge">
+                      <span className="status-dot-pulse"></span>
+                      Active recruiting
+                    </div>
+                    <div className="curved-salary-stat">
+                      <span className="salary-label">Starting at</span>
+                      <span className="salary-val">{job.salary}</span>
+                    </div>
+                  </div>
                 </div>
               </div>
-              <h3>{job.title}</h3>
-              <div className="job-meta">
-                <span><i className="fa-solid fa-location-dot" style={{ color: '#3b44f6' }}></i> {job.location}</span>
-                <span><i className="fa-solid fa-building" style={{ color: '#3b44f6' }}></i> {job.company}</span>
-              </div>
-              <div className="job-card-footer">
-                <span className="salary">{job.salary}</span>
-                <button onClick={handleSmartDownload} className="btn-apply">Apply Now</button>
-              </div>
+
+              {/* Apply Button sits OUTSIDE the clip-path wrapper so it's visible in the gap */}
+              <button onClick={handleSmartDownload} className="curved-apply-btn-top">
+                <span>APPLY</span>
+                <i className="fa-solid fa-bolt-lightning"></i>
+              </button>
             </div>
           ))}
         </div>
@@ -399,9 +469,16 @@ function Home() {
 
       {/* Career Tips Carousel Section */}
       <section className="tips-carousel-section">
-        <div className="tips-header">
-          <h4 style={{ color: '#3b44f6', fontWeight: '700', fontSize: '2rem', marginBottom: '1rem' }}>Career Advice</h4>
-          <h2 style={{ fontSize: '4rem', fontWeight: '800', fontFamily: 'var(--font-heading)' }}>Job Search <span style={{ color: '#3b44f6' }}>Tips</span></h2>
+        <div className="tips-top">
+          <div className="tips-header" style={{ textAlign: 'left' }}>
+            <h4 style={{ color: '#3b44f6', fontWeight: '700', fontSize: '1.2rem', marginBottom: '0.8rem' }}>Career Advice</h4>
+            <h2 style={{ fontSize: '4rem', fontWeight: '800', fontFamily: 'var(--font-heading)', textAlign: 'left' }}>Job Search <span style={{ color: '#3b44f6' }}>Tips</span></h2>
+          </div>
+          <div className="tips-desc">
+            <p style={{ color: '#64748b', fontSize: '1.05rem', lineHeight: '1.8', maxWidth: '480px' }}>
+              Success in the job market requires more than just skills. We provide actionable advice to help you refine your presentation and networking strategy.
+            </p>
+          </div>
         </div>
 
         <div className="carousel-container">
@@ -502,9 +579,16 @@ function Home() {
 
       {/* Industry Insights Section */}
       <section className="insights-section">
-        <div className="insights-header">
-          <h4 style={{ color: '#3b44f6', fontWeight: '700', fontSize: '2rem', marginBottom: '1rem' }}>Market Insights</h4>
-          <h2 style={{ fontSize: '3rem', fontWeight: '800', fontFamily: 'var(--font-heading)' }}>Industry <span style={{ color: '#3b44f6' }}>Expertise</span></h2>
+        <div className="insights-top">
+          <div className="insights-header" style={{ textAlign: 'left' }}>
+            <h4 style={{ color: '#3b44f6', fontWeight: '700', fontSize: '1.2rem', marginBottom: '0.8rem' }}>Market Insights</h4>
+            <h2 style={{ fontSize: '3rem', fontWeight: '800', fontFamily: 'var(--font-heading)', textAlign: 'left' }}>Industry <span style={{ color: '#3b44f6' }}>Expertise</span></h2>
+          </div>
+          <div className="insights-desc">
+            <p style={{ color: '#64748b', fontSize: '1.05rem', lineHeight: '1.8', maxWidth: '480px' }}>
+              Stay ahead with data-driven insights into the current employment landscape. We track hiring trends and skill demands to keep you informed.
+            </p>
+          </div>
         </div>
 
         <div className="insights-content">
@@ -515,7 +599,10 @@ function Home() {
                 <p>of recruiters use AI to screen candidates</p>
               </div>
               <div className="insight-detail">
-                <p>Optimize your profile with keywords that match your target roles to get noticed by automated systems.</p>
+                <p>
+                  Optimize your profile with keywords that match your target roles to get noticed by automated systems.
+                  Understanding how AI parses resumes can give you a significant advantage in the initial screening phase of your application.
+                </p>
               </div>
             </div>
             <div className="insight-card">
@@ -524,7 +611,10 @@ function Home() {
                 <p>higher salary with data-driven negotiation</p>
               </div>
               <div className="insight-detail">
-                <p>Candidates who research market data and leverage insights negotiate significantly better compensation packages.</p>
+                <p>
+                  Candidates who research market data and leverage insights negotiate significantly better compensation packages.
+                  Being prepared with industry standards and your personal value proposition is key to securing the best possible offer from employers.
+                </p>
               </div>
             </div>
           </div>
@@ -553,62 +643,78 @@ function Home() {
         </div>
       </section>
 
-      {/* Why Choose Section - Marquee UI */}
-      <section className="features-section">
-        <div className="features-header">
-          <h2>Why Choose Garuda Career?</h2>
-          <p>We provide the best tools to help you land your next big role with confidence and ease.</p>
+      {/* Why Choose Section - Redesigned to match "Exclusive Services" Style */}
+      <section className="features-section-new">
+        <div className="features-dark-banner">
+          <div className="banner-content">
+            <div className="banner-text">
+              <div className="badge-mini">
+                <span className="dot"></span> Benefits
+              </div>
+              <h2>Why Choose <span className="highlight-text">Garuda Career?</span></h2>
+            </div>
+            <div className="banner-desc-top">
+              <p>We provide the best tools to help you land your next big career move with confidence and speed. Our platform is designed to automate the hard parts of job hunting so you can focus on your interview performance.</p>
+            </div>
+          </div>
         </div>
 
-        <div className="marquee-container">
-          <div className="marquee-content">
-            <div className="feature-card">
-              <div className="feature-icon-box">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path></svg>
+        <div className="marquee-container-new">
+          <div className="marquee-content-new">
+            {[
+              {
+                title: "Fast Applications",
+                desc: "Apply to multiple jobs with one click using our streamlined profile system and instant resume matching. Our one-tap application process significantly increases your outreach efficiency in the modern competitive market.",
+                icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path></svg>,
+                accent: "#3b44f6"
+              },
+              {
+                title: "Smart Matching",
+                desc: "Our AI-driven algorithms match your skills with the perfect opportunities, ensuring the best fit for your career. We analyze thousands of data points to find roles that align perfectly with your unique professional strengths.",
+                icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>,
+                accent: "#6366f1"
+              },
+              {
+                title: "Expert Guidance",
+                desc: "Get career advice and industry expertise from professionals who know what it takes to succeed in the job market. Our mentorship network provides insider tips on salary negotiation, personal branding, and portfolio development.",
+                icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5"><path d="M18 20V10"></path><path d="M12 20V4"></path><path d="M6 20v-6"></path></svg>,
+                accent: "#8b5cf6"
+              },
+              /* Duplicating for seamless marquee */
+              { title: "Fast Applications", desc: "Apply to multiple jobs with one click using our streamlined profile system and instant resume matching. Our one-tap application process significantly increases your outreach efficiency in the modern competitive market.", icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path></svg>, accent: "#3b44f6" },
+              { title: "Smart Matching", desc: "Our AI-driven algorithms match your skills with the perfect opportunities, ensuring the best fit for your career. We analyze thousands of data points to find roles that align perfectly with your unique professional strengths.", icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>, accent: "#6366f1" },
+              { title: "Expert Guidance", desc: "Get career advice and industry expertise from professionals who know what it takes to succeed in the job market. Our mentorship network provides insider tips on salary negotiation, personal branding, and portfolio development.", icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5"><path d="M18 20V10"></path><path d="M12 20V4"></path><path d="M6 20v-6"></path></svg>, accent: "#8b5cf6" }
+            ].map((feature, idx) => (
+              <div key={idx} className="service-card-v2">
+                <div className="service-icon-floating" style={{ backgroundColor: feature.accent }}>
+                  {feature.icon}
+                </div>
+                <div className="service-card-body">
+                  <h3>{feature.title}</h3>
+                  <p>{feature.desc}</p>
+                </div>
               </div>
-              <h3>Fast Applications</h3>
-              <p>Apply to multiple jobs with one click using our streamlined profile system and instant resume matching.</p>
-            </div>
-            <div className="feature-card">
-              <div className="feature-icon-box">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
-              </div>
-              <h3>Smart Matching</h3>
-              <p>Our AI-driven algorithms match your skills with the perfect opportunities, ensuring the best fit for your career.</p>
-            </div>
-            <div className="feature-card">
-              <div className="feature-icon-box">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M18 20V10"></path><path d="M12 20V4"></path><path d="M6 20v-6"></path></svg>
-              </div>
-              <h3>Expert Guidance</h3>
-              <p>Get career advice and industry expertise from professionals who know what it takes to succeed in the job market.</p>
-            </div>
-            {/* Duplicating for seamless marquee */}
-            <div className="feature-card">
-              <div className="feature-icon-box">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path></svg>
-              </div>
-              <h3>Fast Applications</h3>
-              <p>Apply to multiple jobs with one click using our streamlined profile system and instant resume matching.</p>
-            </div>
-            <div className="feature-card">
-              <div className="feature-icon-box">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
-              </div>
-              <h3>Smart Matching</h3>
-              <p>Our AI-driven algorithms match your skills with the perfect opportunities, ensuring the best fit for your career.</p>
-            </div>
-            <div className="feature-card">
-              <div className="feature-icon-box">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M18 20V10"></path><path d="M12 20V4"></path><path d="M6 20v-6"></path></svg>
-              </div>
-              <h3>Expert Guidance</h3>
-              <p>Get career advice and industry expertise from professionals who know what it takes to succeed in the job market.</p>
-            </div>
+            ))}
           </div>
         </div>
       </section>
       <Footer />
+
+      {/* Hidden SVG for mathematically perfect smooth curved clipPath */}
+      <svg width="0" height="0" style={{ position: 'absolute', pointerEvents: 'none' }}>
+        <defs>
+          <clipPath id="smooth-curved-clip" clipPathUnits="objectBoundingBox">
+            <path d="M 0,0 
+                     L 0.55,0 
+                     C 0.58,0 0.60,0.02 0.62,0.12 
+                     C 0.64,0.22 0.67,0.24 0.72,0.24 
+                     L 1,0.24 
+                     L 1,1 
+                     L 0,1 
+                     Z" />
+          </clipPath>
+        </defs>
+      </svg>
     </div>
   );
 }

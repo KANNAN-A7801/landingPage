@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import './Features.css';
-import hero1Image from '../../assets/hero1.png';
+import hero1Image from '../../assets/phone5.png';
+import phone3 from '../../assets/phone5.png';
+import phone4 from '../../assets/phone5.png';
 import Footer from '../Footer/Footer';
 
 const Features = () => {
@@ -98,49 +100,54 @@ const Features = () => {
 
   return (
     <>
-      {/* Section 1: Hero */}
-      <header className="lpf-hero">
-        <div className="lpf-hero-content">
-          <div className="lpf-hero-badge">
-            <span></span> Your Career, Fully Optimised
+      {/* Section 1: Hero - Redesigned to 3-Column Showcase */}
+      <header className="lpf-hero-v2">
+        <div className="lpf-hero-content-v2">
+          <div className="lpf-badge-v2">
+            <span className="lpf-badge-dot"></span> Your Career, Fully Optimised
           </div>
-          <h1 className="lpf-hero-title">Redefining the way <br />you land jobs</h1>
-          <p>
+          <h1 className="lpf-hero-title-v2">Redefining the way <br />you land jobs</h1>
+          <p className="lpf-hero-text-v2">
             Take control of your career with real-time job tracking and intuitive tools designed to grow your professional life effortlessly.
           </p>
-          <div className="lpf-hero-actions">
+          <div className="lpf-hero-actions-v2">
             <button onClick={handleSmartDownload} className="lpf-btn-primary">Get Started</button>
-            <button className="lpf-btn-secondary">
+            <button className="lpf-btn-text">
               <i className="ri-search-line"></i> Explore Jobs Now
             </button>
           </div>
-          <div className="lpf-hero-stats">
-            <div className="lpf-stat-item">
+          <div className="lpf-hero-stats-v2">
+            <div className="lpf-stat-v2">
               <h3>12M+</h3>
               <p>Applications</p>
             </div>
-            <div className="lpf-stat-item">
+            <div className="lpf-stat-v2">
               <h3>1200+</h3>
               <p>Active Users</p>
             </div>
-            <div className="lpf-stat-item">
+            <div className="lpf-stat-v2">
               <h3>99.9%</h3>
               <p>Success Rate</p>
             </div>
           </div>
         </div>
 
-        <div className="lpf-hero-visual">
-          <div className="lpf-hero-decor">
-            <h4>Top Referrals</h4>
-            <div className="lpf-decor-faces">
-              <img src="https://ui-avatars.com/api/?name=Sam&background=0066ff&color=fff" alt="User" />
-              <img src="https://ui-avatars.com/api/?name=Jane&background=66a3ff&color=fff" alt="User" />
-              <img src="https://ui-avatars.com/api/?name=Alex&background=00b2ff&color=fff" alt="User" />
-              <img src="https://ui-avatars.com/api/?name=Bob&background=0b1120&color=fff" alt="User" />
+        <div className="lpf-hero-visual-v2">
+          <div className="lpf-phone-wrapper-v2">
+            <img src={hero1Image} alt="Garuda App" className="lpf-hero-phone-v2" />
+            {/* Floating Top Referrals Card */}
+            <div className="lpf-floating-referrals">
+              <div className="lpf-fr-header">
+                <span>Top Referrals</span>
+              </div>
+              <div className="lpf-fr-avatars">
+                <span className="lpf-fr-av lpf-av-1">SA</span>
+                <span className="lpf-fr-av lpf-av-2">JA</span>
+                <span className="lpf-fr-av lpf-av-3">AL</span>
+                <span className="lpf-fr-av lpf-av-4">BO</span>
+              </div>
             </div>
           </div>
-          <img src={hero1Image} alt="App Mockup" className="lpf-hero-mockup" />
         </div>
       </header>
 
@@ -163,7 +170,11 @@ const Features = () => {
         </div>
         <div className="lpf-features-header">
           <h2>Smart features for <br /> Job Seekers</h2>
-          <p>We use advanced algorithms to keep your job search optimized and your personal information protected.</p>
+          <p>
+            We use advanced algorithms to keep your job search optimized and your personal information protected. 
+            Our platform continuously analyzes market trends and your unique profile to ensure you are always ahead 
+            of the competition with the most relevant opportunities delivered straight to your dashboard.
+          </p>
         </div>
 
         <div className="lpf-features-grid">
@@ -171,29 +182,43 @@ const Features = () => {
             <h3>Easy To Manage Your Profile</h3>
             <p>Save time without thinking. Set application goals and let the system match you automatically weekly or monthly.</p>
 
-            <div className="lpf-mockup-inner">
-              <div className="lpf-avatar">
+            <div className="lpf-mockups-container">
+              <div className="lpf-mockup-inner lpf-mockup-compact">
                 <div className="lpf-mockup-row">
                   <span><strong>Interviews</strong></span>
-                  <span>3 upcoming</span>
+                  <span>3 Total</span>
                 </div>
                 <div className="lpf-mockup-row">
-                  <span><strong>Applications</strong></span>
-                  <span style={{ color: 'var(--primary)' }}>54 Active</span>
-                </div>
-                <div className="lpf-mockup-row">
-                  <span><strong>Profile Score</strong></span>
-                  <span>92/100</span>
+                  <span><strong>Active</strong></span>
+                  <span style={{ color: 'var(--primary)' }}>54 Jobs</span>
                 </div>
                 <div className="lpf-mockup-chart">
-                  <h4>Offers Pipeline</h4>
-                  <h2 style={{ color: 'var(--primary)', marginTop: '8px' }}>4 Pending</h2>
+                  <h4 style={{ fontSize: '0.75rem' }}>Offers Pipeline</h4>
+                  <h2 style={{ color: 'var(--primary)', marginTop: '4px', fontSize: '1.2rem' }}>4 Pending</h2>
                   <div className="lpf-chart-bars">
-                    <div className="lpf-bar" style={{ height: '30%' }}></div>
-                    <div className="lpf-bar" style={{ height: '50%' }}></div>
-                    <div className="lpf-bar lpf-active" style={{ height: '100%' }}></div>
-                    <div className="lpf-bar" style={{ height: '70%' }}></div>
                     <div className="lpf-bar" style={{ height: '40%' }}></div>
+                    <div className="lpf-bar lpf-active" style={{ height: '100%' }}></div>
+                    <div className="lpf-bar" style={{ height: '60%' }}></div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="lpf-mockup-inner lpf-mockup-compact">
+                <div className="lpf-mockup-row">
+                  <span><strong>Skills</strong></span>
+                  <span>Advanced</span>
+                </div>
+                <div className="lpf-mockup-row">
+                  <span><strong>Match</strong></span>
+                  <span style={{ color: '#22c55e' }}>98% Fit</span>
+                </div>
+                <div className="lpf-mockup-chart">
+                  <h4 style={{ fontSize: '0.75rem' }}>Growth Index</h4>
+                  <h2 style={{ color: '#22c55e', marginTop: '4px', fontSize: '1.2rem' }}>Top 5%</h2>
+                  <div className="lpf-chart-bars">
+                    <div className="lpf-bar" style={{ height: '70%', background: '#22c55e' }}></div>
+                    <div className="lpf-bar" style={{ height: '90%', background: '#22c55e' }}></div>
+                    <div className="lpf-bar" style={{ height: '60%', background: '#22c55e' }}></div>
                   </div>
                 </div>
               </div>
@@ -232,10 +257,7 @@ const Features = () => {
       <div className="lpf-container">
         <section id="jobs" className="lpf-featured-jobs-section">
           <div className="lpf-fj-header">
-            <div>
-              <h2>Our <span style={{ color: 'var(--primary)' }}>Featured Jobs</span></h2>
-            </div>
-            <a href="#" onClick={handleSeeAllJobs} className="lpf-see-all">See All Jobs</a>
+            <h2>Our <span style={{ color: 'var(--primary)' }}>Featured Jobs</span></h2>
           </div>
 
           <div className="lpf-fj-search-bar">
@@ -310,60 +332,96 @@ const Features = () => {
             <div className="lpf-section-label">
               <i className="ri-pie-chart-line"></i> Deep Insights
             </div>
-            <h2>Unlock Your <br /> Career Analytics</h2>
+            <h2>Unlock Your Career <br /> Analytics</h2>
             <p>Monitor your performance across every submitted application. Track what works, refine your resume, and negotiate better packages using data-driven insights tailored to your industry.</p>
             <div className="lpf-an-stats-grid">
               <div className="lpf-an-stat-box">
-                <h4>98%</h4>
+                <div className="lpf-an-stat-top">
+                  <h4>98%</h4>
+                  <i className="ri-checkbox-circle-line"></i>
+                </div>
                 <p>Response Rate</p>
               </div>
               <div className="lpf-an-stat-box">
-                <h4>3x</h4>
+                <div className="lpf-an-stat-top">
+                  <h4>3x</h4>
+                  <i className="ri-rocket-line"></i>
+                </div>
                 <p>Faster Hiring</p>
+              </div>
+              <div className="lpf-an-stat-box">
+                <div className="lpf-an-stat-top">
+                  <h4>32%</h4>
+                  <i className="ri-arrow-up-circle-line"></i>
+                </div>
+                <p>Profile Lift</p>
+              </div>
+              <div className="lpf-an-stat-box">
+                <div className="lpf-an-stat-top">
+                  <h4>2.5k</h4>
+                  <i className="ri-briefcase-line"></i>
+                </div>
+                <p>Job Matches</p>
               </div>
             </div>
           </div>
-          <div className="lpf-an-visual">
-            <div className="lpf-an-dashboard">
-              <div className="lpf-an-chart-card">
-                <div className="lpf-anc-top">
-                  <h5>Success Rate</h5>
-                  <span className="lpf-badge-green">+14.5%</span>
+          <div className="lpf-an-visual-v2">
+            {/* Live Indicator Badge */}
+            <div className="lpf-an-live-badge">
+              <span className="lpf-live-dot"></span> Live Insights
+            </div>
+
+            <div className="lpf-an-dashboard-v2">
+              {/* Card 1: Performance Pulse */}
+              <div className="lpf-an-glass-card">
+                <div className="lpf-ang-header">
+                  <div className="lpf-ang-icon"><i className="ri-flashlight-line"></i></div>
+                  <div className="lpf-ang-title">
+                    <span>Success Rate</span>
+                    <h4>98.4%</h4>
+                  </div>
+                  <div className="lpf-ang-trend">+2.4%</div>
                 </div>
-                <div className="lpf-anc-graph">
-                  <div className="lpf-anc-line" style={{ height: '30%' }}></div>
-                  <div className="lpf-anc-line" style={{ height: '50%' }}></div>
-                  <div className="lpf-anc-line" style={{ height: '80%' }}></div>
-                  <div className="lpf-anc-line" style={{ height: '100%', background: 'var(--primary)' }}></div>
+                <div className="lpf-an-pulse-container">
+                  <div className="lpf-an-pulse-line"></div>
+                  <div className="lpf-an-pulse-dot"></div>
                 </div>
               </div>
 
-              <div className="lpf-an-chart-card">
-                <div className="lpf-anc-top">
-                  <h5>Response Time</h5>
-                  <span className="lpf-badge-blue">Fast</span>
+              {/* Card 2: Scanning Speed */}
+              <div className="lpf-an-glass-card">
+                <div className="lpf-ang-header">
+                  <div className="lpf-ang-icon"><i className="ri-speed-up-line"></i></div>
+                  <div className="lpf-ang-title">
+                    <span>Response Time</span>
+                    <h4>Ultra Fast</h4>
+                  </div>
                 </div>
-                <div className="lpf-anc-graph">
-                  <div className="lpf-anc-line" style={{ height: '60%' }}></div>
-                  <div className="lpf-anc-line" style={{ height: '90%' }}></div>
-                  <div className="lpf-anc-line" style={{ height: '70%', background: 'var(--primary)' }}></div>
-                  <div className="lpf-anc-line" style={{ height: '40%' }}></div>
+                <div className="lpf-an-scanner">
+                  <div className="lpf-an-scan-bar"></div>
+                  <div className="lpf-an-scan-glow"></div>
                 </div>
               </div>
 
-              <div className="lpf-an-chart-card">
-                <div className="lpf-anc-top">
-                  <h5>Conversion</h5>
-                  <span className="lpf-badge-purple">82%</span>
+              {/* Card 3: Growth Funnel */}
+              <div className="lpf-an-glass-card">
+                <div className="lpf-ang-header">
+                  <div className="lpf-ang-icon"><i className="ri-bubble-chart-line"></i></div>
+                  <div className="lpf-ang-title">
+                    <span>Total Conversion</span>
+                    <h4>82,400</h4>
+                  </div>
                 </div>
-                <div className="lpf-anc-graph">
-                  <div className="lpf-anc-line" style={{ height: '40%' }}></div>
-                  <div className="lpf-anc-line" style={{ height: '70%' }}></div>
-                  <div className="lpf-anc-line" style={{ height: '50%' }}></div>
-                  <div className="lpf-anc-line" style={{ height: '85%', background: 'var(--primary)' }}></div>
+                <div className="lpf-an-neon-funnel">
+                  <div className="lpf-neon-step" style={{ width: '100%' }}></div>
+                  <div className="lpf-neon-step active" style={{ width: '75%' }}></div>
+                  <div className="lpf-neon-step" style={{ width: '50%' }}></div>
                 </div>
               </div>
             </div>
+            
+            {/* Background Grid for Tech Look */}
+            <div className="lpf-an-grid-overlay"></div>
           </div>
         </section>
       </div>
@@ -376,15 +434,16 @@ const Features = () => {
           </div>
           <div className="lpf-aj-header">
             <h2>Find Your <span style={{ color: 'var(--primary)' }}>Perfect Job</span></h2>
-            <p>Discover thousands of opportunities across all industries - from Healthcare and Education to Finance and Technology. Search, filter, and apply to your dream job in minutes.</p>
+            <p>
+              Search through thousands of opportunities across every industry and sector. Filter by category, location, and salary 
+              to find your dream job in minutes. Our platform connects you with verified employers and provides real-time updates 
+              on your application status, ensuring you never miss a career-defining opportunity.
+            </p>
           </div>
 
           <div className="lpf-aj-search-grid">
             <div className="lpf-search-feature">
               <div className="lpf-search-visual">
-                <div className="lpf-search-icon-large">
-                  <i className="ri-search-2-line"></i>
-                </div>
                 <div className="lpf-search-metrics">
                   <div className="lpf-metric-item">
                     <span className="lpf-metric-value">50K+</span>
@@ -394,24 +453,29 @@ const Features = () => {
                     <span className="lpf-metric-value">1000+</span>
                     <span className="lpf-metric-label">Companies</span>
                   </div>
+                  {/* Moved here from right */}
+                  <div className="lpf-metric-item sm">
+                    <span className="lpf-metric-value">Category</span>
+                    <span className="lpf-metric-label">Filters</span>
+                  </div>
+                  <div className="lpf-metric-item sm">
+                    <span className="lpf-metric-value">Location</span>
+                    <span className="lpf-metric-label">Based</span>
+                  </div>
                 </div>
               </div>
               <div className="lpf-search-details">
-                <h4>Smart Job Search</h4>
-                <p>Search through thousands of roles across every sector including Healthcare, Education, Logistics, Finance, Retail, Hospitality, and more. Our advanced filters help you find exactly what you're looking for.</p>
-                <div className="lpf-search-highlights">
-                  <span><i className="ri-check-line"></i> Category Filters</span>
-                  <span><i className="ri-check-line"></i> Location Based</span>
-                  <span><i className="ri-check-line"></i> Salary Range</span>
-                </div>
+                <h4>Smart Job Search <i className="ri-search-2-line lpf-h-icon"></i></h4>
+                <p>
+                  Search through thousands of roles across every sector including Healthcare, Education, Logistics, Finance, Retail, Hospitality, and more. 
+                  Our advanced filters help you find exactly what you're looking for by analyzing your specific career requirements and preferences.
+                  Experience a seamless search process that connects you with the most relevant opportunities in your field.
+                </p>
               </div>
             </div>
 
             <div className="lpf-search-feature">
               <div className="lpf-search-visual">
-                <div className="lpf-search-icon-large">
-                  <i className="ri-user-heart-line"></i>
-                </div>
                 <div className="lpf-search-metrics">
                   <div className="lpf-metric-item">
                     <span className="lpf-metric-value">150+</span>
@@ -421,24 +485,28 @@ const Features = () => {
                     <span className="lpf-metric-value">Real-time</span>
                     <span className="lpf-metric-label">Matching</span>
                   </div>
+                  <div className="lpf-metric-item sm">
+                    <span className="lpf-metric-value">Experience</span>
+                    <span className="lpf-metric-label">Matching</span>
+                  </div>
+                  <div className="lpf-metric-item sm">
+                    <span className="lpf-metric-value">Certification</span>
+                    <span className="lpf-metric-label">Check</span>
+                  </div>
                 </div>
               </div>
               <div className="lpf-search-details">
-                <h4>Skill & Experience Matching</h4>
-                <p>Get matched with jobs based on your unique skills and experience - whether you're a Teacher, Nurse, Sales Professional, or Engineer. Our AI analyzes your background and profile to find the perfect career fit.</p>
-                <div className="lpf-search-highlights">
-                  <span><i className="ri-check-line"></i> Experience Matching</span>
-                  <span><i className="ri-check-line"></i> Certification Check</span>
-                  <span><i className="ri-check-line"></i> Local Preferences</span>
-                </div>
+                <h4>Skill & Experience Matching <i className="ri-user-heart-line lpf-h-icon"></i></h4>
+                <p>
+                  Get matched with jobs based on your unique skills and experience - whether you're a Teacher, Nurse, Sales Professional, or Engineer. 
+                  Our AI analyzes your background and profile to find the perfect career fit, ensuring you only apply to roles where you are highly qualified.
+                  Stay ahead of the curve with intelligent matching that evolves as your professional profile grows and your experience expands.
+                </p>
               </div>
             </div>
 
             <div className="lpf-search-feature">
               <div className="lpf-search-visual">
-                <div className="lpf-search-icon-large">
-                  <i className="ri-rocket-2-line"></i>
-                </div>
                 <div className="lpf-search-metrics">
                   <div className="lpf-metric-item">
                     <span className="lpf-metric-value">Instant</span>
@@ -448,16 +516,23 @@ const Features = () => {
                     <span className="lpf-metric-value">One-click</span>
                     <span className="lpf-metric-label">Easy Apply</span>
                   </div>
+                  <div className="lpf-metric-item sm">
+                    <span className="lpf-metric-value">Quick</span>
+                    <span className="lpf-metric-label">Apply</span>
+                  </div>
+                  <div className="lpf-metric-item sm">
+                    <span className="lpf-metric-value">Profile</span>
+                    <span className="lpf-metric-label">Builder</span>
+                  </div>
                 </div>
               </div>
               <div className="lpf-search-details">
-                <h4>Quick Job Applications</h4>
-                <p>Apply to multiple jobs instantly with our one-click application system. Your profile is automatically optimized for each job type, increasing your chances of getting hired faster.</p>
-                <div className="lpf-search-highlights">
-                  <span><i className="ri-check-line"></i> Quick Apply</span>
-                  <span><i className="ri-check-line"></i> Profile Builder</span>
-                  <span><i className="ri-check-line"></i> Status Tracking</span>
-                </div>
+                <h4>Quick Job Applications <i className="ri-rocket-2-line lpf-h-icon"></i></h4>
+                <p>
+                  Apply to multiple jobs instantly with our one-click application system. Your profile is automatically optimized for each job type, increasing your chances of getting hired faster.
+                  Stop wasting time on repetitive forms and let our platform handle the submission process across thousands of compatible job openings.
+                  Track your application status in real-time and receive instant updates as soon as recruiters interact with your submitted profile.
+                </p>
               </div>
             </div>
           </div>
@@ -472,7 +547,10 @@ const Features = () => {
           </div>
           <div className="lpf-ji-header">
             <h2>Stay Ahead with <span style={{ color: 'var(--primary)' }}>Job Insights</span></h2>
-            <p>Access real-time job market data, salary trends, and industry analysis across all sectors to make informed career decisions.</p>
+            <p>
+              Access real-time job market data, salary trends, and industry analysis. Stay ahead of the competition with live 
+              performance insights and data. Our comprehensive market reports help you make informed decisions. 
+            </p>
           </div>
 
           <div className="lpf-ji-content">
@@ -507,13 +585,22 @@ const Features = () => {
                       <span className="lpf-trend-desc">Rapid expansion in e-commerce and global distribution</span>
                     </div>
                   </div>
+                  <div className="lpf-trend-item">
+                    <div className="lpf-trend-indicator lpf-up">
+                      <i className="ri-arrow-up-line"></i> +15%
+                    </div>
+                    <div className="lpf-trend-info">
+                      <span className="lpf-trend-title">Digital Marketing</span>
+                      <span className="lpf-trend-desc">Increased demand for SEO and social media strategy</span>
+                    </div>
+                  </div>
                 </div>
               </div>
 
               <div className="lpf-data-card">
                 <h4>Salary Ranges by Role</h4>
                 <div className="lpf-salary-grid">
-                  <div className="lpf-salary-item">
+                  {/* <div className="lpf-salary-item">
                     <span className="lpf-salary-role">Registered Nurse</span>
                     <span className="lpf-salary-range">$75k - $120k</span>
                     <span className="lpf-salary-trend lpf-positive">+ 10% YoY</span>
@@ -522,7 +609,7 @@ const Features = () => {
                     <span className="lpf-salary-role">Secondary Teacher</span>
                     <span className="lpf-salary-range">$60k - $95k</span>
                     <span className="lpf-salary-trend lpf-positive">+ 7% YoY</span>
-                  </div>
+                  </div> */}
                   <div className="lpf-salary-item">
                     <span className="lpf-salary-role">Operations Manager</span>
                     <span className="lpf-salary-range">$85k - $140k</span>
@@ -532,6 +619,16 @@ const Features = () => {
                     <span className="lpf-salary-role">Financial Analyst</span>
                     <span className="lpf-salary-range">$70k - $115k</span>
                     <span className="lpf-salary-trend lpf-positive">+ 9% YoY</span>
+                  </div>
+                  <div className="lpf-salary-item">
+                    <span className="lpf-salary-role">Software Engineer</span>
+                    <span className="lpf-salary-range">$95k - $160k</span>
+                    <span className="lpf-salary-trend lpf-positive">+ 15% YoY</span>
+                  </div>
+                  <div className="lpf-salary-item">
+                    <span className="lpf-salary-role">Project Manager</span>
+                    <span className="lpf-salary-range">$80k - $130k</span>
+                    <span className="lpf-salary-trend lpf-positive">+ 8% YoY</span>
                   </div>
                 </div>
               </div>
@@ -566,6 +663,48 @@ const Features = () => {
                   <div className="lpf-forecast-item">
                     <div className="lpf-forecast-year">2026</div>
                     <div className="lpf-forecast-desc">Remote and flexible work options increase across all industries</div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="lpf-insight-card">
+                <h4>Hiring Activity Pulse</h4>
+                <div className="lpf-pulse-list">
+                  <div className="lpf-pulse-item">
+                    <div className="lpf-pulse-info">
+                      <span className="lpf-pulse-label">Healthcare</span>
+                      <span className="lpf-pulse-val">High</span>
+                    </div>
+                    <div className="lpf-pulse-bar">
+                      <div className="lpf-pulse-fill" style={{ width: '85%' }}></div>
+                    </div>
+                  </div>
+                  <div className="lpf-pulse-item">
+                    <div className="lpf-pulse-info">
+                      <span className="lpf-pulse-label">Logistics</span>
+                      <span className="lpf-pulse-val">Steady</span>
+                    </div>
+                    <div className="lpf-pulse-bar">
+                      <div className="lpf-pulse-fill" style={{ width: '65%' }}></div>
+                    </div>
+                  </div>
+                  <div className="lpf-pulse-item">
+                    <div className="lpf-pulse-info">
+                      <span className="lpf-pulse-label">Education</span>
+                      <span className="lpf-pulse-val">Increasing</span>
+                    </div>
+                    <div className="lpf-pulse-bar">
+                      <div className="lpf-pulse-fill" style={{ width: '75%' }}></div>
+                    </div>
+                  </div>
+                  <div className="lpf-pulse-item">
+                    <div className="lpf-pulse-info">
+                      <span className="lpf-pulse-label">Technology</span>
+                      <span className="lpf-pulse-val">Surging</span>
+                    </div>
+                    <div className="lpf-pulse-bar">
+                      <div className="lpf-pulse-fill" style={{ width: '80%' }}></div>
+                    </div>
                   </div>
                 </div>
               </div>

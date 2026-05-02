@@ -157,10 +157,27 @@
 }
 
 .map-container {
+  position: relative;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.map-stat {
+  position: absolute;
+  font-size: 0.78rem;
+  font-weight: 800;
+  color: #1e293b;
+  white-space: nowrap;
+  transform: translateX(-50%);
+  transition: transform 0.3s ease;
+  cursor: default;
+  z-index: 10;
+}
+
+.map-stat:hover {
+  transform: translateX(-50%) scale(1.2);
 }
 
 .map-image {
