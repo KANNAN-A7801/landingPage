@@ -40,7 +40,7 @@ public class ContactController {
     public ResponseEntity<ContactResponse> sendContactForm(@Valid @RequestBody ContactRequest request) {
         log.info("Received contact form submission from: {} <{}>", request.getFullName(), request.getEmailAddress());
         try {
-            emailService.sendContactFormEmail(request);
+            // emailService.sendContactFormEmail(request);
             return ResponseEntity.ok(new ContactResponse(true,
                     "Your message has been sent successfully! We will get back to you soon."));
         } catch (Exception e) {
