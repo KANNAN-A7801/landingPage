@@ -175,7 +175,7 @@ const ContactNav = () => {
                       <div className="ct-icon"><i className="fa-solid fa-envelope"></i></div>
                       <div className="ct-text">
                         <strong>Email Address</strong>
-                        <span>support@hirenest.com</span>
+                        <span>garudacareer@gmail.com </span>
                       </div>
                     </div>
                   </div>
