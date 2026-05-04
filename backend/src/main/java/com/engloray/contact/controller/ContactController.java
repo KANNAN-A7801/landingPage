@@ -26,26 +26,27 @@ public class ContactController {
      * Accepts form data and sends it via secondary email to admin.
      *
      * Postman Test:
-     *   Method: POST
-     *   URL: http://localhost:8080/api/contact/send
-     *   Body (JSON):
-     *   {
-     *     "fullName": "John Doe",
-     *     "emailAddress": "john@example.com",
-     *     "subject": "Inquiry about services",
-     *     "message": "Hello, I would like to know more about your services."
-     *   }
+     * Method: POST
+     * URL: http://localhost:8080/api/contact/send
+     * Body (JSON):
+     * {
+     * "fullName": "John Doe",
+     * "emailAddress": "john@example.com",
+     * "subject": "Inquiry about services",
+     * "message": "Hello, I would like to know more about your services."
+     * }
      */
     @PostMapping("/send")
     public ResponseEntity<ContactResponse> sendContactForm(@Valid @RequestBody ContactRequest request) {
         log.info("Received contact form submission from: {} <{}>", request.getFullName(), request.getEmailAddress());
         try {
             emailService.sendContactFormEmail(request);
-            return ResponseEntity.ok(new ContactResponse(true, "Your message has been sent successfully! We will get back to you soon."));
+            return ResponseEntity.ok(new ContactResponse(true,
+                    "Your message has been sent successfully! We will get back to you soon."));
         } catch (Exception e) {
-            log.error("Failed to send contact form email: {}", e.getMessage(), e);
+            log.error("EMAIL ERROR FULL STACK:", e);
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
-                    .body(new ContactResponse(false, "Failed to send message. Please try again later."));
+                    .body(new ContactResponse(false, e.getMessage()));
         }
     }
 
