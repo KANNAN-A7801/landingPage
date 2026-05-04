@@ -37,7 +37,8 @@ public class ContactController {
      * }
      */
     @PostMapping("/send")
-    public ResponseEntity<ContactResponse> sendContactForm(@Valid @RequestBody ContactRequest request) {
+    public ResponseEntity<ContactResponse> sendContactForm(@RequestBody ContactRequest request) {
+        log.info("🔥 CONTROLLER HIT: {}", request);
         log.info("Received contact form submission from: {} <{}>", request.getFullName(), request.getEmailAddress());
         try {
             // emailService.sendContactFormEmail(request);
