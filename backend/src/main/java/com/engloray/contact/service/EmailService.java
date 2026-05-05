@@ -1,58 +1,78 @@
 package com.engloray.contact.service;
 
 import com.engloray.contact.dto.ContactRequest;
-import jakarta.mail.MessagingException;
-import jakarta.mail.internet.MimeMessage;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.mail.javamail.JavaMailSender;
-import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
+
+import java.net.URI;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
+import java.time.Duration;
 
 @Service
 @Slf4j
 public class EmailService {
 
-    private final JavaMailSender mailSender;
+    // Resend API key - set as environment variable RESEND_API_KEY in Render
+    @Value("${resend.api.key}")
+    private String resendApiKey;
 
-    // The secondary/sender email (configured in application.properties)
-    @Value("${mail.sender.email}")
-    private String senderEmail;
+    // The "from" address - must be verified in Resend dashboard
+    // For testing, use: "Garuda Career <onboarding@resend.dev>"
+    @Value("${mail.sender.from}")
+    private String senderFrom;
 
     // The admin email that receives all contact form submissions
     @Value("${mail.admin.email}")
     private String adminEmail;
 
-    public EmailService(JavaMailSender mailSender) {
-        this.mailSender = mailSender;
-    }
+    private final HttpClient httpClient = HttpClient.newBuilder()
+            .connectTimeout(Duration.ofSeconds(30))
+            .build();
 
     /**
-     * Sends contact form submission email FROM secondary mail TO admin mail.
+     * Sends contact form submission email via Resend HTTP API (HTTPS port 443).
+     * This works on Render free tier unlike SMTP which is blocked.
      */
-    public void sendContactFormEmail(ContactRequest request) throws MessagingException {
-        MimeMessage mimeMessage = mailSender.createMimeMessage();
-        MimeMessageHelper helper = new MimeMessageHelper(mimeMessage, true, "UTF-8");
-
-        // FROM: secondary/sender email
-        helper.setFrom(senderEmail);
-
-        // TO: admin email
-        helper.setTo(adminEmail);
-
-        // Reply-To: the person who submitted the form (so admin can reply directly)
-        helper.setReplyTo(request.getEmailAddress());
-
-        // Subject
-        helper.setSubject("[New Contact] " + request.getSubject());
-
-        // HTML Email body
+    public void sendContactFormEmail(ContactRequest request) throws Exception {
         String htmlBody = buildEmailBody(request);
-        helper.setText(htmlBody, true);
 
-        mailSender.send(mimeMessage);
-        log.info("Contact form email sent successfully. From: {} | To: {} | Subject: {}",
-                senderEmail, adminEmail, request.getSubject());
+        // Build JSON payload for Resend API
+        String jsonPayload = """
+                {
+                  "from": "%s",
+                  "to": ["%s"],
+                  "reply_to": "%s",
+                  "subject": "[New Contact] %s",
+                  "html": %s
+                }
+                """.formatted(
+                escapeJson(senderFrom),
+                escapeJson(adminEmail),
+                escapeJson(request.getEmailAddress()),
+                escapeJson(request.getSubject()),
+                toJsonString(htmlBody)
+        );
+
+        HttpRequest httpRequest = HttpRequest.newBuilder()
+                .uri(URI.create("https://api.resend.com/emails"))
+                .timeout(Duration.ofSeconds(30))
+                .header("Authorization", "Bearer " + resendApiKey)
+                .header("Content-Type", "application/json")
+                .POST(HttpRequest.BodyPublishers.ofString(jsonPayload))
+                .build();
+
+        HttpResponse<String> response = httpClient.send(httpRequest, HttpResponse.BodyHandlers.ofString());
+
+        if (response.statusCode() >= 200 && response.statusCode() < 300) {
+            log.info("Contact form email sent via Resend. From: {} | To: {} | Subject: {}",
+                    senderFrom, adminEmail, request.getSubject());
+        } else {
+            log.error("Resend API error. Status: {} | Body: {}", response.statusCode(), response.body());
+            throw new RuntimeException("Email service error (HTTP " + response.statusCode() + "): " + response.body());
+        }
     }
 
     /**
@@ -85,8 +105,8 @@ public class EmailService {
                 <body>
                     <div class="container">
                         <div class="header">
-                            <h1>📬 New Contact Form Submission</h1>
-                            <p style="margin:8px 0 0; font-size:13px; opacity:0.85;">Engloray Landing Page</p>
+                            <h1>New Contact Form Submission</h1>
+                            <p style="margin:8px 0 0; font-size:13px; opacity:0.85;">Garuda Career</p>
                         </div>
                         <div class="content">
                             <div class="field">
@@ -107,17 +127,17 @@ public class EmailService {
                             </div>
                         </div>
                         <div class="footer">
-                            This email was sent via the Engloray contact form. Reply directly to respond to %s.
+                            Sent via Garuda Career contact form. Reply directly to respond to %s.
                         </div>
                     </div>
                 </body>
                 </html>
                 """.formatted(
-                        escapeHtml(request.getFullName()),
-                        escapeHtml(request.getEmailAddress()),
-                        escapeHtml(request.getSubject()),
-                        escapeHtml(request.getMessage()),
-                        escapeHtml(request.getEmailAddress())
+                escapeHtml(request.getFullName()),
+                escapeHtml(request.getEmailAddress()),
+                escapeHtml(request.getSubject()),
+                escapeHtml(request.getMessage()),
+                escapeHtml(request.getEmailAddress())
         );
     }
 
@@ -129,5 +149,20 @@ public class EmailService {
                 .replace(">", "&gt;")
                 .replace("\"", "&quot;")
                 .replace("'", "&#x27;");
+    }
+
+    private String escapeJson(String input) {
+        if (input == null) return "";
+        return input
+                .replace("\\", "\\\\")
+                .replace("\"", "\\\"")
+                .replace("\n", "\\n")
+                .replace("\r", "\\r")
+                .replace("\t", "\\t");
+    }
+
+    /** Converts a multi-line string to a valid JSON string value (with quotes). */
+    private String toJsonString(String input) {
+        return "\"" + escapeJson(input) + "\"";
     }
 }

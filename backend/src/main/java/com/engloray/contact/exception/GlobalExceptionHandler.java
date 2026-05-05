@@ -5,7 +5,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.HttpMessageNotReadableException;
-import org.springframework.mail.MailException;
 import org.springframework.validation.FieldError;
 import org.springframework.web.HttpRequestMethodNotSupportedException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -66,15 +65,15 @@ public class GlobalExceptionHandler {
     }
 
     /**
-     * Handles SMTP / mail sending failures.
+     * Handles email API failures (e.g. Resend API errors, network issues).
      * Returns 503 Service Unavailable with a clear message.
      */
-    @ExceptionHandler(MailException.class)
-    public ResponseEntity<ContactResponse> handleMailException(MailException ex) {
-        log.error("Mail sending failed: {}", ex.getMessage(), ex);
+    @ExceptionHandler(RuntimeException.class)
+    public ResponseEntity<ContactResponse> handleRuntimeException(RuntimeException ex) {
+        log.error("Email or runtime error: {}", ex.getMessage(), ex);
         return ResponseEntity.status(HttpStatus.SERVICE_UNAVAILABLE)
                 .body(new ContactResponse(false,
-                        "Failed to send email. Please check SMTP credentials in application.properties."));
+                        "Failed to send email. Please try again later."));
     }
 
     /**
