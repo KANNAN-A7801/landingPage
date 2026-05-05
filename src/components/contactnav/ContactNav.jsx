@@ -25,7 +25,7 @@ const ContactNav = () => {
     setIsSubmitting(true);
 
     try {
-      const response = await fetch('https://landingpage-r9w7.onrender.com/api/contact/send', {
+      const response = await fetch('https://landingpage-1-d46p.onrender.com/api/contact/send', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
