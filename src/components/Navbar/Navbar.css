@@ -181,16 +181,43 @@
 }
 
 @media (max-width: 500px) {
-  .nav-brand-v7 span {
-    display: none;
+  .navbar-v7 {
+    height: 90px;
+  }
+
+  .nav-container-v7 {
+    padding: 0 15px;
+  }
+
+  .nav-logo-img {
+    height: 60px;
+  }
+
+  .nav-actions-v7 {
+    flex: 1;
+    justify-content: center;
+    position: relative;
   }
 
   .btn-v7-solid span {
-    display: none;
+    display: inline-block;
+    font-size: 0.9rem;
+    font-weight: 700;
+    white-space: nowrap;
   }
 
   .btn-v7-solid {
-    padding: 12px;
-    border-radius: 10px;
+    padding: 11px 22px;
+    border-radius: 12px;
+    gap: 8px;
+    flex-shrink: 1;
+    box-shadow: 0 4px 10px rgba(37, 99, 235, 0.2);
+    margin-right: 35px;
+  }
+
+  .mobile-toggle-v7 {
+    font-size: 1.8rem;
+    position: absolute;
+    right: 0;
   }
 }

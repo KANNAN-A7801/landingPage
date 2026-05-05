@@ -125,28 +125,28 @@ export default function ContactPage() {
             <div className="card-icon"><FiMessageCircle size={24} /></div>
             <h3>Chat to sales</h3>
             <p>Speak to our friendly team.</p>
-            <a href="mailto:sales@untitledui.com" className="card-action">sales@untitledui.com</a>
+            <span className="card-action">garudacareers@gmail.com</span>
           </div>
 
           <div className="contact-card">
             <div className="card-icon"><FiMessageSquare size={24} /></div>
             <h3>Chat to support</h3>
             <p>We're here to help.</p>
-            <a href="mailto:support@untitledui.com" className="card-action">support@untitledui.com</a>
+            <span className="card-action">garudacareers@gmail.com</span>
           </div>
 
           <div className="contact-card">
             <div className="card-icon"><FiMapPin size={24} /></div>
             <h3>Visit us</h3>
             <p>Visit our office HQ.</p>
-            <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer" className="card-link">View on Google Maps</a>
+            <span className="card-link">View on Google Maps</span>
           </div>
 
           <div className="contact-card">
             <div className="card-icon"><FiPhone size={24} /></div>
             <h3>Call us</h3>
             <p>Mon-Fri from 8am to 5pm.</p>
-            <a href="tel:6383612020" className="card-link">6383612020</a>
+            <span className="card-link">6383612020</span>
           </div>
         </div>
       </section>

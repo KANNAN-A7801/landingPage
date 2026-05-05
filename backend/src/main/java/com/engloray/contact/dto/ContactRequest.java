@@ -17,10 +17,10 @@ public class ContactRequest {
     private String emailAddress;
 
     @NotBlank(message = "Subject is required")
-    @Size(min = 3, max = 200, message = "Subject must be between 3 and 200 characters")
+    @Size(min = 1, max = 200, message = "Subject must be between 1 and 200 characters")
     private String subject;
 
     @NotBlank(message = "Message is required")
-    @Size(min = 10, max = 2000, message = "Message must be between 10 and 2000 characters")
+    @Size(min = 1, max = 2000, message = "Message must be between 1 and 2000 characters")
     private String message;
 }

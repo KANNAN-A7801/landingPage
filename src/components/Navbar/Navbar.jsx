@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import './Navbar.css';
-import logo from '../../assets/garuda-logo.png';
+import logo from '../../assets/garuda-logo.jpeg';
 
 const Navbar = () => {
   const [toggle, setToggle] = useState(false);
