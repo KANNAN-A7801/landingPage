@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './Home.css';
+import AnimatedNumber from './AnimatedNumber';
 import SEO from '../SEO/SEO';
 import phone1 from '../../assets/phone4.png';
 import phone2 from '../../assets/phone2.png';
@@ -46,35 +47,7 @@ function Home() {
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
 
-  const AnimatedNumber = ({ value, duration = 2000 }) => {
-    const [count, setCount] = React.useState(1);
 
-    React.useEffect(() => {
-      let start = 1;
-      const endMatch = value.match(/[0-9.]+/);
-      if (!endMatch) return;
-
-      const end = parseFloat(endMatch[0]);
-      if (isNaN(end)) return;
-
-      const isFloat = value.includes('.');
-      const suffix = value.replace(/[0-9.]/g, '');
-
-      let timer = setInterval(() => {
-        start += (end / 50); // Divide into 50 steps
-        if (start >= end) {
-          setCount(end);
-          clearInterval(timer);
-        } else {
-          setCount(isFloat ? start.toFixed(1) : Math.floor(start));
-        }
-      }, duration / 50);
-
-      return () => clearInterval(timer);
-    }, [value, duration]);
-
-    return <span>{count}{value.replace(/[0-9.]/g, '')}</span>;
-  };
 
   const handleSmartDownload = (e) => {
     if (e) e.preventDefault();

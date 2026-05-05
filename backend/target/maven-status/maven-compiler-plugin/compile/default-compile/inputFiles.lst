@@ -1,6 +1,6 @@
-D:\ENGLORAY\Landing page\landingpages\backend\src\main\java\com\engloray\contact\dto\ContactRequest.java
-D:\ENGLORAY\Landing page\landingpages\backend\src\main\java\com\engloray\contact\controller\ContactController.java
-D:\ENGLORAY\Landing page\landingpages\backend\src\main\java\com\engloray\contact\service\EmailService.java
-D:\ENGLORAY\Landing page\landingpages\backend\src\main\java\com\engloray\contact\dto\ContactResponse.java
-D:\ENGLORAY\Landing page\landingpages\backend\src\main\java\com\engloray\contact\ContactBackendApplication.java
-D:\ENGLORAY\Landing page\landingpages\backend\src\main\java\com\engloray\contact\exception\GlobalExceptionHandler.java
+D:\Kannan-Test\landingPage\backend\src\main\java\com\engloray\contact\dto\ContactRequest.java
+D:\Kannan-Test\landingPage\backend\src\main\java\com\engloray\contact\dto\ContactResponse.java
+D:\Kannan-Test\landingPage\backend\src\main\java\com\engloray\contact\controller\ContactController.java
+D:\Kannan-Test\landingPage\backend\src\main\java\com\engloray\contact\ContactBackendApplication.java
+D:\Kannan-Test\landingPage\backend\src\main\java\com\engloray\contact\exception\GlobalExceptionHandler.java
+D:\Kannan-Test\landingPage\backend\src\main\java\com\engloray\contact\service\EmailService.java
