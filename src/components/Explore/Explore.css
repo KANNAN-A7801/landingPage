@@ -2575,7 +2575,16 @@
   }
 
   .hero-header-img {
-    transform: scale(1.25);
+    transform: scale(1.25) translateX(-25px); /* Increased shift from -30px to -45px */
+  }
+
+  /* Target the last two stats (bottom row) on mobile */
+  .h-stat-item:nth-last-child(2) {
+    transform: translateX(17px);
+  }
+
+  .h-stat-item:nth-last-child(1) {
+    transform: translateX(-17px);
   }
 
   .h-stat-icon {

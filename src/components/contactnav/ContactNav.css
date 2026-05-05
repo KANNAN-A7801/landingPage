@@ -5,7 +5,8 @@
 }
 
 .ct-container {
-  max-width: 1400px; /* Increased from 1200px */
+  max-width: 1400px;
+  /* Increased from 1200px */
   margin: 0 auto;
   padding: 0 4%;
 }
@@ -68,7 +69,8 @@
 
 /* ====== CONTACT GRID ====== */
 .ct-contact-section {
-  padding-bottom: 6rem; /* Increased space before footer */
+  padding-bottom: 6rem;
+  /* Increased space before footer */
 }
 
 .ct-contact-grid {
@@ -78,16 +80,19 @@
   margin-top: 2rem;
   position: relative;
   z-index: 10;
-  align-items: stretch; /* Ensure both columns stretch to same height */
+  align-items: stretch;
+  /* Ensure both columns stretch to same height */
 }
 
 .ct-form-wrap {
   background: #ffffff;
-  padding: 3rem; /* Restored comfortable padding */
+  padding: 3rem;
+  /* Restored comfortable padding */
   border-radius: 32px;
   box-shadow: 0 30px 60px rgba(15, 23, 42, 0.05);
   border: 1px solid #f1f5f9;
-  height: 100%; /* Fill the grid cell */
+  height: 100%;
+  /* Fill the grid cell */
   display: flex;
   flex-direction: column;
 }
@@ -95,12 +100,14 @@
 .ct-form-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 1.5rem; /* Shorter gap */
+  gap: 1.5rem;
+  /* Shorter gap */
   margin-bottom: 1rem;
 }
 
 .ct-input-group {
-  margin-bottom: 0.75rem; /* Even shorter margin */
+  margin-bottom: 0.75rem;
+  /* Even shorter margin */
 }
 
 .ct-input-group label {
@@ -114,7 +121,8 @@
 .ct-input-group input,
 .ct-input-group textarea {
   width: 100%;
-  padding: 10px 16px; /* Shorter padding */
+  padding: 10px 16px;
+  /* Shorter padding */
   background: #f8fafc;
   border: 1px solid #e2e8f0;
   border-radius: 12px;
@@ -133,7 +141,8 @@
 
 .ct-btn-primary {
   width: 100%;
-  padding: 12px; /* Shorter button */
+  padding: 12px;
+  /* Shorter button */
   background: #3b44f6;
   color: white;
   border: none;
@@ -191,15 +200,18 @@
 /* INFO WRAP */
 .ct-info-card {
   background: #1e293b;
-  padding: 3rem 2.5rem; /* Restored comfortable padding */
+  padding: 3rem 2.5rem;
+  /* Restored comfortable padding */
   border-radius: 32px;
   color: white;
-  margin-bottom: 0; /* Changed from 2rem to ensure full height */
+  margin-bottom: 0;
+  /* Changed from 2rem to ensure full height */
   margin-left: auto;
   width: 100%;
   max-width: 400px;
   transform: translateX(60px);
-  height: 100%; /* Fill the grid cell */
+  height: 100%;
+  /* Fill the grid cell */
   display: flex;
   flex-direction: column;
 }
@@ -213,7 +225,8 @@
 .ct-info-list {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem; /* Shorter gap */
+  gap: 1.5rem;
+  /* Shorter gap */
 }
 
 .ct-info-item {
@@ -248,7 +261,8 @@
 .ct-social-links {
   display: flex;
   gap: 15px;
-  margin-top: 2.5rem; /* Shorter margin */
+  margin-top: 2.5rem;
+  /* Shorter margin */
 }
 
 .ct-social-links a {
