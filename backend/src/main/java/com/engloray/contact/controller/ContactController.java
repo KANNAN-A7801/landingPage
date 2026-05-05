@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/contact")
-@CrossOrigin(origins = "https://garudacareers-bdd98.web.app")
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 @Slf4j
 public class ContactController {
 

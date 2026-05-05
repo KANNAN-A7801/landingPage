@@ -554,11 +554,8 @@ const Connect = () => {
             <span className="cn-sub-label">Platform Impact</span>
             <h2>Global Talent & Connection Ecosystem</h2>
           </div>
-          <div className="cn-dash-tabs">
-            <span>Statistics</span>
-            <span>Overview</span>
-            <span className="active">Dashboard</span>
-            <span>Analytics</span>
+          <div className="cn-dash-desc">
+            <p>Empowering professionals through an AI-driven ecosystem that fosters global collaboration, skill validation, and strategic career growth opportunities.</p>
           </div>
         </div>
 
@@ -710,24 +707,24 @@ const Connect = () => {
         <div className="cn-cta-bg-pattern"></div>
         
         {/* Floating Stat Bubbles - Left Side */}
-        <div className="cn-float-stat" style={{ top: '12%', left: '6%' }}>
+        <div className="cn-float-stat" style={{ top: '8%', left: '7%' }}>
           <span className="cn-float-stat-num">50K+</span>
           <span className="cn-float-stat-label">Members</span>
         </div>
-        <div className="cn-float-stat" style={{ top: '50%', left: '3%' }}>
+        <div className="cn-float-stat" style={{ top: '40%', left: '2%' }}>
           <span className="cn-float-stat-num">98%</span>
           <span className="cn-float-stat-label">Satisfaction</span>
         </div>
-        <div className="cn-float-stat" style={{ bottom: '12%', left: '10%' }}>
+        <div className="cn-float-stat" style={{ bottom: '10%', left: '9%' }}>
           <span className="cn-float-stat-num">4.2M</span>
           <span className="cn-float-stat-label">Connections</span>
         </div>
         {/* Floating Stat Bubbles - Right Side */}
-        <div className="cn-float-stat" style={{ top: '15%', right: '6%' }}>
+        <div className="cn-float-stat" style={{ top: '10%', right: '7%' }}>
           <span className="cn-float-stat-num">120+</span>
           <span className="cn-float-stat-label">Countries</span>
         </div>
-        <div className="cn-float-stat" style={{ top: '48%', right: '3%' }}>
+        <div className="cn-float-stat" style={{ top: '42%', right: '2%' }}>
           <span className="cn-float-stat-num">12K</span>
           <span className="cn-float-stat-label">Jobs Posted</span>
         </div>

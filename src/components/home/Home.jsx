@@ -682,10 +682,61 @@ function Home() {
                 icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5"><path d="M18 20V10"></path><path d="M12 20V4"></path><path d="M6 20v-6"></path></svg>,
                 accent: "#8b5cf6"
               },
-              /* Duplicating for seamless marquee */
-              { title: "Fast Applications", desc: "Apply to multiple jobs with one click using our streamlined profile system and instant resume matching. Our one-tap application process significantly increases your outreach efficiency in the modern competitive market.", icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path></svg>, accent: "#3b44f6" },
-              { title: "Smart Matching", desc: "Our AI-driven algorithms match your skills with the perfect opportunities, ensuring the best fit for your career. We analyze thousands of data points to find roles that align perfectly with your unique professional strengths.", icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>, accent: "#6366f1" },
-              { title: "Expert Guidance", desc: "Get career advice and industry expertise from professionals who know what it takes to succeed in the job market. Our mentorship network provides insider tips on salary negotiation, personal branding, and portfolio development.", icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5"><path d="M18 20V10"></path><path d="M12 20V4"></path><path d="M6 20v-6"></path></svg>, accent: "#8b5cf6" }
+              {
+                title: "Verified Employers",
+                desc: "Connect with verified global companies and talent-hungry startups. We vet every employer on our platform to ensure you only apply to genuine, high-quality career opportunities.",
+                icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>,
+                accent: "#10b981"
+              },
+              {
+                title: "Skill Analytics",
+                desc: "Get detailed insights into how your profile compares to other candidates and identify skill gaps. Use data-driven analytics to improve your visibility and hiring chances.",
+                icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5"><path d="M21.21 15.89A10 10 0 1 1 8 2.83"></path><path d="M22 12A10 10 0 0 0 12 2v10z"></path></svg>,
+                accent: "#f59e0b"
+              },
+              {
+                title: "Global Network",
+                desc: "Expand your reach beyond local borders and explore international career paths. Our platform bridges the gap between ambitious talent and the world's most innovative organizations.",
+                icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>,
+                accent: "#ec4899"
+              },
+              /* Duplicating the whole set for seamless marquee */
+              {
+                title: "Fast Applications",
+                desc: "Apply to multiple jobs with one click using our streamlined profile system and instant resume matching. Our one-tap application process significantly increases your outreach efficiency in the modern competitive market.",
+                icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path></svg>,
+                accent: "#3b44f6"
+              },
+              {
+                title: "Smart Matching",
+                desc: "Our AI-driven algorithms match your skills with the perfect opportunities, ensuring the best fit for your career. We analyze thousands of data points to find roles that align perfectly with your unique professional strengths.",
+                icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>,
+                accent: "#6366f1"
+              },
+              {
+                title: "Expert Guidance",
+                desc: "Get career advice and industry expertise from professionals who know what it takes to succeed in the job market. Our mentorship network provides insider tips on salary negotiation, personal branding, and portfolio development.",
+                icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5"><path d="M18 20V10"></path><path d="M12 20V4"></path><path d="M6 20v-6"></path></svg>,
+                accent: "#8b5cf6"
+              },
+              {
+                title: "Verified Employers",
+                desc: "Connect with verified global companies and talent-hungry startups. We vet every employer on our platform to ensure you only apply to genuine, high-quality career opportunities.",
+                icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>,
+                accent: "#10b981"
+              },
+              {
+                title: "Skill Analytics",
+                desc: "Get detailed insights into how your profile compares to other candidates and identify skill gaps. Use data-driven analytics to improve your visibility and hiring chances.",
+                icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5"><path d="M21.21 15.89A10 10 0 1 1 8 2.83"></path><path d="M22 12A10 10 0 0 0 12 2v10z"></path></svg>,
+                accent: "#f59e0b"
+              },
+              {
+                title: "Global Network",
+                desc: "Expand your reach beyond local borders and explore international career paths. Our platform bridges the gap between ambitious talent and the world's most innovative organizations.",
+                icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>,
+                accent: "#ec4899"
+              }
             ].map((feature, idx) => (
               <div key={idx} className="service-card-v2">
                 <div className="service-icon-floating" style={{ backgroundColor: feature.accent }}>

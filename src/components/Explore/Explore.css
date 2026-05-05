@@ -2293,18 +2293,22 @@
   }
 
   .hero-stats-bar {
-    flex-direction: column;
-    align-items: center;
-    gap: 25px;
-    padding: 30px 5%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px 10px;
+    padding: 30px 2%;
   }
 
   .h-stat-item {
-    width: 220px;
+    width: calc(33.333% - 10px);
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    gap: 20px;
+    text-align: center;
+    gap: 8px;
   }
 
   .hero-visual-new {
@@ -2553,18 +2557,21 @@
 
   .hero-stats-bar {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 25px;
-    padding: 40px 5%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px 10px;
+    padding: 40px 2%;
   }
 
   .h-stat-item {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    width: 220px; /* Fixed width for perfect vertical alignment */
-    gap: 20px;
+    text-align: center;
+    width: calc(33.333% - 10px);
+    gap: 8px;
   }
 
   .hero-header-img {
@@ -2578,11 +2585,11 @@
   }
 
   .h-stat-info h3 {
-    font-size: 1.3rem;
+    font-size: 1.1rem;
   }
 
   .h-stat-info p {
-    font-size: 0.75rem;
+    font-size: 0.65rem;
   }
 
   .marquee-header p {

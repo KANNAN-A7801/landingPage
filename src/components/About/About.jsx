@@ -70,6 +70,22 @@ const AdminCardIcon = () => (
 );
 
 const About = () => {
+  const handleDownload = (e) => {
+    if (e) e.preventDefault();
+    const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+    if (/android/i.test(userAgent)) {
+      window.open("https://play.google.com/store/apps", "_blank");
+    } else if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+      window.open("https://www.apple.com/app-store/", "_blank");
+    } else if (/windows/i.test(userAgent)) {
+      window.open("https://apps.microsoft.com/home", "_blank");
+    } else {
+      // Default to Play Store if unknown
+      window.open("https://play.google.com/store/apps", "_blank");
+    }
+  };
+
   return (
     <div className="about-page-v2">
 
@@ -87,7 +103,7 @@ const About = () => {
             <p className="about-hero-desc">
               Find unbeatable opportunities and save more on your career journey with our expert guidance. Where every professional milestone becomes an unforgettable success.
             </p>
-            <button className="discover-more-btn">Explore More →</button>
+            <button className="discover-more-btn" onClick={handleDownload}>Explore More →</button>
           </div>
 
           {/* RIGHT COLUMN — Achievements Card */}
@@ -135,7 +151,7 @@ const About = () => {
                   </div>
                 </div>
               </div>
-              <button className="about-join-btn">Join Our Community →</button>
+              <button className="about-join-btn" onClick={handleDownload}>Join Our Community →</button>
             </div>
           </div>
 

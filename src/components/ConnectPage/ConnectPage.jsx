@@ -534,16 +534,8 @@ const ConnectPage = () => {
             <span className="cn-sub-label">Platform Impact</span>
             <h2>Global Talent & Connection Ecosystem</h2>
           </div>
-          <div className="cn-dash-tabs">
-            {['Statistics', 'Overview', 'Dashboard', 'Analytics'].map(tab => (
-              <span 
-                key={tab} 
-                className={activeDashTab === tab ? 'active' : ''}
-                onClick={() => setActiveDashTab(tab)}
-              >
-                {tab}
-              </span>
-            ))}
+          <div className="cn-dash-desc">
+            <p>Empowering professionals through an AI-driven ecosystem that fosters global collaboration, skill validation, and strategic career growth opportunities.</p>
           </div>
         </div>
 

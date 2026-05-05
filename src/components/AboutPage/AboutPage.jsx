@@ -15,6 +15,21 @@ import av7 from '../../assets/testimonials/cartoon_female_3.png';
 import av8 from '../../assets/testimonials/cartoon_male_3.png';
 
 const AboutPage = () => {
+  const handleDownload = (e) => {
+    if (e) e.preventDefault();
+    const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+    if (/android/i.test(userAgent)) {
+      window.open("https://play.google.com/store/apps", "_blank");
+    } else if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+      window.open("https://www.apple.com/app-store/", "_blank");
+    } else if (/windows/i.test(userAgent)) {
+      window.open("https://apps.microsoft.com/home", "_blank");
+    } else {
+      window.open("https://play.google.com/store/apps", "_blank");
+    }
+  };
+
   const partners = [
     { name: 'Google', icon: 'ri-google-fill' },
     { name: 'Amazon', icon: 'ri-amazon-fill' },
@@ -79,7 +94,7 @@ const AboutPage = () => {
                 Find unbeatable opportunities and save more on your career journey with our expert guidance.
                 Where every professional milestone becomes an unforgettable success.
               </p>
-              <button className="ab-btn-outline">Explore More <i className="ri-arrow-right-line"></i></button>
+              <button className="ab-btn-outline" onClick={handleDownload}>Explore More <i className="ri-arrow-right-line"></i></button>
             </div>
 
             {/* RIGHT: Achievements Card */}
@@ -125,7 +140,7 @@ const AboutPage = () => {
                 </div>
 
                 <div className="ab-stats-footer">
-                  <button className="ab-btn-join-now">Join Our Community <i className="ri-arrow-right-line"></i></button>
+                  <button className="ab-btn-join-now" onClick={handleDownload}>Join Our Community <i className="ri-arrow-right-line"></i></button>
                 </div>
               </div>
             </div>

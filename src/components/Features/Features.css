@@ -84,7 +84,7 @@
   font-size: 1.1rem;
   background: transparent;
   border: none;
-  cursor: pointer;
+  /* cursor: pointer; */
   transition: transform 0.2s ease;
 }
 
@@ -1922,20 +1922,20 @@
   }
 
   .lpf-search-feature {
-    grid-template-columns: auto 1fr !important;
+    grid-template-columns: 1fr !important;
     text-align: left !important;
-    align-items: flex-start !important;
-    gap: 30px !important;
-    padding: 30px !important;
+    align-items: stretch !important;
+    gap: 20px !important;
+    padding: 24px !important;
   }
 
   .lpf-search-visual {
     flex-direction: column !important;
-    align-items: flex-start !important;
+    align-items: stretch !important;
   }
 
   .lpf-search-metrics {
-    max-width: 220px !important;
+    max-width: 100% !important;
   }
 
   .lpf-search-details h4 {
@@ -2202,6 +2202,7 @@
 
 /* Small Mobile (400px) */
 @media (max-width: 400px) {
+
   .lpf-analytics-section,
   .lpf-all-jobs-section,
   .lpf-job-insights-section {
